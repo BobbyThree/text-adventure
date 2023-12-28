@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#game {
+  width: 700px;
+  height: 500px;
+  background-color: silver;
+  margin: 0 auto;
+}
+
+#stats {
+  background-color: slategrey;
+  padding: 10px;
+}
+
+#screen {
+  padding-top: 50px;
+}
+
+#text {
+  font-size: 20px;
+  padding: 50px;
+  background-color: black;
+  color: rgb(19, 170, 19);
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  background-color: black;
+  color: rgb(19, 170, 19);
+  border: 1px solid rgb(19, 170, 19);
+  
+}
+
+#submit {
+  background-color: black;
+  color: rgb(19, 170, 19);
+  border: 1px solid rgb(19, 170, 19);
+  padding: 0px 5px;
+}
+
+.buttons {
+  padding-top: 35px;
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  /*display: none;*/
+}
+
+.buttons button {
+  padding: 10px 15px;  
+}
