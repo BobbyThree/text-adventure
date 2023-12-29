@@ -24,10 +24,9 @@ import { locations } from './locations.js';
   //events
   tavernBtn.onclick = goScene("tavern");
   
-
   function goScene(sceneName)
   {
-    screen.style.backgroundImage = locData[sceneName]["background"]; //TODO: Add this to JSON
+    screen.style.backgroundImage = locData[sceneName]["background"];
     txt.innerHTML = locData[sceneName]["text"];
 
     let buttons = locData[sceneName].buttons;
@@ -42,38 +41,6 @@ import { locations } from './locations.js';
         goScene(newScene.name);
       })
     }
-  }
-
-  //functions
-  // function goTavern() {
-  //   screen.style.backgroundImage = "url('/images/tavern.png')";
-  //   txt.innerHTML = locData["tavern"]["text"];
-
-  //   let buttons = locData["tavern"].buttons;
-
-  //   for(let i = 0; i < buttons.length; i++)
-  //   {
-  //     let tempBtn = document.createElement('button');
-  //     tempBtn.innerHTML = buttons[i];
-  //     document.querySelector('#txt').appendChild(tempBtn);   
-  //     tempBtn.onclick = talkToBarkeep;
-  //   }
-  // }
-  
-  function talkToBarkeep() {
-    txt.innerHTML = `BARKEEP:<br> Well hello there! I'm Esmee Fairfoot. State your name and business! <br>`;
-    let btn1 = document.createElement('button');
-    btn1.innerText = "Hi! I'm new in town. I am here to seek my fortune!";
-    document.querySelector('#txt').appendChild(btn1);
-    
-  }
-
-  function talkToPatron() {
-
-  }
-
-  function lookQuests() {
-
   }
   
 
