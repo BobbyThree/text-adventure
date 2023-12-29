@@ -2,8 +2,9 @@ export const locations =
   {
   "town":{
     "name": "town",
+    "background": "url('/images/text-adventure-test-art.png')",
     "text": "Welcome, weary traveller, to the town of Ixonia! The hour is late and there are very few people in sight. The tavern appears to be still open. <br>",
-    "buttons": ["<button id=\"tavern-btn\">enter tavern</button>"]
+    "buttons": [{"html":"<button id=\"tavern-btn\">enter tavern</button>", "route":"tavern"}]
   },
   "tavern":{
     "name": "tavern", 
