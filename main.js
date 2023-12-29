@@ -5,6 +5,8 @@ import { locations } from './locations.js';
   let hp = 50;
   let gp = 100;
   let inv = ['short sword', 'grappling hook'];
+  let jsonString = JSON.stringify(locations);
+  let locData = JSON.parse(JSON.stringify(locations));
 
   const xpTxt = document.querySelector('#xp-txt');
   const hpTxt = document.querySelector('#hp-txt');
@@ -26,11 +28,17 @@ import { locations } from './locations.js';
   //functions
   function goTavern() {
     screen.style.backgroundImage = "url('/images/tavern.png')";
-    txt.innerHTML = 'You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests.<br>';
-    let btn1 = document.createElement('button');
-    btn1.innerText = "Talk to Barkeep";
-    document.querySelector('#txt').appendChild(btn1);    
-    btn1.onclick = talkToBarkeep;
+    txt.innerHTML = locData["tavern"]["text"];
+
+    let buttons = locData["tavern"].buttons;
+
+    for(let i = 0; i < buttons.length; i++)
+    {
+      let tempBtn = document.createElement('button');
+      tempBtn.innerHTML = buttons[i];
+      document.querySelector('#txt').appendChild(tempBtn);   
+      tempBtn.onclick = talkToBarkeep;
+    }
   }
   
   function talkToBarkeep() {
