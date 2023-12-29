@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: linear-gradient(to right, rgb(49, 130, 49), rgb(67, 181, 67));
+}
+
 header h1 {
   text-align: center;
   padding-top: 20px;
@@ -13,52 +17,51 @@ header h1 {
 #game {
   width: 700px;
   height: 500px;
-  background-color: silver;
-  margin: 0 auto;
+  background-color: rgb(0, 0, 0);
+  margin: 0 auto; 
+  position: relative; 
 }
 
 #stats {
-  background-color: slategrey;
+  background-image: linear-gradient(rgb(194, 194, 194), gray);
   padding: 10px;
+  display: flex;
+  gap: 2rem;
 }
 
-#screen {
-  padding-top: 50px;
-}
-
-#text {
-  font-size: 20px;
-  padding: 50px;
-  background-color: black;
-  color: rgb(19, 170, 19);
+#screen {    
   width: 600px;
-  height: 300px;
-  margin: 0 auto;
+  height: 400px;  
+  background-image: url(./images/text-adventure-test-art.png);  
+  margin: 30px 50px;
+  position: relative;
+}
+
+#txt {
+  font-size: 20px;
+  padding: 20px 50px;  
+  color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  translate: -50%;
+  background-color: rgb(70, 70, 70);  
+  border: 5px ridge rgb(0, 0, 0);  
+  word-wrap: break-word;
+  width: 400px;  
 }
 
 input[type=text] {
-  background-color: black;
-  color: rgb(19, 170, 19);
-  border: 1px solid rgb(19, 170, 19);
-  
+  background-color: rgb(70, 70, 70);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
+  padding-left: 5px;
 }
 
 #submit {
-  background-color: black;
-  color: rgb(19, 170, 19);
-  border: 1px solid rgb(19, 170, 19);
+  background-color: rgb(70, 70, 70);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
   padding: 0px 5px;
-}
-
-.buttons {
-  padding-top: 35px;
-  display: flex;
-  gap: 5rem;
-  align-items: center;
-  justify-content: center;
-  /*display: none;*/
-}
-
-.buttons button {
-  padding: 10px 15px;  
+  cursor: pointer;
 }
