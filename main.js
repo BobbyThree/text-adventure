@@ -16,13 +16,14 @@ import { locations } from './locations.js';
   const screen = document.querySelector('#screen');
 
   //btn assignments
+  const playGame = document.querySelector('#play');
   const tavernBtn = document.querySelector('#tavern-btn');
   const barkeepBtn = document.querySelector('#talk-barkeep');
   const patronBtn = document.querySelector('#talk-patron');
   const questsBtn = document.querySelector('#look-quests');
 
   //events
-  tavernBtn.onclick = () => goScene("tavern");
+  playGame.onclick = () => goScene("town");
   
 
   //functions

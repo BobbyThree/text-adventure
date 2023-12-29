@@ -1,9 +1,15 @@
 export const locations = 
   {
+    "title": {
+      "name": "title",
+      "background": "url('/images/text-adventure-test-art.png')",
+      "text": "Welcome to Big Trouble in Little Ixonia! This is a text based adventure game created by Robert Lewis III. Click the 'Play Game' button to begin. <br>",
+      "buttons": [{"html": "<button id=\"play\">Play Game</button>", "route": "town"}]
+    },
     "town": {
       "name": "town",
-      "background": "url('/images/text-adventure-test-art.png')",
-      "text": "Welcome, weary traveller, to the town of Ixonia! The hour is late and there are very few people in sight. The tavern appears to be still open. <br>",
+      "background": "url('/images/town-center.png')",
+      "text": "You arrive in Ixonia's town center. The hour is late and there are very few people in sight. The tavern appears to be still open. <br>",
       "buttons": [{"html": "<button id=\"tavern-btn\">Enter Tavern</button>", "route": "tavern"}]
     },
     "tavern": {
@@ -16,7 +22,8 @@ export const locations =
     },
     "barkeep": {
       "name": "barkeep",
-      "text": "BARKEEP:<br> Well hello there! State your name and business! <br>",
+      "background": "url('/images/barkeep.png')",
+      "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",
       "buttons": [{"html": "<button id=\"honest\">I'm new in town. I seek my fortune!</button><br>", "route": "honest"},
       {"html": "<button id=\"funny\">May I please have... 2 tofu pups?</button><br>", "route": "funny"},
       {"html": "<button id=\"mean\">I'm Nunya...Nunya business! Eat shit</button>", "route": "mean"}]    
