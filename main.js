@@ -27,17 +27,36 @@ import { locations } from './locations.js';
   function goTavern() {
     screen.style.backgroundImage = "url('/images/tavern.png')";
     txt.innerHTML = 'You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests.<br>';
+    
     let btn1 = document.createElement('button');
     btn1.innerText = "Talk to Barkeep";
     document.querySelector('#txt').appendChild(btn1);    
     btn1.onclick = talkToBarkeep;
+    
+    let btn2 = document.createElement('button');
+    btn2.innerText = "Talk to Patron";
+    document.querySelector('#txt').appendChild(btn2);    
+    btn2.onclick = talkToPatron;
+
+    let btn3 = document.createElement('button');
+    btn3.innerText = "Look at Quests";
+    document.querySelector('#txt').appendChild(btn3);    
+    btn3.onclick = lookQuests;
   }
   
   function talkToBarkeep() {
     txt.innerHTML = `BARKEEP:<br> Well hello there! I'm Esmee Fairfoot. State your name and business! <br>`;
     let btn1 = document.createElement('button');
-    btn1.innerText = "Hi! I'm new in town. I am here to seek my fortune!";
+    btn1.innerText = "Hi! I'm Poopydoops. I'm new in town. I am here to seek my fortune!";
     document.querySelector('#txt').appendChild(btn1);
+
+    let btn2 = document.createElement('button');
+    btn2.innerText = "May I please have two tofu pups?";
+    document.querySelector('#txt').appendChild(btn2);
+
+    let btn3 = document.createElement('button');
+    btn3.innerText = "I'm Nunya...Nunya BUSINESS! Eat shit";
+    document.querySelector('#txt').appendChild(btn3);
     
   }
 
