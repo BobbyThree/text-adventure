@@ -22,24 +22,43 @@ import { locations } from './locations.js';
   const questsBtn = document.querySelector('#look-quests');
 
   //events
-  tavernBtn.onclick = goTavern;
+  tavernBtn.onclick = goScene("tavern");
   
 
-  //functions
-  function goTavern() {
-    screen.style.backgroundImage = "url('/images/tavern.png')";
-    txt.innerHTML = locData["tavern"]["text"];
+  function goScene(sceneName)
+  {
+    screen.style.backgroundImage = locData[sceneName]["background"]; //TODO: Add this to JSON
+    txt.innerHTML = locData[sceneName]["text"];
 
-    let buttons = locData["tavern"].buttons;
+    let buttons = locData[sceneName].buttons;
 
     for(let i = 0; i < buttons.length; i++)
     {
       let tempBtn = document.createElement('button');
-      tempBtn.innerHTML = buttons[i];
+      tempBtn.innerHTML = buttons[i]["html"];
       document.querySelector('#txt').appendChild(tempBtn);   
-      tempBtn.onclick = talkToBarkeep;
+      tempBtn.addEventListener('click', function() {
+        let newScene = locData[buttons[i]["route"]];
+        goScene(newScene.name);
+      })
     }
   }
+
+  //functions
+  // function goTavern() {
+  //   screen.style.backgroundImage = "url('/images/tavern.png')";
+  //   txt.innerHTML = locData["tavern"]["text"];
+
+  //   let buttons = locData["tavern"].buttons;
+
+  //   for(let i = 0; i < buttons.length; i++)
+  //   {
+  //     let tempBtn = document.createElement('button');
+  //     tempBtn.innerHTML = buttons[i];
+  //     document.querySelector('#txt').appendChild(tempBtn);   
+  //     tempBtn.onclick = talkToBarkeep;
+  //   }
+  // }
   
   function talkToBarkeep() {
     txt.innerHTML = `BARKEEP:<br> Well hello there! I'm Esmee Fairfoot. State your name and business! <br>`;
