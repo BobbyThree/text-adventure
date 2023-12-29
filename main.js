@@ -21,18 +21,24 @@ import { locations } from './locations.js';
 
   //events
   tavernBtn.onclick = goTavern;
-  barkeepBtn.onclick = talkToBarkeep;
-  patronBtn.onclick = talkToPatron;
-  questsBtn.onclick = lookQuests;
+  
 
   //functions
   function goTavern() {
-    txt.innerHTML = locations[1].text;
     screen.style.backgroundImage = "url('/images/tavern.png')";
+    txt.innerHTML = 'You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests.<br>';
+    let btn1 = document.createElement('button');
+    btn1.innerText = "Talk to Barkeep";
+    document.querySelector('#txt').appendChild(btn1);    
+    btn1.onclick = talkToBarkeep;
   }
   
   function talkToBarkeep() {
-    txt.innerHTML = locations[2].text;
+    txt.innerHTML = `BARKEEP:<br> Well hello there! I'm Esmee Fairfoot. State your name and business! <br>`;
+    let btn1 = document.createElement('button');
+    btn1.innerText = "Hi! I'm new in town. I am here to seek my fortune!";
+    document.querySelector('#txt').appendChild(btn1);
+    
   }
 
   function talkToPatron() {
