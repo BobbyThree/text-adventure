@@ -28,7 +28,7 @@ import { dialogs } from '/dialogs.js';
   //initialize game
   goLocation("title");
   
-   
+  
 
   //functions
   function goLocation(locName) {

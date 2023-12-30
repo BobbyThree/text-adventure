@@ -17,7 +17,8 @@ export const locations = {
       "text": "You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
       "buttons": [{"html": "<button id=\"talk-barkeep\">talk to Barkeep</button>", "route": "barkeep"},
       {"html": "<button id=\"talk-patron\">talk to patron</button>", "route": "patron"},
-      {"html": "<button id=\"look-quests\">Look at quests</button>", "route": "quests"}]      
+      {"html": "<button id=\"look-quests\">Look at quests</button>", "route": "quests"},
+      {"html": "<button>Leave tavern</button>", "route": "town2"}]      
     },
     "barkeep": {
       "name": "barkeep",
@@ -53,7 +54,7 @@ export const locations = {
       "name": "ale",
       "background": "url('/images/barkeep.png')",
       "text": "Here ya go, buddy. that will be 1gp<br>",
-      "buttons": [{"html": "<button id=\"pay1gp\">pay 1gp</button><br>", "route": "buy-ale"}, 
+      "buttons": [{"html": "<button id=\"pay1gp\">pay 1gp</button><br>", "route": "buy_ale"}, 
       {"html": "<button>no thanks, I changed my mind</button><br>", "route": "barkeep_funny"}]    
     },
     "milk": {
@@ -67,9 +68,37 @@ export const locations = {
       "name": "unicorn",
       "background": "url('/images/barkeep.png')",
       "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, and I'll give ya one on the house.<br>",
-      "buttons": [{"html": "<button id=\"ale\">Ok, I'll be back!</button><br>", "route": "tavern2"}]    
+      "buttons": [{"html": "<button>Ok, I'll be back!</button><br>", "route": "tavern2"}]    
     },
-  
-  
+    "tavern2": {
+      "name": "tavern2",
+      "background": "url('./images/tavern.png')", 
+      "text": "",
+      "buttons": [{"html": "<button id=\"talk-barkeep\">talk to Barkeep</button>", "route": "barkeep2"},
+      {"html": "<button id=\"talk-patron\">talk to patron</button>", "route": "patron"},
+      {"html": "<button id=\"look-quests\">Look at quests</button>", "route": "quests"},
+      {"html": "<button>Leave tavern</button>", "route": "town2"}]
+  },
+  "barkeep2": {
+    "name": "barkeep2",
+    "background": "url('./images/barkeep.png')",
+    "text": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
+    "buttons": [{"html": "<button>YES! I did the thing</button>", "route": "get_blood"}]
+  },
+  "town2": {
+    "name": "town2",
+    "background": "url('/images/town-center.png')",
+    "text": "You are in Town Square. Where do you wish to go now?<br>",
+    "buttons": [{"html": "<button id=\"tavern-btn\">Enter Tavern</button>", "route": "tavern"}]
+  },
+  "buy_ale": {
+    "name": "buy_ale",
+    "background": "url('./images/barkeep.png')",
+    "text": "thank you!<br>",
+    "buttons": [{"html": "<button id=\"ale\">Buy ale</button><br>", "route": "ale"},
+    {"html": "<button id=\"milk\">Buy milk (which is also ale)</button><br>", "route": "milk"},
+    {"html": "<button>Leave tavern</button>", "route": "town2"}]
+  }
+    
   }
 
