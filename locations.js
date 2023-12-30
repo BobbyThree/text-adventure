@@ -24,9 +24,17 @@ export const locations =
       "name": "barkeep",
       "background": "url('/images/barkeep.png')",
       "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",
-      "buttons": [{"html": "<button id=\"honest\">I'm new in town. I seek my fortune!</button><br>", "route": "honest"},
+      "buttons": [{"html": "<button id=\"honest\">I'm new in town. I seek my fortune!</button><br>", "route": "barkeep02"},
       {"html": "<button id=\"funny\">May I please have... 2 tofu pups?</button><br>", "route": "funny"},
       {"html": "<button id=\"mean\">I'm Nunya...Nunya business! Eat shit</button>", "route": "mean"}]    
+    },
+    "barkeep02": {
+      "name": "barkeep02",
+      "background": "url('/images/barkeep.png')",
+      "text": "BARKEEP:<br>Nice to meet you! What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
+      "buttons": [{"html": "<button id=\"ale\">Gimme an ale</button><br>", "route": "ale"},
+      {"html": "<button id=\"milk\">Lemme get a tal glass of milk</button><br>", "route": "milk"},
+      {"html": "<button id=\"unicorn\">Let me have ht Unicorn Blood!!</button>", "route": "unicorn"}]    
     }
   }
 

@@ -28,14 +28,14 @@ import { locations } from './locations.js';
 
   //functions
   function goScene(sceneName) {
-    screen.style.backgroundImage = locData[sceneName]["background"];
-    txt.innerHTML = locData[sceneName]["text"];
+    screen.style.backgroundImage = locData[sceneName].background;
+    txt.innerHTML = locData[sceneName].text;
     let buttons = locData[sceneName].buttons;
 
     for(let i = 0; i < buttons.length; i++) {
       let tempBtn = document.createElement('button');
       tempBtn.innerHTML = buttons[i]["html"];
-      document.querySelector('#txt').appendChild(tempBtn);
+      txt.appendChild(tempBtn);
       tempBtn.addEventListener('click', function() {
         let newScene = locData[buttons[i]["route"]];
         goScene(newScene.name);
