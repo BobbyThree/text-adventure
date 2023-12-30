@@ -1,5 +1,4 @@
-export const locations = 
-  {
+export const locations = {
     "title": {
       "name": "title",
       "background": "url('/images/text-adventure-test-art.png')",
@@ -24,17 +23,53 @@ export const locations =
       "name": "barkeep",
       "background": "url('/images/barkeep.png')",
       "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",
-      "buttons": [{"html": "<button id=\"honest\">I'm new in town. I seek my fortune!</button><br>", "route": "barkeep02"},
-      {"html": "<button id=\"funny\">May I please have... 2 tofu pups?</button><br>", "route": "funny"},
-      {"html": "<button id=\"mean\">I'm Nunya...Nunya business! Eat shit</button>", "route": "mean"}]    
+      "buttons": [{"html": "<button id=\"honest\">I'm new in town. I seek my fortune!</button><br>", "route": "barkeep_honest"},
+      {"html": "<button id=\"funny\">May I please have... 2 tofu pups?</button><br>", "route": "barkeep_funny"},
+      {"html": "<button id=\"mean\">I'm Nunya...Nunya business! Eat shit</button>", "route": "barkeep_mean"}]    
     },
-    "barkeep02": {
-      "name": "barkeep02",
+    "barkeep_honest": {
+      "name": "barkeep_honest",
       "background": "url('/images/barkeep.png')",
       "text": "BARKEEP:<br>Nice to meet you! What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
       "buttons": [{"html": "<button id=\"ale\">Gimme an ale</button><br>", "route": "ale"},
       {"html": "<button id=\"milk\">Lemme get a tal glass of milk</button><br>", "route": "milk"},
       {"html": "<button id=\"unicorn\">Let me have ht Unicorn Blood!!</button>", "route": "unicorn"}]    
-    }
+    },  
+    "barkeep_funny": {
+      "name": "barkeep_funny",
+      "background": "url('/images/barkeep.png')",
+      "text": "BARKEEP:<br>okayyyyyy well....What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
+      "buttons": [{"html": "<button id=\"ale\">Gimme an ale</button><br>", "route": "ale"},
+      {"html": "<button id=\"milk\">Lemme get a tal glass of milk</button><br>", "route": "milk"},
+      {"html": "<button id=\"unicorn\">Let me have ht Unicorn Blood!!</button>", "route": "unicorn"}]    
+    },
+    "barkeep_mean": {
+      "name": "barkeep_mean",
+      "background": "url('/images/you-died.png')",
+      "text": "You died, shoulda thought about that shit before you said it <br>",
+      "buttons": [{"html": "<button id=\"you-died\">restart</button><br>", "route": "town"}]    
+    },
+    "ale": {
+      "name": "ale",
+      "background": "url('/images/barkeep.png')",
+      "text": "Here ya go, buddy. that will be 1gp<br>",
+      "buttons": [{"html": "<button id=\"pay1gp\">pay 1gp</button><br>", "route": "buy-ale"}, 
+      {"html": "<button>no thanks, I changed my mind</button><br>", "route": "barkeep_funny"}]    
+    },
+    "milk": {
+      "name": "milk",
+      "background": "url('/images/barkeep.png')",
+      "text": "Bwahahaha! good one, here's your ALE. That'll be 1gp.<br>",
+      "buttons": [{"html": "<button id=\"pay1gp\">pay 1gp</button><br>", "route": "buy-ale"}, 
+      {"html": "<button>no thanks, I changed my mind</button><br>", "route": "barkeep_funny"}]    
+    },
+    "unicorn": {
+      "name": "unicorn",
+      "background": "url('/images/barkeep.png')",
+      "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, and I'll give ya one on the house.<br>",
+      "buttons": [{"html": "<button id=\"ale\">Ok, I'll be back!</button><br>", "route": "tavern2"}]    
+    },
+  
+  
   }
 
