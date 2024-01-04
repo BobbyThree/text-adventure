@@ -31,24 +31,28 @@ import { dialogs } from '/dialogs.js';
 
   //functions
   function goLocation(locName) {
-    screen.style.backgroundImage = locData[locName].background;
-    
-      goDialog(locName);
+    screen.style.backgroundImage = locData[locName].background;    
+      goDialog();
     }
   
 
-function goDialog(locName) {
-  txt.innerHTML = locData[locName].text;
-    let buttons = locData[locName].buttons;
+function goDialog(dialogName) {
+  txt.innerHTML = dialogData[dialogName].text;
+  let buttons = dialogData[dialogName].buttons;
 
     for(let i = 0; i < buttons.length; i++) {
       let tempBtn = document.createElement('button');
-      tempBtn.innerHTML = buttons[i].html;
+      tempBtn.innerHTML = buttons[i].html; //get rid of html, add label
       txt.appendChild(tempBtn);
       tempBtn.addEventListener('click', function() {
-        let newLoc = locData[buttons[i].route];
-        goLocation(newLoc.name);
+      let newDialog = dialogData[buttons[i].route];
+        //create switch for button types
+          
+
+        
+        goDialog(newDialog.name);
       });
+      
     }
   
 }
