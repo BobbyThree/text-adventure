@@ -61,7 +61,7 @@ export const locations = {
       "name": "milk",
       "background": "url('/images/barkeep.png')",
       "text": "Bwahahaha! good one, here's your ALE. That'll be 1gp.<br>",
-      "buttons": [{"html": "<button id=\"pay1gp\">pay 1gp</button><br>", "route": "buy-ale"}, 
+      "buttons": [{"html": "<button id=\"pay1gp\">pay 1gp</button><br>", "route": "buy_ale"}, 
       {"html": "<button>no thanks, I changed my mind</button><br>", "route": "barkeep_funny"}]    
     },
     "unicorn": {
