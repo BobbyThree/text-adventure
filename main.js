@@ -39,7 +39,8 @@ import { dialogs } from '/dialogs.js';
 function goDialog(dialogName) {
   txt.innerHTML = dialogData[dialogName].text;
   let buttons = dialogData[dialogName].buttons;
-
+   
+  
     for(let i = 0; i < buttons.length; i++) {
       let tempBtn = document.createElement('button');
       tempBtn.innerHTML = buttons[i].html; //get rid of html, add label
@@ -47,13 +48,19 @@ function goDialog(dialogName) {
       tempBtn.addEventListener('click', function() {
       let newDialog = dialogData[buttons[i].route];
         //create switch for button types
+        switch(true) {
+          case dialogData[dialogName].buttons[i].type == 'location':
+            console.log('change locations');
+            break;
+            case dialogData[dialogName].buttons[i].type == 'dialog':
+              console.log('locations stays the same');
+              break;
+        }
         
-             
         goDialog(newDialog.name);
       });
       
     }
   
 }
-
 
