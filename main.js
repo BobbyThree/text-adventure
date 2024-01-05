@@ -26,16 +26,16 @@ import { dialogs } from '/dialogs.js';
   const pay1gp = document.querySelector('#pay1gp');
 
   //initialize game
-  goLocation("title");  
+  goDialog("title"); 
   
 
   //functions
   function goLocation(locName) {
     screen.style.backgroundImage = locData[locName].background;    
-      goDialog();
+      goDialog(dialogName);
     }
   
-
+    
 function goDialog(dialogName) {
   txt.innerHTML = dialogData[dialogName].text;
   let buttons = dialogData[dialogName].buttons;
@@ -47,9 +47,8 @@ function goDialog(dialogName) {
       tempBtn.addEventListener('click', function() {
       let newDialog = dialogData[buttons[i].route];
         //create switch for button types
-          
-
         
+             
         goDialog(newDialog.name);
       });
       
