@@ -1,5 +1,6 @@
 import { locations } from './locations.js';
 import { dialogs } from '/dialogs.js';
+import { backgrounds } from '/backgrounds.js';
 
   // variables & selectors
   let xp = 0;
@@ -30,37 +31,34 @@ import { dialogs } from '/dialogs.js';
   
 
   //functions
-  function goLocation(locName) {
-    screen.style.backgroundImage = locData[locName].background;    
-      goDialog(dialogName);
-    }
-  
+  function goLocation(newLoc) {    
+    screen.style.background = newLoc;   
+  }  
     
 function goDialog(dialogName) {
   txt.innerHTML = dialogData[dialogName].text;
-  let buttons = dialogData[dialogName].buttons;
-   
+  let buttons = dialogData[dialogName].buttons;   
   
-    for(let i = 0; i < buttons.length; i++) {
-      let tempBtn = document.createElement('button');
-      tempBtn.innerHTML = buttons[i].html; //get rid of html, add label
-      txt.appendChild(tempBtn);
-      tempBtn.addEventListener('click', function() {
-      let newDialog = dialogData[buttons[i].route];
-        //create switch for button types
-        switch(true) {
-          case dialogData[dialogName].buttons[i].type == 'location':
-            console.log('change locations');
+  for(let i = 0; i < buttons.length; i++) {
+    let tempBtn = document.createElement('button');
+    tempBtn.innerHTML = buttons[i].html; //get rid of html, add label
+    txt.appendChild(tempBtn);
+    tempBtn.addEventListener('click', function() {
+    let newDialog = dialogData[buttons[i].route];
+    let newLoc = dialogData[buttons[i].route];
+      //create switch for button types
+      switch(true) {
+        case dialogData[dialogName].buttons[i].type == 'location':
+          goLocation(newLoc.background);
+          console.log('change locations'); 
+          break;
+          case dialogData[dialogName].buttons[i].type == 'dialog':
+            console.log('locations stays the same');
             break;
-            case dialogData[dialogName].buttons[i].type == 'dialog':
-              console.log('locations stays the same');
-              break;
-        }
-        
-        goDialog(newDialog.name);
-      });
+      }
       
-    }
-  
+      goDialog(newDialog.name);
+    });      
+  }  
 }
 
