@@ -16,46 +16,16 @@ import { backgrounds } from '/backgrounds.js';
   const gpTxt = document.querySelector('#gp-txt');
   const invTxt = document.querySelector('#inv-txt');
   const txt = document.querySelector('#txt');
-  const screen = document.querySelector('#screen');
-
-  //btn assignments
-  const playGame = document.querySelector('#play');
-  const tavernBtn = document.querySelector('#tavern-btn');
-  const barkeepBtn = document.querySelector('#talk-barkeep');
-  const patronBtn = document.querySelector('#talk-patron');
-  const questsBtn = document.querySelector('#look-quests');
-  const pay1gp = document.querySelector('#pay1gp');
+  const screen = document.querySelector('#screen');  
 
   //initialize game
   goDialog("title"); 
   
-
-  //functions
-  function goLocation(newLoc) {    
-    screen.style.background = newLoc; 
-    //need to figure out how to get route name in the switch
-    switch('route') {
-      case 'title':
-        screen.style.backgroundImage = backgrounds[0];
-        break;
-      case 'town':
-        screen.style.backgroundImage = backgrounds[1];
-        break;
-      case 'tavern':
-        screen.style.backgroundImage = backgrounds[2];
-        break;
-      case 'barkeep':
-        screen.style.backgroundImage = backgrounds[3];
-        break;
-      case 'barkeep_mean':
-        screen.style.backgroundImage = backgrounds[4];
-        break;
-    }
-  }  
+  
     
-function goDialog(dialogName) {
-  txt.innerHTML = dialogData[dialogName].text;
-  let buttons = dialogData[dialogName].buttons;   
+  function goDialog(dialogName) {
+    txt.innerHTML = dialogData[dialogName].text;
+    let buttons = dialogData[dialogName].buttons;   
   
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
@@ -67,7 +37,26 @@ function goDialog(dialogName) {
       //create switch for button types
       switch(true) {
         case dialogData[dialogName].buttons[i].type == 'location':
-          goLocation();
+          switch(newDialog.name) {
+            case 'title':
+              screen.style.backgroundImage = backgrounds[0];
+              break;
+            case 'town':
+            case 'town2':  
+              screen.style.backgroundImage = backgrounds[1];
+              break;
+            case 'tavern':
+            case 'tavern2':  
+              screen.style.backgroundImage = backgrounds[2];
+              break;
+            case 'barkeep':
+            case 'barkeep2':
+              screen.style.backgroundImage = backgrounds[3];
+              break;
+            case 'barkeep_mean':
+              screen.style.backgroundImage = backgrounds[4];
+              break;
+          }
           console.log('change locations'); 
           break;
         case dialogData[dialogName].buttons[i].type == 'dialog':
