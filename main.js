@@ -32,7 +32,25 @@ import { backgrounds } from '/backgrounds.js';
 
   //functions
   function goLocation(newLoc) {    
-    screen.style.background = newLoc;   
+    screen.style.background = newLoc; 
+    //need to figure out how to get route name in the switch
+    switch('route') {
+      case 'title':
+        screen.style.backgroundImage = backgrounds[0];
+        break;
+      case 'town':
+        screen.style.backgroundImage = backgrounds[1];
+        break;
+      case 'tavern':
+        screen.style.backgroundImage = backgrounds[2];
+        break;
+      case 'barkeep':
+        screen.style.backgroundImage = backgrounds[3];
+        break;
+      case 'barkeep_mean':
+        screen.style.backgroundImage = backgrounds[4];
+        break;
+    }
   }  
     
 function goDialog(dialogName) {
@@ -41,24 +59,26 @@ function goDialog(dialogName) {
   
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
-    tempBtn.innerHTML = buttons[i].html; //get rid of html, add label
+    tempBtn.innerHTML = buttons[i].label; //get rid of html, add label
     txt.appendChild(tempBtn);
     tempBtn.addEventListener('click', function() {
     let newDialog = dialogData[buttons[i].route];
-    let newLoc = dialogData[buttons[i].route];
+    
       //create switch for button types
       switch(true) {
         case dialogData[dialogName].buttons[i].type == 'location':
-          goLocation(newLoc.background);
+          goLocation();
           console.log('change locations'); 
           break;
-          case dialogData[dialogName].buttons[i].type == 'dialog':
-            console.log('locations stays the same');
-            break;
+        case dialogData[dialogName].buttons[i].type == 'dialog':
+          console.log('locations stays the same');
+          break;
       }
       
-      goDialog(newDialog.name);
+      goDialog(newDialog.name); 
+      
     });      
   }  
 }
+
 
