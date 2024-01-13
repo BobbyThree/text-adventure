@@ -20,45 +20,40 @@ const txt = document.querySelector('#txt');
 const screen = document.querySelector('#screen');  
 
 //initialize game
-changeDialog('town');
-changeScene('town');   
+changeDialog('title');
+changeScene('title');
+createButtons('title');   
   
     
 //main engine
-function clickHandler() {
-  switch(dialogData[dialogName].buttons[i].type) {
-    case 'location':
-      changeScene();
-    break;
-    case 'dialog':
-      changeDialog();
-    break;  
-  }
+function clickHandler(newDialog) {  
+  changeDialog('town');
+  changeScene('town');
+  createButtons('town'); 
 }
       
 
 //functions
-function changeScene(sceneName) {
-  screen.style.backgroundImage = sceneData[sceneName].background;  
+function changeScene(sceneName) {  
   let newScene = Object.values(scenes);
   for(let s = 0; s < newScene.length; s++ ) {
-    screen.style.backgroundImage = newScene[s].name;
+    screen.style.backgroundImage = sceneData[sceneName].background;
     }
   }
 
-
 function changeDialog(dialogName) {
-  txt.innerHTML = dialogData[dialogName].text;    
-  let buttons = dialogData[dialogName].buttons; 
+  txt.innerHTML = dialogData[dialogName].text;  
+}
 
+function createButtons(dialogName) {
+  let buttons = dialogData[dialogName].buttons;  
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = buttons[i].label; 
     txt.appendChild(tempBtn);
     tempBtn.addEventListener('click', function() {
     let newDialog = dialogData[buttons[i].route];
-    clickHandler(newDialog.name);    
+    clickHandler();    
     });
   }
 }
-

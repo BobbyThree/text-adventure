@@ -31,8 +31,7 @@ header h1 {
 
 #screen {    
   width: 600px;
-  height: 400px;  
-  background-image: url(./images/text-adventure-test-art.png);  
+  height: 400px;    
   margin: 30px 50px;
   position: relative;
 }
