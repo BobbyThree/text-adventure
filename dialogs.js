@@ -15,11 +15,13 @@ export const dialogs = {
     "buttons": [{"label": "Talk to Barkeep", "route": "barkeep", "type": "location"},
     {"label": "Talk to Patron", "route": "patron", "type": "location"},
     {"label": "Look at Quests", "route": "quests"},
-    {"label": "Leave tavern", "route": "town2", "type": "dialog"}]      
+    {"label": "Leave tavern", "route": "town2", "type": "location"}]      
   },
   "barkeep": {
     "name": "barkeep",    
     "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",
+    "text2": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
+    "visited": false,
     "buttons": [{"label": "I'm new in town. I seek my fortune!", "route": "barkeep_honest", "type": "dialog"},
     {"label": "May I please have... 2 tofu pups?", "route": "barkeep_funny", "type": "dialog"},
     {"label": "I'm Nunya...Nunya business! Eat shit", "route": "barkeep_mean", "type": "location"}]    
@@ -65,15 +67,10 @@ export const dialogs = {
   "tavern2": {
     "name": "tavern2",
     "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "location"},
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "location"},
     {"label": "talk to patron", "route": "patron", "type": "location"},
     {"label": "Look at quests", "route": "quests", "type": "location"},
     {"label": "Leave tavern", "route": "town2", "type": "location"}]
-},
-"barkeep2": {
-  "name": "barkeep2",
-  "text": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
-  "buttons": [{"label": "YES! I did the thing", "route": "get_blood", "type": "dialog"}]
 },
 "town2": {
   "name": "town2",

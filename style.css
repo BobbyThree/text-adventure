@@ -48,15 +48,24 @@ header h1 {
   background-color: rgb(70, 70, 70);  
   border: 5px ridge rgb(0, 0, 0);  
   word-wrap: break-word;
-  width: 400px;    
+  width: 400px;   
+  animation: fadeIn 1000ms ease-in;
 }
 
 button {
   cursor: pointer;
   margin-left: 2px;
   margin-right: 2px;
-  padding: 3px;
+  padding: 3px 5px;
   border: none;
   border-radius: 5px;  
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

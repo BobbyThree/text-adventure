@@ -1,73 +1,64 @@
-import { locations } from './locations.js';
+import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
 import { backgrounds } from '/backgrounds.js';
 
-  // variables & selectors
-  let xp = 0;
-  let hp = 50;
-  let gp = 100;
-  let inv = ['short sword', 'grappling hook'];
-  //let jsonString = JSON.stringify(locations);
-  let locData = JSON.parse(JSON.stringify(locations));
-  let dialogData = JSON.parse(JSON.stringify(dialogs));
 
-  const xpTxt = document.querySelector('#xp-txt');
-  const hpTxt = document.querySelector('#hp-txt');
-  const gpTxt = document.querySelector('#gp-txt');
-  const invTxt = document.querySelector('#inv-txt');
-  const txt = document.querySelector('#txt');
-  const screen = document.querySelector('#screen');  
+let sceneData = JSON.parse(JSON.stringify(scenes));
+let dialogData = JSON.parse(JSON.stringify(dialogs));
 
-  //initialize game
-  goDialog("title"); 
-  
+// variables & selectors
+let xp = 0;
+let hp = 50;
+let gp = 100;
+let inv = ['short sword', 'grappling hook'];  
+
+const xpTxt = document.querySelector('#xp-txt');
+const hpTxt = document.querySelector('#hp-txt');
+const gpTxt = document.querySelector('#gp-txt');
+const invTxt = document.querySelector('#inv-txt');
+const txt = document.querySelector('#txt');
+const screen = document.querySelector('#screen');  
+
+//initialize game
+changeDialog('town');
+changeScene('town');   
   
     
-  function goDialog(dialogName) {
-    txt.innerHTML = dialogData[dialogName].text;
-    let buttons = dialogData[dialogName].buttons;   
-  
+//main engine
+function clickHandler() {
+  switch(dialogData[dialogName].buttons[i].type) {
+    case 'location':
+      changeScene();
+    break;
+    case 'dialog':
+      changeDialog();
+    break;  
+  }
+}
+      
+
+//functions
+function changeScene(sceneName) {
+  screen.style.backgroundImage = sceneData[sceneName].background;  
+  let newScene = Object.values(scenes);
+  for(let s = 0; s < newScene.length; s++ ) {
+    screen.style.backgroundImage = newScene[s].name;
+    }
+  }
+
+
+function changeDialog(dialogName) {
+  txt.innerHTML = dialogData[dialogName].text;    
+  let buttons = dialogData[dialogName].buttons; 
+
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
-    tempBtn.innerHTML = buttons[i].label; //get rid of html, add label
+    tempBtn.innerHTML = buttons[i].label; 
     txt.appendChild(tempBtn);
     tempBtn.addEventListener('click', function() {
     let newDialog = dialogData[buttons[i].route];
-    
-      //create switch for button types
-      switch(true) {
-        case dialogData[dialogName].buttons[i].type == 'location':
-          switch(newDialog.name) {
-            case 'title':
-              screen.style.backgroundImage = backgrounds[0];
-              break;
-            case 'town':
-            case 'town2':  
-              screen.style.backgroundImage = backgrounds[1];
-              break;
-            case 'tavern':
-            case 'tavern2':  
-              screen.style.backgroundImage = backgrounds[2];
-              break;
-            case 'barkeep':
-            case 'barkeep2':
-              screen.style.backgroundImage = backgrounds[3];
-              break;
-            case 'barkeep_mean':
-              screen.style.backgroundImage = backgrounds[4];
-              break;
-          }
-          console.log('change locations'); 
-          break;
-        case dialogData[dialogName].buttons[i].type == 'dialog':
-          console.log('locations stays the same');
-          break;
-      }
-      
-      goDialog(newDialog.name); 
-      
-    });      
-  }  
+    clickHandler(newDialog.name);    
+    });
+  }
 }
-
 
