@@ -26,12 +26,19 @@ createButtons('title');
   
     
 //main engine
-function clickHandler(newDialog) {  
-  changeDialog('town');
-  changeScene('town');
-  createButtons('town'); 
-}
-      
+function clickHandler(buttonType, route) {
+  switch(buttonType) {
+    case 'scene':
+      changeScene(route.name);
+      changeDialog(route.name);  
+      createButtons(route.name);
+      break;
+    case 'dialog':
+      changeDialog(route.name), 
+      createButtons(route.name); 
+      break;     
+  }
+}      
 
 //functions
 function changeScene(sceneName) {  
@@ -42,7 +49,8 @@ function changeScene(sceneName) {
   }
 
 function changeDialog(dialogName) {
-  txt.innerHTML = dialogData[dialogName].text;  
+  txt.innerHTML = dialogData[dialogName].text;
+    
 }
 
 function createButtons(dialogName) {
@@ -52,8 +60,11 @@ function createButtons(dialogName) {
     tempBtn.innerHTML = buttons[i].label; 
     txt.appendChild(tempBtn);
     tempBtn.addEventListener('click', function() {
-    let newDialog = dialogData[buttons[i].route];
-    clickHandler();    
+    let route = dialogData[buttons[i].route];
+    let buttonType = dialogData[dialogName].buttons[i].type;
+    clickHandler(buttonType, route);    
     });
   }
 }
+
+

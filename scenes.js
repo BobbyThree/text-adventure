@@ -1,7 +1,7 @@
 export const scenes = {
     "title": {
       "name": "title",
-      "background": "url('/images/text-adventure-test-art.png')"      
+      "background": "url('/images/title-screen.png')"      
     },
     "town": {
       "name": "town",
