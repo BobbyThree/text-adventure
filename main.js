@@ -1,48 +1,67 @@
-import { locations } from './locations.js';
+import { scenes } from './scenes.js';
+import { dialogs } from '/dialogs.js';
 
-  // variables & selectors
-  let xp = 0;
-  let hp = 50;
-  let gp = 100;
-  let inv = ['short sword', 'grappling hook'];
-  let jsonString = JSON.stringify(locations);
-  let locData = JSON.parse(JSON.stringify(locations));
+let sceneData = JSON.parse(JSON.stringify(scenes));
+let dialogData = JSON.parse(JSON.stringify(dialogs));
 
-  const xpTxt = document.querySelector('#xp-txt');
-  const hpTxt = document.querySelector('#hp-txt');
-  const gpTxt = document.querySelector('#gp-txt');
-  const invTxt = document.querySelector('#inv-txt');
-  const txt = document.querySelector('#txt');
-  const screen = document.querySelector('#screen');
+// variables & selectors
+let xp = 0;
+let hp = 50;
+let gp = 100;
+let inv = ['short sword', 'grappling hook'];  
 
-  //btn assignments
-  const playGame = document.querySelector('#play');
-  const tavernBtn = document.querySelector('#tavern-btn');
-  const barkeepBtn = document.querySelector('#talk-barkeep');
-  const patronBtn = document.querySelector('#talk-patron');
-  const questsBtn = document.querySelector('#look-quests');
+const xpTxt = document.querySelector('#xp-txt');
+const hpTxt = document.querySelector('#hp-txt');
+const gpTxt = document.querySelector('#gp-txt');
+const invTxt = document.querySelector('#inv-txt');
+const txt = document.querySelector('#txt');
+const screen = document.querySelector('#screen');  
 
-  //events
-  playGame.onclick = () => goScene("town");
-  
+//initialize game
+changeDialog('title');
+changeScene('title');
+createButtons('title');  
+    
+//main engine
+function clickHandler(buttonType, route) {
+  switch(buttonType) {
+    case 'scene':
+      changeScene(route.name);
+      changeDialog(route.name);  
+      createButtons(route.name);
+      break;
+    case 'dialog':
+      changeDialog(route.name), 
+      createButtons(route.name); 
+      break;     
+  }
+}      
 
-  //functions
-  function goScene(sceneName) {
-    screen.style.backgroundImage = locData[sceneName].background;
-    txt.innerHTML = locData[sceneName].text;
-    let buttons = locData[sceneName].buttons;
-
-    for(let i = 0; i < buttons.length; i++) {
-      let tempBtn = document.createElement('button');
-      tempBtn.innerHTML = buttons[i]["html"];
-      txt.appendChild(tempBtn);
-      tempBtn.addEventListener('click', function() {
-        let newScene = locData[buttons[i]["route"]];
-        goScene(newScene.name);
-      })
+//functions
+function changeScene(sceneName) {  
+  let newScene = Object.values(scenes);
+  for(let s = 0; s < newScene.length; s++ ) {
+    screen.style.backgroundImage = sceneData[sceneName].background;
     }
   }
-  
 
+function changeDialog(dialogName) {
+  txt.innerHTML = dialogData[dialogName].text;
+    
+}
+
+function createButtons(dialogName) {
+  let buttons = dialogData[dialogName].buttons;  
+  for(let i = 0; i < buttons.length; i++) {
+    let tempBtn = document.createElement('button');
+    tempBtn.innerHTML = buttons[i].label; 
+    txt.appendChild(tempBtn);
+    tempBtn.addEventListener('click', function() {
+    let route = dialogData[buttons[i].route];
+    let buttonType = dialogData[dialogName].buttons[i].type;
+    clickHandler(buttonType, route);    
+    });
+  }
+}
 
 
