@@ -19,12 +19,10 @@ export const dialogs = {
   },
   "barkeep": {
     "name": "barkeep",    
-    "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",
-    "text2": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
-    "visited": false,
+    "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",    
     "buttons": [{"label": "I'm new in town. I seek my fortune!", "route": "barkeep_honest", "type": "dialog"},
     {"label": "May I please have... 2 tofu pups?", "route": "barkeep_funny", "type": "dialog"},
-    {"label": "I'm Nunya...Nunya business! Eat shit", "route": "barkeep_mean", "type": "scene"}]    
+    {"label": "I'm Nunya...Nunya business! Eat shit", "route": "died", "type": "scene"}]    
   },
   "barkeep_honest": {
     "name": "barkeep_honest",    
@@ -40,18 +38,16 @@ export const dialogs = {
     {"label": "Lemme get a tal glass of milk", "route": "milk", "type": "dialog"},
     {"label": "Let me have ht Unicorn Blood!!", "route": "unicorn", "type": "dialog"}]    
   },
-  "barkeep_mean": {
-    "name": "barkeep_mean",
+  "died": {
+    "name": "died",
     "text": "You died, shoulda thought about that shit before you said it <br>",
     "buttons": [{"label": "restart", "route": "town", "type": "scene"}]    
   },
   "ale": {
     "name": "ale",
     "text": "Here ya go, buddy. that will be 1gp<br>",
-    "buttons": [{"label": "pay 1gp", "route": "buy_ale"}, 
+    "buttons": [{"label": "pay 1gp", "route": "buy_ale", "type": "dialog"}, 
     {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}]
-        
-
   },
   "milk": {
     "name": "milk",
@@ -77,10 +73,16 @@ export const dialogs = {
   "text": "You are back in the Town Square. Where do you wish to go now?<br>",
   "buttons": [{"label": "Enter Tavern", "route": "tavern", "type": "scene"}]
 },
+"barkeep2": {
+  "name": "barkeep2",
+  "text": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
+  "buttons": [{"label": "Yea! I did the thing", "route": "", "type": "dialog"},
+  {"label": "Nah, I'm still working on it", "route": "", "type": "dialog"}]    
+},
 "buy_ale": {
   "name": "buy_ale",
   "text": "thank you!<br>",
-  "buttons": [{"label": "Buy ale", "route": "ale"},
+  "buttons": [{"label": "Buy ale", "route": "ale", "type": "dialog"},
   {"label": "Buy milk (which is also ale)", "route": "milk", "type": "dialog"},
   {"label": "Leave tavern", "route": "town2", "type": "scene"}]
 }
