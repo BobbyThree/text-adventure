@@ -1,7 +1,5 @@
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
-import { backgrounds } from '/backgrounds.js';
-
 
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
@@ -22,8 +20,7 @@ const screen = document.querySelector('#screen');
 //initialize game
 changeDialog('title');
 changeScene('title');
-createButtons('title');   
-  
+createButtons('title');  
     
 //main engine
 function clickHandler(buttonType, route) {
