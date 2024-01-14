@@ -34,6 +34,15 @@ export const scenes = {
     "barkeep2": {
       "name": "barkeep2",
       "background": "url('/images/barkeep.png')"         
-    }
+    },
+    "patron": {
+      "name": "patron",
+      "background": "url('/images/roger.png')"
+    },
+    "quests": {
+      "name": "quests",
+      "background": "url('/images/quests.png')"
+    },
+
     
   }
