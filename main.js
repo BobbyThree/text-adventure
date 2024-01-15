@@ -74,10 +74,15 @@ function createButtons(dialogName) {
 }
 
 function buyItem(itemName) {  
-  let cost = itemData[itemName].cost;  
+  let cost = itemData[itemName].cost;
+  let item = itemData[itemName].item;  
   gp = gp - cost;
-  gpTxt.innerHTML = gp;
-  inv.push(itemData[itemName].item);
+  gpTxt.innerHTML = gp;  
+  inv.push(item);
+  updateInv(item);
+}
+
+function updateInv() {
   invTxt.innerHTML = inv;
 }
 
