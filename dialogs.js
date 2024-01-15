@@ -57,7 +57,7 @@ export const dialogs = {
     "name": "ale",
     "text": "Here ya go, buddy. that will be 1gp<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "dialog"}, 
+      {"label": "pay 1gp", "route": "buy_ale", "type": "buy", "cost": 1}, 
       {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]
   },

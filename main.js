@@ -1,8 +1,11 @@
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
+import { items } from '/items.js';
+
 
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
+let itemData = JSON.parse(JSON.stringify(items));
 
 // variables & selectors
 let xp = 0;
@@ -31,7 +34,12 @@ function clickHandler(buttonType, route) {
       createButtons(route.name);
       break;
     case 'dialog':
-      changeDialog(route.name), 
+      changeDialog(route.name); 
+      createButtons(route.name); 
+      break;     
+    case 'buy':
+      buyItem('ale');
+      changeDialog(route.name); 
       createButtons(route.name); 
       break;     
   }
@@ -64,4 +72,11 @@ function createButtons(dialogName) {
   }
 }
 
+function buyItem(itemName) {
+  let cost = itemData[itemName].cost;
+  gp = gp - cost;
+  gpTxt.innerHTML = gp;
+}
 
+
+console.log(items['ale'].cost);
