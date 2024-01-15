@@ -1,6 +1,7 @@
 export const items = {
-  "ale": {
-    "name": "ale",
+  "buy_ale": {
+    "name": "buy_ale",
+    "item": "ale",
     "cost": 1
   }
 }

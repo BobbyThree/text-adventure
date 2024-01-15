@@ -11,7 +11,7 @@ let itemData = JSON.parse(JSON.stringify(items));
 let xp = 0;
 let hp = 50;
 let gp = 100;
-let inv = ['short sword', 'grappling hook'];  
+let inv = ['short sword'];  
 
 const xpTxt = document.querySelector('#xp-txt');
 const hpTxt = document.querySelector('#hp-txt');
@@ -23,7 +23,8 @@ const screen = document.querySelector('#screen');
 //initialize game
 changeDialog('title');
 changeScene('title');
-createButtons('title');  
+createButtons('title');
+invTxt.innerHTML = inv;  
     
 //main engine
 function clickHandler(buttonType, route) {
@@ -38,7 +39,7 @@ function clickHandler(buttonType, route) {
       createButtons(route.name); 
       break;     
     case 'buy':
-      buyItem('ale');
+      buyItem(route.name);
       changeDialog(route.name); 
       createButtons(route.name); 
       break;     
@@ -72,11 +73,12 @@ function createButtons(dialogName) {
   }
 }
 
-function buyItem(itemName) {
-  let cost = itemData[itemName].cost;
+function buyItem(itemName) {  
+  let cost = itemData[itemName].cost;  
   gp = gp - cost;
   gpTxt.innerHTML = gp;
+  inv.push(itemData[itemName].item);
+  invTxt.innerHTML = inv;
 }
 
 
-console.log(items['ale'].cost);
