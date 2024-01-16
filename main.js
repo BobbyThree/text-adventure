@@ -83,7 +83,6 @@ function buyItem(itemName) {
 }
 
 function updateInv() {
-  invTxt.innerHTML = inv;
+  let newInv = [...new Set(inv)]; //gets rid of dupes
+  invTxt.innerHTML = newInv;  
 }
-
-
