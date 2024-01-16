@@ -57,7 +57,7 @@ export const dialogs = {
     "name": "ale",
     "text": "Here ya go, buddy. that will be 1gp<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "dialog"}, 
+      {"label": "pay 1gp", "route": "buy_ale", "type": "buy"}, 
       {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]
   },
@@ -65,7 +65,7 @@ export const dialogs = {
     "name": "milk",
     "text": "Bwahahaha! good one, here's your ALE. That'll be 1gp.<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "dialog"}, 
+      {"label": "pay 1gp", "route": "buy_ale", "type": "buy"}, 
       {"label": "No thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]    
   },
