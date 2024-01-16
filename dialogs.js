@@ -152,7 +152,7 @@ export const dialogs = {
   },
   "halfling_details": {
     "name": "halfling_details",
-    "text": "The Barkeep's daughter has gone missing. Last we heard, she was heading up to Aurochsmow to do some work on a chicken farm. She was supposed to return days ago. You must go to Aurochsmow and find her. The reward for this quest is an exuisite longbow of immense power.<br>",
+    "text": "The Barkeep's daughter has gone missing. Last we heard, she was heading up to Aurochsmow for the day to look for work. She should've been back days ago. You must go to Aurochsmow and find her. The reward for this quest is an exuisite longbow of immense power.<br>",
     "buttons": [
       {"label": "Accept Quest", "route": "halfling_quest", "type": "scene"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
@@ -182,9 +182,46 @@ export const dialogs = {
   },
   "halfling_quest": {
     "name": "halfling_quest",
-    "text": "",
+    "text": "You arrive in Aurochsmaw, wondering just what you may have gotten yourself into. You can see a weapons shoppe, and an inn. <br>",
     "buttons": [
+      {"label": "Go to shoppe", "route": "shoppe", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn", "type": "scene"}
+    ]
+  },
+  "shoppe": {
+    "name": "shoppe",
+    "text": "SHOPPE OWNER:<BR>Well hellooo! Welcom to my Weapons Shoppe! What can I help you with?",
+    "buttons": [
+      {"label": "BUY", "route": "buy_items", "type": "dialog"},
+      {"label": "SELL", "route": "sell_items", "type": "dialog"},
+      {"label": "I'm looking for a missing halfling.", "route": "halfling_info", "type": "dialog"},
 
+    ]
+  },
+  "buy_items": {
+    "name": "buy_items",
+    "text": "SHOPPE OWNER:<BR>I've got swords and blunt weapons. Or for 10 gold you can drink from the fountain of healing (restores 10hp). I also buy items",
+    "buttons": [
+      {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
+      {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
+      {"label": "Drink from Fountain of healing", "route": "buy_healing", "type": "buy"}
+      
+    ]
+  },
+  "swords": {
+    "name": "swords",
+    "text": "SHOPPE OWNER:<BR>I've got a long sword (1-10 damage) and a broad sword (10-15 damage)",
+    "buttons": [
+      {"label": "buy long sword (20gp)", "route": "buy_longsword", "type": "buy"},
+      {"label": "buy broadsword (60gp)", "route": "blunt", "type": "buy"}      
+    ]
+  },
+  "blunt": {
+    "name": "blunt",
+    "text": "SHOPPE OWNER:<BR>I've got a morning star (5-10 damage) and a warhammer (10-20 damage)",
+    "buttons": [
+      {"label": "buy morning star (40gp)", "route": "buy_longsword", "type": "buy"},
+      {"label": "buy broadsword (100gp)", "route": "blunt", "type": "buy"}      
     ]
   },
   "croakers_quest": {
