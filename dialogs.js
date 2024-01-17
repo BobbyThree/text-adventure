@@ -190,22 +190,29 @@ export const dialogs = {
   },
   "shoppe": {
     "name": "shoppe",
-    "text": "SHOPPE OWNER:<BR>Well hellooo! Welcom to my Weapons Shoppe! What can I help you with?",
+    "text": "SHOPPE OWNER:<BR>Well hellooo! Welcome to my Weapons Shoppe! What can I help you with?<br>",
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},
-      {"label": "I'm looking for a missing halfling.", "route": "halfling_info", "type": "dialog"},
-
+      {"label": "I'm looking for a missing halfling girl.", "route": "halfling_info", "type": "dialog"},
+      {"label": "Back", "route": "halfling_quest", "type": "scene"}
     ]
+  },
+  "halfling_info": {
+    "name": "halfling_info",
+    "text": "I haven't seen any halflings come though my shop any time recently. Sorry friend.",
+    "buttons": [
+    {"label": "BUY", "route": "buy_items", "type": "dialog"},
+    {"label": "SELL", "route": "sell_items", "type": "dialog"},    
+    {"label": "Back", "route": "halfling_quest", "type": "scene"}]
   },
   "buy_items": {
     "name": "buy_items",
-    "text": "SHOPPE OWNER:<BR>I've got swords and blunt weapons. Or for 10 gold you can drink from the fountain of healing (restores 10hp). I also buy items",
+    "text": "SHOPPE OWNER:<BR>I've got swords and blunt weapons. I also buy items",
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
-      {"label": "Drink from Fountain of healing", "route": "buy_healing", "type": "buy"}
-      
+      {"label": "back", "route": "halfling_quest", "type": "scene"}      
     ]
   },
   "swords": {
@@ -213,16 +220,53 @@ export const dialogs = {
     "text": "SHOPPE OWNER:<BR>I've got a long sword (1-10 damage) and a broad sword (10-15 damage)",
     "buttons": [
       {"label": "buy long sword (20gp)", "route": "buy_longsword", "type": "buy"},
-      {"label": "buy broadsword (60gp)", "route": "blunt", "type": "buy"}      
+      {"label": "buy broadsword (60gp)", "route": "buy_broadsword", "type": "buy"},
+      {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "buy"}     
     ]
   },
   "blunt": {
     "name": "blunt",
     "text": "SHOPPE OWNER:<BR>I've got a morning star (5-10 damage) and a warhammer (10-20 damage)",
     "buttons": [
-      {"label": "buy morning star (40gp)", "route": "buy_longsword", "type": "buy"},
-      {"label": "buy broadsword (100gp)", "route": "blunt", "type": "buy"}      
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"}      
     ]
+  },
+  "buy_longsword": {
+    "name": "buy_longsword",
+    "text": "Thanks very much, don't poke your eye out.",
+    "buttons": [
+    {"label": "BUY", "route": "buy_items", "type": "dialog"},
+    {"label": "SELL", "route": "sell_items", "type": "dialog"},    
+    {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+  ]    
+  },
+  "buy_broadsword": {
+    "name": "buy_broadsword",
+    "text": "Pleasure doin business with ya.",
+    "buttons": [
+      {"label": "BUY", "route": "buy_items", "type": "dialog"},
+      {"label": "SELL", "route": "sell_items", "type": "dialog"},    
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+    ]  
+  },
+  "buy_morningstar": {
+    "name": "buy_morningstar",
+    "text": "Thank ye.",
+    "buttons": [
+      {"label": "BUY", "route": "buy_items", "type": "dialog"},
+      {"label": "SELL", "route": "sell_items", "type": "dialog"},    
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+    ] 
+  },
+  "buy_warhammer": {
+    "name": "buy_warhammer",
+    "text": "now you're cookin with gas!",
+    "buttons": [
+      {"label": "BUY", "route": "buy_items", "type": "dialog"},
+      {"label": "SELL", "route": "sell_items", "type": "dialog"},    
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+    ] 
   },
   "croakers_quest": {
     "name": "croakers_quest",

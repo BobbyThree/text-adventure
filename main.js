@@ -75,11 +75,15 @@ function createButtons(dialogName) {
 
 function buyItem(itemName) {  
   let cost = itemData[itemName].cost;
-  let item = itemData[itemName].item;  
+  let item = itemData[itemName].item;
+  if(gp >= cost) {  
   gp = gp - cost;
   gpTxt.innerHTML = gp;  
   inv.push(item);
   updateInv(item);
+  } else {
+    txt.innerHTML = 'You do not have enough gold'
+  }
 }
 
 function updateInv() {

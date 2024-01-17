@@ -47,6 +47,10 @@ export const scenes = {
       "name": "halfling_quest",
       "background": "url('/images/aurochsmaw.png')"
     },
+    "shoppe": {
+      "name": "shoppe",
+      "background": "url('/images/shoppe.png')"
+    }
     
     
   }
