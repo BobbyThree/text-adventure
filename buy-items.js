@@ -1,4 +1,4 @@
-export const items = {
+export const buyItems = {
   "buy_ale": {
     "name": "buy_ale",
     "item": "ale",

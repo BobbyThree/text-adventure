@@ -268,6 +268,20 @@ export const dialogs = {
       {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
   },
+  "sell_items": {
+    "name": "sell_items",
+    "text": "Ok! whattaya got?",
+    "buttons": [
+      {"label": "sell wooden sword", "route": "sell_wooden_sword", "type": "sell"}
+    ]
+  },
+  "sell_wooden_sword": {
+    "name": "sell_wooden_sword",
+    "text": "wow. Ok here's 2gp for it",
+    "buttons": [
+      {"label": "back", "route": "shoppe", "type": "dialog"}
+    ]
+  },  
   "croakers_quest": {
     "name": "croakers_quest",
     "text": "",
