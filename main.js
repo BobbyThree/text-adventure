@@ -47,16 +47,12 @@ function clickHandler(buttonType, route) {
 }      
 
 //functions
-function changeScene(sceneName) {  
-  let newScene = Object.values(scenes);
-  for(let s = 0; s < newScene.length; s++ ) {
-    screen.style.backgroundImage = sceneData[sceneName].background;
-    }
-  }
+function changeScene(sceneName) {   
+  screen.style.backgroundImage = sceneData[sceneName].background;
+  }  
 
 function changeDialog(dialogName) {
-  txt.innerHTML = dialogData[dialogName].text;
-    
+  txt.innerHTML = dialogData[dialogName].text;    
 }
 
 function createButtons(dialogName) {
@@ -82,14 +78,8 @@ function buyItem(itemName) {
   inv.push(item);
   updateInv(item);
   } else {
-    txt.innerHTML = 'You do not have enough gold'
-    let tempBtn = document.createElement('button');
-    tempBtn.innerHTML = 'back';
-    txt.appendChild(tempBtn);
-    tempBtn.onclick = () => {
-      changeDialog('shoppe');
-      createButtons('shoppe');
-    }
+    changeDialog('broke');
+    createButtons('broke');
   }
 }
 

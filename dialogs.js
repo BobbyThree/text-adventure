@@ -284,6 +284,7 @@ export const dialogs = {
   },
   "broke": {
     "name": "broke",
-    "text": "You do not have enough gold!"
+    "text": "You do not have enough gold!",
+    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
   }
 }
