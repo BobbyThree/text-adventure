@@ -50,6 +50,10 @@ function clickHandler(buttonType, route) {
       createButtons(route.name);
       sellItem(route.name);
       break;  
+    case 'inventory':      
+      changeDialog(route.name);
+      showInventory(route.name);      
+      break;  
   }
 }      
 
@@ -103,5 +107,13 @@ function sellItem(itemName) {
   const invIndex = inv.indexOf(item);
   inv.splice(invIndex, 1);
   invTxt.innerHTML = inv;
+}
+
+function showInventory() {
+  inv.forEach((e) => {
+    let tempBtn = document.createElement('button');
+    tempBtn.innerHTML = e;
+    txt.appendChild(tempBtn);    
+  })
 }
 

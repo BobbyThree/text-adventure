@@ -208,7 +208,7 @@ export const dialogs = {
   },
   "buy_items": {
     "name": "buy_items",
-    "text": "SHOPPE OWNER:<BR>I've got swords and blunt weapons. I also buy items",
+    "text": "SHOPPE OWNER:<BR>Right now I've got swords and blunt weapons.",
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
@@ -272,14 +272,7 @@ export const dialogs = {
     "name": "sell_items",
     "text": "Ok! whattaya got?",
     "buttons": [
-      {"label": "sell wooden sword", "route": "sell_wooden_sword", "type": "sell"}
-    ]
-  },
-  "sell_wooden_sword": {
-    "name": "sell_wooden_sword",
-    "text": "wow. Ok here's 2gp for it",
-    "buttons": [
-      {"label": "back", "route": "shoppe", "type": "dialog"}
+      {"label": "show sellable items", "route": "sellable_items", "type": "inventory"}
     ]
   },  
   "croakers_quest": {
@@ -300,5 +293,15 @@ export const dialogs = {
     "name": "broke",
     "text": "You do not have enough gold!",
     "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
-  }
+  },
+  "sellable_items": {
+    "name": "sellable_items",
+    "text": "Sell:<br>",
+    "buttons": [{"route": "sold", "type": "sell"}]
+  },
+  "sold": {
+    "name": "sold",
+    "text": "Thx, here ya go",
+    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
+  },
 }
