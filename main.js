@@ -38,10 +38,10 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name); 
       createButtons(route.name); 
       break;     
-    case 'buy':
-      buyItem(route.name);
+    case 'buy':      
       changeDialog(route.name); 
-      createButtons(route.name); 
+      createButtons(route.name);
+      buyItem(route.name);
       break;     
   }
 }      
@@ -83,6 +83,13 @@ function buyItem(itemName) {
   updateInv(item);
   } else {
     txt.innerHTML = 'You do not have enough gold'
+    let tempBtn = document.createElement('button');
+    tempBtn.innerHTML = 'back';
+    txt.appendChild(tempBtn);
+    tempBtn.onclick = () => {
+      changeDialog('shoppe');
+      createButtons('shoppe');
+    }
   }
 }
 
@@ -90,3 +97,4 @@ function updateInv() {
   let newInv = [...new Set(inv)]; //gets rid of dupes
   invTxt.innerHTML = newInv;  
 }
+

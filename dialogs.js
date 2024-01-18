@@ -221,7 +221,7 @@ export const dialogs = {
     "buttons": [
       {"label": "buy long sword (20gp)", "route": "buy_longsword", "type": "buy"},
       {"label": "buy broadsword (60gp)", "route": "buy_broadsword", "type": "buy"},
-      {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "buy"}     
+      {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}     
     ]
   },
   "blunt": {
@@ -282,4 +282,8 @@ export const dialogs = {
 
     ]
   },
+  "broke": {
+    "name": "broke",
+    "text": "You do not have enough gold!"
+  }
 }
