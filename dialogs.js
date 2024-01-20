@@ -268,12 +268,27 @@ export const dialogs = {
       {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
   },
+  "broke": {
+    "name": "broke",
+    "text": "You do not have enough gold!",
+    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
+  },
   "sell_items": {
     "name": "sell_items",
     "text": "Ok! whattaya got?",
     "buttons": [
       {"label": "show sellable items", "route": "sellable_items", "type": "inventory"}
     ]
+  },  
+  "sellable_items": {
+    "name": "sellable_items",
+    "text": "Sell:<br>",
+    "buttons": []
+  },
+  "sold": {
+    "name": "sold",
+    "text": "Thx, here ya go",
+    "buttons": []
   },  
   "croakers_quest": {
     "name": "croakers_quest",
@@ -288,20 +303,6 @@ export const dialogs = {
     "buttons": [
 
     ]
-  },
-  "broke": {
-    "name": "broke",
-    "text": "You do not have enough gold!",
-    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
-  },
-  "sellable_items": {
-    "name": "sellable_items",
-    "text": "Sell:<br>",
-    "buttons": [{"route": "sold", "type": "sell"}]
-  },
-  "sold": {
-    "name": "sold",
-    "text": "Thx, here ya go",
-    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
-  },
+  }
+  
 }

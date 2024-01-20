@@ -51,8 +51,8 @@ function clickHandler(buttonType, route) {
       sellItem(route.name);
       break;  
     case 'inventory':      
-      changeDialog(route.name);
-      showInventory(route.name);      
+      changeDialog(route.name);      
+      createButtonsFromInventory(route.name);            
       break;  
   }
 }      
@@ -109,11 +109,21 @@ function sellItem(itemName) {
   invTxt.innerHTML = inv;
 }
 
-function showInventory() {
+function createButtonsFromInventory() {
   inv.forEach((e) => {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
-    txt.appendChild(tempBtn);    
+    txt.appendChild(tempBtn);
+    
+        
+    tempBtn.onclick = () => { 
+    changeDialog('sold');
+    createButtons('sold');
+    
+    
+      //somehow call sellItem func        
+    };  
   })
 }
+
 
