@@ -117,13 +117,11 @@ function createButtonsFromInventory() {
     
         
     tempBtn.onclick = () => { 
-    changeDialog('sold');
-    createButtons('sold');
+      // TODO:compare btn with sell-items.js
     
     
-      //somehow call sellItem func        
+      // TODO: call sellItem func, passing sellData that matches btn click       
     };  
   })
 }
-
 
