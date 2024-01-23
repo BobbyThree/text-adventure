@@ -20,7 +20,8 @@ const hpTxt = document.querySelector('#hp-txt');
 const gpTxt = document.querySelector('#gp-txt');
 const invTxt = document.querySelector('#inv-txt');
 const txt = document.querySelector('#txt');
-const screen = document.querySelector('#screen');  
+const screen = document.querySelector('#screen'); 
+
 
 //initialize game
 changeDialog('title');
@@ -52,7 +53,7 @@ function clickHandler(buttonType, route) {
       break;  
     case 'inventory':      
       changeDialog(route.name);      
-      createButtonsFromInventory(route.name);            
+      sellFromInventory(route.name);            
       break;  
   }
 }      
@@ -109,16 +110,19 @@ function sellItem(itemName) {
   invTxt.innerHTML = inv;
 }
 
-function createButtonsFromInventory() {
+function sellFromInventory() {
   inv.forEach((e) => {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
-    txt.appendChild(tempBtn);
-    
-        
+    txt.appendChild(tempBtn);    
+      
     tempBtn.onclick = () => { 
       // TODO:compare btn with sell-items.js
-    
+      
+      sellItem('sell_wooden_sword'); //this is only a test arg
+      changeDialog('sold');
+      createButtons('sold');
+      
     
       // TODO: call sellItem func, passing sellData that matches btn click       
     };  

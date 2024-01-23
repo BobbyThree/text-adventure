@@ -48,7 +48,7 @@ header h1 {
   border: 5px ridge rgb(0, 0, 0);  
   word-wrap: break-word;
   width: 400px;   
-  animation: fadeIn 1000ms ease-in;
+  animation: fadeIn 2000ms ease-in;
 }
 
 button {
