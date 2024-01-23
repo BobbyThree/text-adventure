@@ -115,11 +115,12 @@ function sellFromInventory() {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
-      
+    
     tempBtn.onclick = () => { 
       // TODO:compare btn with sell-items.js
-      
-      sellItem('sell_wooden_sword'); //this is only a test arg
+      let str = 'sell_' + e;
+      let saleItem = str.replace(/\s+/g, '');
+      sellItem(saleItem); //this is only a test arg
       changeDialog('sold');
       createButtons('sold');
       
@@ -129,3 +130,6 @@ function sellFromInventory() {
   })
 }
 
+let str = 'wooden sword';
+let saleItem = 'sell_'+ str; 
+console.log(saleItem.replace(/\s+/g, ''));

@@ -1,16 +1,16 @@
 export const sellItems = {
-  "sell_wooden_sword": {
-    "name": "sell_wooden_sword",
+  "sell_woodensword": {
+    "name": "sell_woodensword",
     "item": 'wooden sword',
     "price": 2
   },
-  "sell_short_sword": {
-    "name": "sell_short_sword",
+  "sell_shortsword": {
+    "name": "sell_shortsword",
     "item": 'short sword',
     "price": 5
   },
-  "sell_broad_sword": {
-    "name": "sell_broad_sword",
+  "sell_broadsword": {
+    "name": "sell_broadsword",
     "item": 'wooden sword',
     "price": 15
   },
