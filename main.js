@@ -116,16 +116,12 @@ function sellFromInventory() {
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
     
-    tempBtn.onclick = () => { 
-      // TODO:compare btn with sell-items.js
+    tempBtn.onclick = () => {       
       let str = 'sell_' + e;
       let saleItem = str.replace(/\s+/g, '');
-      sellItem(saleItem); //this is only a test arg
+      sellItem(saleItem);
       changeDialog('sold');
-      createButtons('sold');
-      
-    
-      // TODO: call sellItem func, passing sellData that matches btn click       
+      createButtons('sold');           
     };  
   })
 }

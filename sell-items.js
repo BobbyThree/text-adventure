@@ -23,5 +23,10 @@ export const sellItems = {
     "name": "sell_warhammer",
     "item": 'warhammer',
     "price": 25
+  },
+  "sell_ale": {
+    "name": "sell_ale",
+    "item": 'ale',
+    "price": 1
   }
 }
