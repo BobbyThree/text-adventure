@@ -216,10 +216,10 @@ export const dialogs = {
   },
   "swords": {
     "name": "swords",
-    "text": "SHOPPE OWNER:<BR>I've got a long sword (1-10 damage) and a broad sword (10-15 damage)",
+    "text": "SHOPPE OWNER:<BR>I've got a short sword (1-10 damage) and a broad sword (10-15 damage)",
     "buttons": [
-      {"label": "buy long sword (20gp)", "route": "buy_longsword", "type": "buy"},
-      {"label": "buy broadsword (60gp)", "route": "buy_broadsword", "type": "buy"},
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}     
     ]
   },
@@ -231,8 +231,8 @@ export const dialogs = {
       {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"}      
     ]
   },
-  "buy_longsword": {
-    "name": "buy_longsword",
+  "buy_shortsword": {
+    "name": "buy_shortsword",
     "text": "Thanks very much, don't poke your eye out.",
     "buttons": [
     {"label": "BUY", "route": "buy_items", "type": "dialog"},
