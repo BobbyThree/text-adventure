@@ -1,17 +1,17 @@
-export const items = {
+export const buyItems = {
   "buy_ale": {
     "name": "buy_ale",
     "item": "ale",
     "cost": 1
   },
-  "buy_longsword": {
-    "name": "buy_longsword",
-    "item": "longsword",
+  "buy_shortsword": {
+    "name": "buy_shortsword",
+    "item": "short sword",
     "cost": 20
   },
   "buy_broadsword": {
     "name": "buy_broadsword",
-    "item": "broadsword",
+    "item": "broad sword",
     "cost": 60
   },
   "buy_morningstar": {
@@ -23,5 +23,5 @@ export const items = {
     "name": "buy_warhammer",
     "item": "warhammer",
     "cost": 100
-  }
+  },  
 }

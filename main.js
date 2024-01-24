@@ -1,24 +1,27 @@
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
-import { items } from '/items.js';
+import { buyItems } from '/buy-items.js';
+import { sellItems } from '/sell-items.js'
 
 
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
-let itemData = JSON.parse(JSON.stringify(items));
+let buyData = JSON.parse(JSON.stringify(buyItems));
+let sellData = JSON.parse(JSON.stringify(sellItems));
 
 // variables & selectors
 let xp = 0;
 let hp = 50;
 let gp = 100;
-let inv = ['short sword'];  
+let inv = ['wooden sword'];  
 
 const xpTxt = document.querySelector('#xp-txt');
 const hpTxt = document.querySelector('#hp-txt');
 const gpTxt = document.querySelector('#gp-txt');
 const invTxt = document.querySelector('#inv-txt');
 const txt = document.querySelector('#txt');
-const screen = document.querySelector('#screen');  
+const screen = document.querySelector('#screen'); 
+
 
 //initialize game
 changeDialog('title');
@@ -42,7 +45,16 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name); 
       createButtons(route.name);
       buyItem(route.name);
-      break;     
+      break; 
+    case 'sell':
+      changeDialog(route.name); 
+      createButtons(route.name);
+      sellItem(route.name);
+      break;  
+    case 'inventory':      
+      changeDialog(route.name);      
+      sellFromInventory(route.name);            
+      break;  
   }
 }      
 
@@ -70,8 +82,8 @@ function createButtons(dialogName) {
 }
 
 function buyItem(itemName) {  
-  let cost = itemData[itemName].cost;
-  let item = itemData[itemName].item;
+  let cost = buyData[itemName].cost;
+  let item = buyData[itemName].item;
   if(gp >= cost) {  
   gp = gp - cost;
   gpTxt.innerHTML = gp;  
@@ -86,5 +98,31 @@ function buyItem(itemName) {
 function updateInv() {
   let newInv = [...new Set(inv)]; //gets rid of dupes
   invTxt.innerHTML = newInv;  
+}
+
+function sellItem(itemName) {
+  let item = sellData[itemName].item;
+  let price = sellData[itemName].price;
+  gp = gp + price;
+  gpTxt.innerHTML = gp;
+  const invIndex = inv.indexOf(item);
+  inv.splice(invIndex, 1);
+  invTxt.innerHTML = inv;
+}
+
+function sellFromInventory() {
+  inv.forEach((e) => {
+    let tempBtn = document.createElement('button');
+    tempBtn.innerHTML = e;
+    txt.appendChild(tempBtn);    
+    
+    tempBtn.onclick = () => {       
+      let str = 'sell_' + e;
+      let saleItem = str.replace(/\s+/g, '');
+      sellItem(saleItem);
+      changeDialog('sold');
+      createButtons('sold');           
+    };  
+  })
 }
 

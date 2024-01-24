@@ -1,7 +1,7 @@
 export const dialogs = {
   "title": {
     "name": "title",
-    "text": "Welcome to Big Trouble in Little Ixonia! This is a text based adventure game created by Robert Lewis III. Click the 'Play Game' button to begin. <br>",
+    "text": "Welcome to Big Trouble in Little Ixonia! This is a text based adventure game created by Robert Lewis III. You begin your tale in the small mountain town of Ixonia, where a fearsome Beholder has taken up residence in the town hall to the terror of the town's inhabitants. Click the 'Play Game' button to begin. <br>",
     "buttons": [{"label": "Play Game", "route": "town", "type": "scene"}
   ]
   },
@@ -22,17 +22,17 @@ export const dialogs = {
   },
   "barkeep": {
     "name": "barkeep",    
-    "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot. State your name and business! <br>",    
+    "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot and this is my Tavern. State your name and business! <br>",    
     "buttons": [
       {"label": "I'm new in town. I seek my fortune!", "route": "barkeep_honest", "type": "dialog"},
       {"label": "May I please have... 2 tofu pups?", "route": "barkeep_funny", "type": "dialog"},
       {"label": "I'm Nunya...Nunya business! Eat shit", "route": "died", "type": "scene"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]    
   },
   "barkeep_honest": {
     "name": "barkeep_honest",    
-    "text": "BARKEEP:<br>Nice to meet you! What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
+    "text": "BARKEEP:<br>Nice to meet you! We need all the help we can get. The Beholder has defeated all who have tried to fight it. Anyway, What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
     "buttons": [
       {"label": "Gimme an ale", "route": "ale", "type": "dialog"},
       {"label": "Lemme get a tall glass of milk.", "route": "milk", "type": "dialog"},
@@ -45,7 +45,7 @@ export const dialogs = {
     "buttons": [
       {"label": "Gimme an ale", "route": "ale", "type": "dialog"},
       {"label": "Lemme get a tal glass of milk", "route": "milk", "type": "dialog"},
-      {"label": "Let me have ht Unicorn Blood!!", "route": "unicorn", "type": "dialog"}
+      {"label": "Lemme get that Unicorn Blood!!", "route": "unicorn", "type": "dialog"}
     ]    
   },
   "died": {
@@ -71,13 +71,13 @@ export const dialogs = {
   },
   "unicorn": {
     "name": "unicorn",
-    "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, and I'll give ya one on the house.<br>",
+    "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, perhaps by completing a quest from the board over there. Do that and I'll give ya a Unicorn blood on the house.<br>",
     "buttons": [{"label": "Ok, I'll be back!", "route": "tavern2", "type": "scene"}]    
   },
   "tavern2": {
     "name": "tavern2",
     "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "talk to patron", "route": "patron", "type": "scene"},
       {"label": "Look at quests", "route": "quests", "type": "scene"},
       {"label": "Leave tavern", "route": "town2", "type": "scene"}
@@ -86,8 +86,7 @@ export const dialogs = {
   "town2": {
     "name": "town2",
     "text": "You are back in the Town Square. Where do you wish to go now?<br>",
-    "buttons": [
-    {"label": "Enter Tavern", "route": "tavern", "type": "scene"}]
+    "buttons": [{"label": "Enter Tavern", "route": "tavern", "type": "scene"}]
   },
   "barkeep2": {
     "name": "barkeep2",
@@ -162,7 +161,7 @@ export const dialogs = {
   },
   "croakers_details": {
     "name": "croakers_details",
-    "text": "Just outside of town the Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
+    "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
     "buttons": [
       {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
       {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
@@ -208,7 +207,7 @@ export const dialogs = {
   },
   "buy_items": {
     "name": "buy_items",
-    "text": "SHOPPE OWNER:<BR>I've got swords and blunt weapons. I also buy items",
+    "text": "SHOPPE OWNER:<BR>Right now I've got swords and blunt weapons.",
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
@@ -217,10 +216,10 @@ export const dialogs = {
   },
   "swords": {
     "name": "swords",
-    "text": "SHOPPE OWNER:<BR>I've got a long sword (1-10 damage) and a broad sword (10-15 damage)",
+    "text": "SHOPPE OWNER:<BR>I've got a short sword (1-10 damage) and a broad sword (10-15 damage)",
     "buttons": [
-      {"label": "buy long sword (20gp)", "route": "buy_longsword", "type": "buy"},
-      {"label": "buy broadsword (60gp)", "route": "buy_broadsword", "type": "buy"},
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}     
     ]
   },
@@ -232,8 +231,8 @@ export const dialogs = {
       {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"}      
     ]
   },
-  "buy_longsword": {
-    "name": "buy_longsword",
+  "buy_shortsword": {
+    "name": "buy_shortsword",
     "text": "Thanks very much, don't poke your eye out.",
     "buttons": [
     {"label": "BUY", "route": "buy_items", "type": "dialog"},
@@ -268,6 +267,28 @@ export const dialogs = {
       {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
   },
+  "broke": {
+    "name": "broke",
+    "text": "You do not have enough gold!",
+    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
+  },
+  "sell_items": {
+    "name": "sell_items",
+    "text": "Ok! whattaya got?",
+    "buttons": [
+      {"label": "show sellable items", "route": "sellable_items", "type": "inventory"}
+    ]
+  },  
+  "sellable_items": {
+    "name": "sellable_items",
+    "text": "Sell:<br>",
+    "buttons": []
+  },
+  "sold": {
+    "name": "sold",
+    "text": "Sold!",
+    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
+  },  
   "croakers_quest": {
     "name": "croakers_quest",
     "text": "",
@@ -281,10 +302,6 @@ export const dialogs = {
     "buttons": [
 
     ]
-  },
-  "broke": {
-    "name": "broke",
-    "text": "You do not have enough gold!",
-    "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
   }
+  
 }
