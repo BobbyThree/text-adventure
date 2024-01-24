@@ -286,7 +286,7 @@ export const dialogs = {
   },
   "sold": {
     "name": "sold",
-    "text": "Thx, here ya go",
+    "text": "Sold!",
     "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
   },  
   "croakers_quest": {

@@ -126,6 +126,3 @@ function sellFromInventory() {
   })
 }
 
-let str = 'wooden sword';
-let saleItem = 'sell_'+ str; 
-console.log(saleItem.replace(/\s+/g, ''));

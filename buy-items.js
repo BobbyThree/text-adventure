@@ -23,5 +23,5 @@ export const buyItems = {
     "name": "buy_warhammer",
     "item": "warhammer",
     "cost": 100
-  }
+  },  
 }
