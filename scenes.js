@@ -50,7 +50,17 @@ export const scenes = {
     "shoppe": {
       "name": "shoppe",
       "background": "url('/images/shoppe.png')"
+    },
+    "inn": {
+      "name": "inn",
+      "background": "url('/images/inn.png')"
+    }, 
+    "farm": {
+      "name": "farm",
+      "background": "url('/images/farm.png')"
+    }, 
+    "abyssal": {
+      "name": "abyssal",
+      "background": "url('/images/abyssal.png')"
     }
-    
-    
   }

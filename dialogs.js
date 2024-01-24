@@ -288,7 +288,53 @@ export const dialogs = {
     "name": "sold",
     "text": "Sold!",
     "buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
-  },  
+  },
+  "inn": {
+    "name": "inn",
+    "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
+    "buttons": [
+      {"label": "buy a room (full HP restore)", "route": "inn_sleep", "type": "buy"},
+      {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
+  ]
+  },
+  "inn_sleep": {
+    "name": "inn_sleep",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",
+    "buttons": [
+      {"label": "exit to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
+  ]
+  },
+  "halfling_info2": {
+    "name": "halfling_info2",
+    "text": "Come to think of it, yes, a halfling girl stayed here a couple nights ago. She went up to work at the chicken farm on the outskirts of town.",
+    "buttons": [
+      {"label": "Excellent! Can you tell me how to get there?", "route": "directions", "type": "dialog"},      
+  ]
+  },     
+  "directions": {
+    "name": "directions",
+    "text": "You listen as they give detailed directions to the farm in true small town fashion - go over the hill and then when it turns more woodsey, turn left...and so on.<br>",
+    "buttons": [
+      {"label": "Head to the chicken farm!", "route": "farm", "type": "scene"},      
+      {"label": "buy a room and rest up first", "route": "inn_sleep", "type": "buy"},      
+  ]
+  },     
+  "farm": {
+    "name": "farm",
+    "text": "You follow the inn keeper's old-timey directions until you see the chicken farm in the distance. Something doesn't feel right...<br>",
+    "buttons": [
+      {"label": "get a closer look", "route": "abyssal", "type": "scene"},      
+      {"label": "Go back to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
+  ]
+  },     
+  "abyssal": {
+    "name": "abyssal",
+    "text": "As you approach the farm you see what the problem is. These chickens have tuned ABYSMALL!!! Prepare for battle.<br>",
+    "buttons": [
+      {"label": "attack abyssal chicken", "route": "", "type": ""},      
+      {"label": "attempt to run", "route": "", "type": ""},      
+  ]
+  },     
   "croakers_quest": {
     "name": "croakers_quest",
     "text": "",
