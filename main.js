@@ -1,15 +1,19 @@
+//modules
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
 import { buyItems } from '/buy-items.js';
-import { sellItems } from '/sell-items.js'
-
+import { sellItems } from '/sell-items.js';
+import { weapons } from '/weapons.js';
+import { monsters } from '/monsters.js';
 
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
 let buyData = JSON.parse(JSON.stringify(buyItems));
 let sellData = JSON.parse(JSON.stringify(sellItems));
+let weaponData = JSON.parse(JSON.stringify(weapons));
+let monsterData = JSON.parse(JSON.stringify(monsters));
 
-// variables & selectors
+//variables & selectors
 let xp = 0;
 let hp = 50;
 let gp = 100;
@@ -54,6 +58,9 @@ function clickHandler(buttonType, route) {
     case 'inventory':      
       changeDialog(route.name);      
       sellFromInventory(route.name);            
+      break;  
+    case 'attack':      
+      attack();            
       break;  
   }
 }      
@@ -126,3 +133,6 @@ function sellFromInventory() {
   })
 }
 
+function attack() {
+
+}
