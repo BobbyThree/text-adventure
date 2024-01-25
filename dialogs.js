@@ -102,7 +102,7 @@ export const dialogs = {
     "buttons": [
       {"label": "Buy ale", "route": "ale", "type": "dialog"},
       {"label": "Buy milk (which is also ale)", "route": "milk", "type": "dialog"},
-      {"label": "Leave tavern", "route": "town2", "type": "scene"}
+      {"label": "back", "route": "tavern2", "type": "scene"}
     ]
   },
   "quests": {
@@ -293,13 +293,20 @@ export const dialogs = {
     "name": "inn",
     "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
     "buttons": [
-      {"label": "buy a room (full HP restore)", "route": "inn_sleep", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_pay", "type": "buy"},
       {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
+  ]
+  },
+  "inn_pay": {
+    "name": "inn_pay",
+    "text": "Thank you! ",    
+    "buttons": [
+      {"label": "Go to room", "route": "inn_sleep", "type": "scene"},      
   ]
   },
   "inn_sleep": {
     "name": "inn_sleep",
-    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
   ]
@@ -316,7 +323,7 @@ export const dialogs = {
     "text": "You listen as they give detailed directions to the farm in true small town fashion - go over the hill and then when it turns more woodsey, turn left...and so on.<br>",
     "buttons": [
       {"label": "Head to the chicken farm!", "route": "farm", "type": "scene"},      
-      {"label": "buy a room and rest up first", "route": "inn_sleep", "type": "buy"},      
+      {"label": "buy a room and rest up first", "route": "inn_pay", "type": "dialog"},      
   ]
   },     
   "farm": {
