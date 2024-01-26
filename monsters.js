@@ -1,6 +1,6 @@
 export const monsters = {
-  "abyssal_chicken": {
-    "name": "abyssal_chicken",
+  "chicken": {
+    "name": "chicken",
     "hp": 20,
     "min_damage": 1,
     "max_damage": 6

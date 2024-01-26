@@ -133,13 +133,15 @@ function sellFromInventory() {
   })
 }
 
-function attack(weaponName) {
+function attack(weaponName, monsterName) {
   let minDamage = weaponData[weaponName].min_damage;
-  let maxDamage = weaponData[weaponName].max_damage; 
+  let maxDamage = weaponData[weaponName].max_damage;  
+  let monsterHp =  monsterData[monsterName].hp
+  //TODO: write logic to pass specific weapon/monster as args
   const accuracy = Math.random();
-  if(accuracy < 2/3) {
-    damage(minDamage, maxDamage);
-    //TODO: deduct hp from monster 
+  if(accuracy < 2/3) {    
+    monsterHp-= damage(minDamage, maxDamage); 
+    console.log(monsterHp); 
   } else {
     txt.innerHTML = 'miss';
     //TODO: create button to continue battle
@@ -148,8 +150,6 @@ function attack(weaponName) {
 
 function damage(min, max) {
   min = Math.ceil(min);
-  max = Math.floor(max);
+  max = Math.floor(max);  
   return Math.floor(Math.random() * (max - min) + min);
 }
-
-
