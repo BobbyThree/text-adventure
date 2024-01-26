@@ -22,6 +22,7 @@ let inv = ['wooden sword'];
 const xpTxt = document.querySelector('#xp-txt');
 const hpTxt = document.querySelector('#hp-txt');
 const gpTxt = document.querySelector('#gp-txt');
+const weaponTxt = document.querySelector('#weapon-txt');
 const invTxt = document.querySelector('#inv-txt');
 const txt = document.querySelector('#txt');
 const screen = document.querySelector('#screen'); 
@@ -59,8 +60,9 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name);      
       sellFromInventory(route.name);            
       break;  
-    case 'attack':      
-      attack();            
+    case 'battle':
+      changeDialog(route.name);      
+      chooseWeapon();            
       break;  
   }
 }      
@@ -133,17 +135,37 @@ function sellFromInventory() {
   })
 }
 
+function chooseWeapon() {
+  inv.forEach((e) => {
+    let tempBtn = document.createElement('button');
+    tempBtn.innerHTML = e;
+    txt.appendChild(tempBtn);    
+    
+    tempBtn.onclick = () => {
+      let str = e;
+      let currentWeapon = str.replace(/\s+/g, '');      
+      let currentMonster = 'chicken';//test.
+      attack(currentWeapon, currentMonster);      
+    };  
+  })
+}
+
 function attack(weaponName, monsterName) {
   let minDamage = weaponData[weaponName].min_damage;
   let maxDamage = weaponData[weaponName].max_damage;  
   let monsterHp =  monsterData[monsterName].hp
-  //TODO: write logic to pass specific weapon/monster as args
+    
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
-    monsterHp-= damage(minDamage, maxDamage); 
-    console.log(monsterHp); 
+    monsterHp -= damage(minDamage, maxDamage);
+    console.log(monsterHp);     
   } else {
-    txt.innerHTML = 'miss';
+    txt.innerHTML = 'miss!<br>';
+    const tempBtn = document.createElement('button');
+    txt.appendChild(tempBtn);
+    tempBtn.innerHTML = 'Next';
+    tempBtn.onclick = () => monsterAttack();
+    
     //TODO: create button to continue battle
   }
 }
@@ -152,4 +174,24 @@ function damage(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);  
   return Math.floor(Math.random() * (max - min) + min);
+}
+
+function monsterAttack(){
+  let minDamage = monsterData['chicken'].min_damage;//test
+  let maxDamage = monsterData['chicken'].max_damage;//test
+    
+  const accuracy = Math.random();
+  if(accuracy < 2/3) {    
+    hp -= damage(minDamage, maxDamage);
+    console.log(hp);     
+  } else {
+    txt.innerHTML = 'miss!<br>';
+    const tempBtn = document.createElement('button');
+    txt.appendChild(tempBtn);
+    tempBtn.innerHTML = 'Next';
+    tempBtn.onclick = () => {
+      changeDialog('chicken_battle');
+      chooseWeapon();
+    }    
+  }
 }
