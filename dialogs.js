@@ -344,7 +344,7 @@ export const dialogs = {
   },     
   "chicken_battle": {
     "name": "chicken_battle",
-    "text": "Choose you weapon<br>",
+    "text": "Choose you weapon<br>",    
     "buttons": []
   },     
   "croakers_quest": {

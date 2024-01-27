@@ -5,6 +5,7 @@ import { buyItems } from '/buy-items.js';
 import { sellItems } from '/sell-items.js';
 import { weapons } from '/weapons.js';
 import { monsters } from '/monsters.js';
+import { battles } from '/battles.js';
 
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
@@ -12,6 +13,7 @@ let buyData = JSON.parse(JSON.stringify(buyItems));
 let sellData = JSON.parse(JSON.stringify(sellItems));
 let weaponData = JSON.parse(JSON.stringify(weapons));
 let monsterData = JSON.parse(JSON.stringify(monsters));
+let battleData = JSON.parse(JSON.stringify(battles));
 
 //variables & selectors
 let xp = 0;
@@ -143,8 +145,9 @@ function chooseWeapon() {
     
     tempBtn.onclick = () => {
       let str = e;
-      let currentWeapon = str.replace(/\s+/g, '');      
-      let currentMonster = 'chicken';//test.
+      let currentWeapon = str.replace(/\s+/g, '');
+      weaponTxt.innerHTML = currentWeapon;      
+      let currentMonster = 'chicken'; //test
       attack(currentWeapon, currentMonster);      
     };  
   })
@@ -153,7 +156,7 @@ function chooseWeapon() {
 function attack(weaponName, monsterName) {
   let minDamage = weaponData[weaponName].min_damage;
   let maxDamage = weaponData[weaponName].max_damage;  
-  let monsterHp =  monsterData[monsterName].hp
+  let monsterHp =  monsterData[monsterName].hp;
     
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
@@ -183,6 +186,7 @@ function monsterAttack(){
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
     hp -= damage(minDamage, maxDamage);
+    hpTxt.innerHTML = hp;
     console.log(hp);     
   } else {
     txt.innerHTML = 'miss!<br>';
