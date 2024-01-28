@@ -62,9 +62,9 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name);      
       sellFromInventory(route.name);            
       break;  
-    case 'battle':
+    case 'chicken_battle':
       changeDialog(route.name);      
-      chooseWeapon();            
+      battle('chicken');            
       break;  
   }
 }      
@@ -137,7 +137,8 @@ function sellFromInventory() {
   })
 }
 
-function chooseWeapon() {
+function battle(currentMonster) {
+  //select weapon
   inv.forEach((e) => {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
@@ -146,9 +147,8 @@ function chooseWeapon() {
     tempBtn.onclick = () => {
       let str = e;
       let currentWeapon = str.replace(/\s+/g, '');
-      weaponTxt.innerHTML = currentWeapon;      
-      let currentMonster = 'chicken'; //test
-      attack(currentWeapon, currentMonster);      
+      weaponTxt.innerHTML = currentWeapon;     
+      attack(currentWeapon, currentMonster);     
     };  
   })
 }
@@ -156,20 +156,23 @@ function chooseWeapon() {
 function attack(weaponName, monsterName) {
   let minDamage = weaponData[weaponName].min_damage;
   let maxDamage = weaponData[weaponName].max_damage;  
-  let monsterHp =  monsterData[monsterName].hp;
+  let monsterHp = monsterData[monsterName].hp;
     
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
     monsterHp -= damage(minDamage, maxDamage);
-    console.log(monsterHp);     
+    console.log(`monster HP: ${monsterHp}`); //TODO: stop monsterHp from resetting
+    txt.innerHTML = 'HIT!'
+    const tempBtn = document.createElement('button');
+    txt.appendChild(tempBtn);
+    tempBtn.innerHTML = 'Next';
+    tempBtn.onclick = () => monsterAttack(monsterName);     
   } else {
     txt.innerHTML = 'miss!<br>';
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
-    tempBtn.onclick = () => monsterAttack();
-    
-    //TODO: create button to continue battle
+    tempBtn.onclick = () => monsterAttack(monsterName);    
   }
 }
 
@@ -179,23 +182,25 @@ function damage(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function monsterAttack(){
-  let minDamage = monsterData['chicken'].min_damage;//test
-  let maxDamage = monsterData['chicken'].max_damage;//test
+function monsterAttack(monsterName){  
+  let minDamage = monsterData[monsterName].min_damage;
+  let maxDamage = monsterData[monsterName].max_damage;
     
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
     hp -= damage(minDamage, maxDamage);
     hpTxt.innerHTML = hp;
-    console.log(hp);     
+    console.log(`Player HP: ${hp}`);
+         
   } else {
     txt.innerHTML = 'miss!<br>';
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
     tempBtn.onclick = () => {
-      changeDialog('chicken_battle');
-      chooseWeapon();
+      changeDialog('battle');
+      battle(monsterName);
     }    
   }
 }
+

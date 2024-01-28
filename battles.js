@@ -18,6 +18,5 @@ export const battles = {
     "min_damage": 1,
     "max_damage": 6
     },
-
   }
 }

@@ -336,14 +336,14 @@ export const dialogs = {
   },     
   "abyssal": {
     "name": "abyssal",
-    "text": "As you approach the farm you see what the problem is. These chickens have tuned ABYSMALL!!! Prepare for battle.<br>",
+    "text": "As you approach the farm you see what the problem is. These chickens have tuned ABYSSALL!!! Prepare for battle.<br>",
     "buttons": [
-      {"label": "attack abyssal chicken", "route": "chicken_battle", "type": "battle"},      
+      {"label": "attack abyssal chicken", "route": "battle", "type": "chicken_battle"},      
       {"label": "attempt to run", "route": "", "type": ""},      
   ]
   },     
-  "chicken_battle": {
-    "name": "chicken_battle",
+  "battle": {
+    "name": "battle",
     "text": "Choose you weapon<br>",    
     "buttons": []
   },     
