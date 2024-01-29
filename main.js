@@ -28,6 +28,7 @@ const weaponTxt = document.querySelector('#weapon-txt');
 const invTxt = document.querySelector('#inv-txt');
 const txt = document.querySelector('#txt');
 const screen = document.querySelector('#screen'); 
+const monsterHpText = document.querySelector('#monster-hp-txt'); 
 
 
 //initialize game
@@ -161,7 +162,9 @@ function attack(weaponName, monsterName) {
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
     monsterHp -= damage(minDamage, maxDamage);
-    console.log(`monster HP: ${monsterHp}`); //TODO: stop monsterHp from resetting
+    console.log(`monster HP: ${monsterHp}`); 
+    //TODO: update monster hp
+
     txt.innerHTML = 'HIT!'
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
@@ -191,16 +194,33 @@ function monsterAttack(monsterName){
     hp -= damage(minDamage, maxDamage);
     hpTxt.innerHTML = hp;
     console.log(`Player HP: ${hp}`);
+    
+    txt.innerHTML = `The ${monsterName} attacks...HIT!`    
+    const tempBtn = document.createElement('button');
+    txt.appendChild(tempBtn);
+    tempBtn.innerHTML = 'Next';
+    if(hp <= 0) {
+      killPlayer();
+    } 
+    tempBtn.onclick = () => {
+      changeDialog('battle');
+      battle(monsterName);
+    }
          
   } else {
-    txt.innerHTML = 'miss!<br>';
+    txt.innerHTML = `The ${monsterName} attacks...MISS!`;
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
     tempBtn.onclick = () => {
       changeDialog('battle');
-      battle(monsterName);
+      battle(monsterName);  
     }    
   }
 }
 
+function killPlayer() {
+  changeDialog('kill_player');
+  changeScene('kill_player');
+  createButtons('kill_player');
+}

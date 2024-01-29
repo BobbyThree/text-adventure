@@ -66,5 +66,9 @@ export const scenes = {
     "abyssal": {
       "name": "abyssal",
       "background": "url('/images/abyssal.png')"
+    },
+    "kill_player": {
+      "name": "kill_player",
+      "background": "url('images/you-died.png')"
     }
   }

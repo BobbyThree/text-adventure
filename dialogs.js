@@ -345,7 +345,12 @@ export const dialogs = {
   "battle": {
     "name": "battle",
     "text": "Choose you weapon<br>",    
-    "buttons": []
+    //"buttons": []
+  },  
+  "kill_player": {
+    "name": "kill_player",
+    "text": "You died.",
+    "buttons": [{"label": "restart game", "route": "title", "type": "scene"}]
   },     
   "croakers_quest": {
     "name": "croakers_quest",
