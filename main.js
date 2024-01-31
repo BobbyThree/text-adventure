@@ -51,7 +51,7 @@ function clickHandler(buttonType, route) {
       break;     
     case 'buy':      
       changeDialog(route.name); 
-      createButtons(route.name);
+      createButtons(route.name);      
       buyItem(route.name);
       break; 
     case 'sell':
@@ -157,18 +157,21 @@ function battle(currentMonster) {
 function attack(weaponName, monsterName) {
   let minDamage = weaponData[weaponName].min_damage;
   let maxDamage = weaponData[weaponName].max_damage;  
-  let monsterHp = monsterData[monsterName].hp;
+  let monsterHp = monsterData[monsterName].hp;  
     
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
     monsterHp -= damage(minDamage, maxDamage);
     console.log(`monster HP: ${monsterHp}`); 
-    //TODO: update monster hp
-
-    txt.innerHTML = 'HIT!'
+    //update monster hp
+    monsterData[monsterName].hp = monsterHp;
+    txt.innerHTML = `HIT! ${monsterName} takes damage`
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
+    if(monsterHp <= 0) {
+      killMonster(monsterName); //TODO: queue another chicken
+    }
     tempBtn.onclick = () => monsterAttack(monsterName);     
   } else {
     txt.innerHTML = 'miss!<br>';
@@ -214,7 +217,8 @@ function monsterAttack(monsterName){
     tempBtn.innerHTML = 'Next';
     tempBtn.onclick = () => {
       changeDialog('battle');
-      battle(monsterName);  
+      battle(monsterName);
+        
     }    
   }
 }
@@ -223,4 +227,12 @@ function killPlayer() {
   changeDialog('kill_player');
   changeScene('kill_player');
   createButtons('kill_player');
+}
+
+function killMonster(monsterName) {
+  if (monsterName === 'chicken') {
+    changeDialog('kill_chicken');
+    createButtons('kill_chicken')
+    changeScene('farm');
+  }
 }

@@ -293,7 +293,7 @@ export const dialogs = {
     "name": "inn",
     "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_pay", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
       {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
   ]
   },
@@ -351,6 +351,11 @@ export const dialogs = {
     "name": "kill_player",
     "text": "You died.",
     "buttons": [{"label": "restart game", "route": "title", "type": "scene"}]
+  },     
+  "kill_chicken": {
+    "name": "kill_chicken",
+    "text": "You killed the Abyssal Chicken!",
+    "buttons": [{"label": "search barn", "route": "barn", "type": "scene"}]
   },     
   "croakers_quest": {
     "name": "croakers_quest",
