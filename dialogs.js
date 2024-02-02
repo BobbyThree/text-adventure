@@ -86,7 +86,10 @@ export const dialogs = {
   "town2": {
     "name": "town2",
     "text": "You are back in the Town Square. Where do you wish to go now?<br>",
-    "buttons": [{"label": "Enter Tavern", "route": "tavern", "type": "scene"}]
+    "buttons": [
+      {"label": "Enter Tavern", "route": "tavern", "type": "scene"},
+      {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
+    ]
   },
   "barkeep2": {
     "name": "barkeep2",
@@ -313,7 +316,7 @@ export const dialogs = {
   "sellable_items": {
     "name": "sellable_items",
     "text": "Sell:<br>",
-    "buttons": []
+    //"buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
   },
   "sold": {
     "name": "sold",
@@ -330,10 +333,10 @@ export const dialogs = {
   },
   "inn2": {
     "name": "inn2",
-    "text": "Would you like a room?",
+    "text": "You're back! Would you like a room?",
     "buttons": [
       {"label": "Pay for a room", "route": "inn_sleep2", "type": "buy"},
-      {"label": "back", "route": "Aurochsmaw", "type": "scene"}
+      {"label": "back", "route": "aurochsmaw", "type": "scene"}
   ]
   },
   "inn_pay": {
@@ -420,6 +423,14 @@ export const dialogs = {
       {"label": "Go to farm", "route": "barn", "type": "scene"}
     ]
   },     
+  "aurochsmaw2": {
+    "name": "aurochsmaw2",
+    "text": "You are back in Aurochmaw's town center. The Inn and Weapon Shoppe are open.",
+    "buttons": [
+      {"label": "Go to shoppe", "route": "shoppe2", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn2", "type": "scene"}      
+    ]
+  },     
   "hayloft": {
     "name": "hayloft",
     "text": "You climb up the old wood ladder into the hayloft. The pile of hay in the corner is moving and as you approach, hoping dearly it isn't more chickens, the muffled noises become recognizable as human in nature. It sounds like whimpering.<br>",
@@ -431,11 +442,23 @@ export const dialogs = {
   },     
   "halfling_girl_main": {
     "name": "halfling_girl_main",
-    "text": "From the rustling hay mow appears the missing halfling girl!",
+    "text": "From the rustling hay mow appears a halfling girl!",
     "buttons": [
-      {"label": "", "route": "", "type": "dialog"},
-      {"label": "", "route": "", "type": "dialog"},
-      {"label": "", "route": "", "type": "dialog"}
+      {"label": "Are you the missing halfling girl? The barkeeps daughter?", "route": "halfling_girl_main2", "type": "dialog"}      
+    ]
+  },     
+  "halfling_girl_main2": {
+    "name": "halfling_girl_main2",
+    "text": "Yes, I came up here for work and suddenly all the chickens turned into these dusgusting creatures and killed off all the farmers. I've been hiding in this barn ever since. Thank goodness you've come. Are the chickens gone?",
+    "buttons": [
+      {"label": "Yes, I have defeated the chickens. Let's get you back to Ixonia and to your mother.", "route": "halfling_girl_main3", "type": "dialog"}      
+    ]
+  },     
+  "halfling_girl_main3": {
+    "name": "halfling_girl_main3",
+    "text": "Thank you. Let's go!",
+    "buttons": [
+      {"label": "Return to Ixonia", "route": "halfling_complete", "type": "scene"}      
     ]
   },     
   "halfling_girl_funny": {
@@ -450,6 +473,30 @@ export const dialogs = {
     "text": "Go away!",
     "buttons": [
       {"label": "I didn't mean to shout...please come out, it's safe now.", "route": "halfling_girl_main", "type": "dialog"}      
+    ]
+  },     
+  "halfling_complete": {
+    "name": "halfling_complete",
+    "text": "BARKEEP: Thank goodness you have returned my daughter to me! I was worried sick! As promised the reward is this exuisite longbow. It was a gift to our town from, the elves.We halflings are too small to use such a weapon. I hope it proves usefuil to you in some way. Thank you for your bravery!",
+    "buttons": [
+      {"label": "Accept reward", "route": "accept_longbow", "type": "buy"}      
+    ]
+  },     
+  "accept_longbow": {
+    "name": "accept_longbow",
+    "text": "You accept the longbow.",
+    "buttons": [
+      {"label": "back", "route": "town2", "type": "scene"},      
+      {"label": "talk to roger", "route": "roger2", "type": "scene"},      
+      {"label": "look at quest board", "route": "quests", "type": "scene"},      
+    ]
+  },     
+  "roger2": {
+    "name": "roger2",
+    "text": "Hey buddy, Great job bringing Esmee's daughter back. Wanna talk about the other quests?",
+    "buttons": [
+      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
+      {"label": "Beholder", "route": "beholder_details", "type": "dialog"}      
     ]
   },     
   "croakers_quest": {

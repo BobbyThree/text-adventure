@@ -39,6 +39,10 @@ export const scenes = {
       "name": "patron",
       "background": "url('/images/roger.png')"
     },
+    "roger2": {
+      "name": "patron",
+      "background": "url('/images/roger.png')"
+    },
     "quests": {
       "name": "quests",
       "background": "url('/images/quests.png')"
@@ -86,5 +90,9 @@ export const scenes = {
     "aurochsmaw": {
       "name": "aurochsmaw",
       "background": "url('/images/aurochsmaw.png')"
+    },
+    "halfling_complete": {
+      "name": "halfing_complete",
+      "background": "url('/images/barkeep.png')"
     },
   }

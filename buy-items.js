@@ -53,5 +53,10 @@ export const buyItems = {
     "name": "inn_sleep2",
     "item": "mint",
     "cost": 20
+  },  
+  "accept_longbow": {
+    "name": "accept_longbow",
+    "item": "longbow",
+    "cost": 0
   }  
 }
