@@ -30,6 +30,7 @@ const txt = document.querySelector('#txt');
 const screen = document.querySelector('#screen'); 
 const monsterHpSpan = document.querySelector('#monster-hp-span'); 
 const monsterHpTxt = document.querySelector('#monster-hp-txt'); 
+const invSpan = document.querySelector('#inv-span'); 
 
 
 //initialize game

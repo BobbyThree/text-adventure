@@ -31,6 +31,10 @@ export const scenes = {
       "name": "tavern2",
       "background": "url('./images/tavern.png')"           
     },
+    "tavern3": {
+      "name": "tavern3",
+      "background": "url('./images/tavern.png')"           
+    },
     "barkeep2": {
       "name": "barkeep2",
       "background": "url('/images/barkeep.png')"         

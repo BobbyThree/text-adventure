@@ -58,5 +58,10 @@ export const buyItems = {
     "name": "accept_longbow",
     "item": "longbow",
     "cost": 0
+  },  
+  "accept_blood": {
+    "name": "accept_blood",
+    "item": "Unicorn Blood",
+    "cost": 0
   }  
 }

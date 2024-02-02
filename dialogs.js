@@ -80,6 +80,15 @@ export const dialogs = {
     "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "talk to patron", "route": "patron", "type": "scene"},
       {"label": "Look at quests", "route": "quests", "type": "scene"},
+      {"label": "Leave tavern", "route": "town", "type": "scene"}
+    ]
+  },
+  "tavern3": {
+    "name": "tavern3",
+    "text": "",
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
+      {"label": "talk to Roger", "route": "roger2", "type": "scene"},
+      {"label": "Look at quests", "route": "quests", "type": "scene"},
       {"label": "Leave tavern", "route": "town2", "type": "scene"}
     ]
   },
@@ -87,16 +96,15 @@ export const dialogs = {
     "name": "town2",
     "text": "You are back in the Town Square. Where do you wish to go now?<br>",
     "buttons": [
-      {"label": "Enter Tavern", "route": "tavern", "type": "scene"},
+      {"label": "Enter Tavern", "route": "tavern3", "type": "scene"},
       {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
     ]
   },
   "barkeep2": {
     "name": "barkeep2",
-    "text": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
+    "text": "Looks like you've proven yourself enough to deserve my precious Unicorn Blood. Here ya go, it's on the house!",
     "buttons": [
-      {"label": "Yea! I did the thing", "route": "", "type": "dialog"},
-      {"label": "Nah, I'm still working on it", "route": "", "type": "dialog"}
+      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy"}      
     ]    
   },
   "buy_ale": {
@@ -237,7 +245,7 @@ export const dialogs = {
       {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
       {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
       {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
-      {"label": "exit", "route": "aurochsmaw2", "type": "dialog"}
+      {"label": "exit", "route": "aurochsmaw2", "type": "scene"}
     ]
   },
   "halfling_info": {
@@ -541,6 +549,13 @@ export const dialogs = {
     "buttons": [
       {"label": "Bullywug Croakers", "route": "croakers_details2", "type": "dialog"},
       {"label": "Beholder", "route": "beholder_details2", "type": "dialog"}      
+    ]
+  },     
+  "accept_blood": {
+    "name": "accept_blood",
+    "text": "You take the Unicorn Blood",
+    "buttons": [
+      {"label": "Back", "route": "tavern3", "type": "scene"}            
     ]
   },     
   "croakers_quest": {
