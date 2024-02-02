@@ -28,7 +28,8 @@ const weaponTxt = document.querySelector('#weapon-txt');
 const invTxt = document.querySelector('#inv-txt');
 const txt = document.querySelector('#txt');
 const screen = document.querySelector('#screen'); 
-const monsterHpText = document.querySelector('#monster-hp-txt'); 
+const monsterHpSpan = document.querySelector('#monster-hp-span'); 
+const monsterHpTxt = document.querySelector('#monster-hp-txt'); 
 
 
 //initialize game
@@ -148,7 +149,7 @@ function battle(currentMonster) {
     tempBtn.onclick = () => {
       let str = e;
       let currentWeapon = str.replace(/\s+/g, '');
-      weaponTxt.innerHTML = currentWeapon;     
+      weaponTxt.innerHTML = currentWeapon;      
       attack(currentWeapon, currentMonster);     
     };  
   })
@@ -157,7 +158,9 @@ function battle(currentMonster) {
 function attack(weaponName, monsterName) {
   let minDamage = weaponData[weaponName].min_damage;
   let maxDamage = weaponData[weaponName].max_damage;  
-  let monsterHp = monsterData[monsterName].hp;  
+  let monsterHp = monsterData[monsterName].hp;
+  monsterHpSpan.style.display = 'block';
+  monsterHpTxt.innerHTML = monsterHp;  
     
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
@@ -165,6 +168,7 @@ function attack(weaponName, monsterName) {
     console.log(`monster HP: ${monsterHp}`); 
     //update monster hp
     monsterData[monsterName].hp = monsterHp;
+    monsterHpTxt.innerHTML = monsterHp;
     txt.innerHTML = `HIT! ${monsterName} takes damage`
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
@@ -231,6 +235,7 @@ function killPlayer() {
 
 function killMonster(monsterName) {
   if (monsterName === 'chicken') {
+    monsterHpSpan.style.display = 'none';
     changeDialog('kill_chicken');
     createButtons('kill_chicken')
     changeScene('farm');

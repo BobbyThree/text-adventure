@@ -44,7 +44,7 @@ export const dialogs = {
     "text": "BARKEEP:<br>okayyyyyy well....What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
     "buttons": [
       {"label": "Gimme an ale", "route": "ale", "type": "dialog"},
-      {"label": "Lemme get a tal glass of milk", "route": "milk", "type": "dialog"},
+      {"label": "Lemme get a tall glass of milk", "route": "milk", "type": "dialog"},
       {"label": "Lemme get that Unicorn Blood!!", "route": "unicorn", "type": "dialog"}
     ]    
   },
@@ -355,7 +355,55 @@ export const dialogs = {
   "kill_chicken": {
     "name": "kill_chicken",
     "text": "You killed the Abyssal Chicken!",
-    "buttons": [{"label": "search barn", "route": "barn", "type": "scene"}]
+    "buttons": [{"label": "search barn", "route": "barn", "type": "dialog"}]
+  },     
+  "barn": {
+    "name": "barn",
+    "text": "You make your way past the recently deceased Abyssal Chickens and toward the barn. These chickens really wreaked havoc on this farm and it appears that those who stood and fought them were not so lucky as you. As you cautiously enter the barn you hear muffled noises up in the hayloft.",
+    "buttons": [
+      {"label": "investigate hayloft", "route": "hayloft", "type": "dialog"},
+      {"label": "get the H-E-double hockey sticks outta there!", "route": "aurochsmaw", "type": "scene"}
+  ]
+  },     
+  "aurochsmaw": {
+    "name": "aurochsmaw",
+    "text": "You retreat back to Aurochmaw. What now?",
+    "buttons": [
+      {"label": "Go to shoppe", "route": "shoppe", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn", "type": "scene"}
+    ]
+  },     
+  "hayloft": {
+    "name": "hayloft",
+    "text": "You climb up the old wood ladder into the hayloft. The pile of hay in the corner is moving and as you approach, hoping dearly it isn't more chickens, the muffled noises become recognizable as human in nature. It sounds like whimpering.<br>",
+    "buttons": [
+      {"label": "....helloooo?...", "route": "halfling_girl_main", "type": "dialog"},
+      {"label": "Um..haaayyyy", "route": "halfling_girl_funny", "type": "dialog"},
+      {"label": "Come out from there at once!!", "route": "halfling_girl_timid", "type": "dialog"}
+    ]
+  },     
+  "halfling_girl_main": {
+    "name": "halfling_girl_main",
+    "text": "",
+    "buttons": [
+      {"label": "", "route": "", "type": "dialog"},
+      {"label": "", "route": "", "type": "dialog"},
+      {"label": "", "route": "", "type": "dialog"}
+    ]
+  },     
+  "halfling_girl_funny": {
+    "name": "halfling_girl_funny",
+    "text": "Now is not the time for puns!",
+    "buttons": [
+      {"label": "My apologies, when I'm uncomfortable my only coping skill seems to be dad humor. Please come out from there, no more puns I promise.", "route": "halfling_girl_main", "type": "dialog"}      
+    ]
+  },     
+  "halfling_girl_timid": {
+    "name": "halfling_girl_timid",
+    "text": "Go away!",
+    "buttons": [
+      {"label": "", "route": "halfling_girl_main", "type": "dialog"}      
+    ]
   },     
   "croakers_quest": {
     "name": "croakers_quest",

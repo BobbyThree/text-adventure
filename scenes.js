@@ -70,5 +70,9 @@ export const scenes = {
     "kill_player": {
       "name": "kill_player",
       "background": "url('images/you-died.png')"
-    }
+    },
+    "aurochsmaw": {
+      "name": "aurochsmaw",
+      "background": "url('/images/aurochsmaw.png')"
+    },
   }
