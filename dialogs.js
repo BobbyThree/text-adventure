@@ -44,7 +44,7 @@ export const dialogs = {
     "text": "BARKEEP:<br>okayyyyyy well....What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
     "buttons": [
       {"label": "Gimme an ale", "route": "ale", "type": "dialog"},
-      {"label": "Lemme get a tal glass of milk", "route": "milk", "type": "dialog"},
+      {"label": "Lemme get a tall glass of milk", "route": "milk", "type": "dialog"},
       {"label": "Lemme get that Unicorn Blood!!", "route": "unicorn", "type": "dialog"}
     ]    
   },
@@ -102,7 +102,7 @@ export const dialogs = {
     "buttons": [
       {"label": "Buy ale", "route": "ale", "type": "dialog"},
       {"label": "Buy milk (which is also ale)", "route": "milk", "type": "dialog"},
-      {"label": "Leave tavern", "route": "town2", "type": "scene"}
+      {"label": "back", "route": "tavern2", "type": "scene"}
     ]
   },
   "quests": {
@@ -197,6 +197,15 @@ export const dialogs = {
       {"label": "Back", "route": "halfling_quest", "type": "scene"}
     ]
   },
+  "shoppe2": {
+    "name": "shoppe2",
+    "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
+    "buttons": [
+      {"label": "BUY", "route": "buy_items", "type": "dialog"},
+      {"label": "SELL", "route": "sell_items", "type": "dialog"},      
+      {"label": "Back", "route": "aurochsmaw", "type": "scene"}
+    ]
+  },
   "halfling_info": {
     "name": "halfling_info",
     "text": "I haven't seen any halflings come though my shop any time recently. Sorry friend.",
@@ -211,7 +220,7 @@ export const dialogs = {
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
-      {"label": "back", "route": "halfling_quest", "type": "scene"}      
+      {"label": "back", "route": "aurochsmaw", "type": "scene"}      
     ]
   },
   "swords": {
@@ -237,7 +246,7 @@ export const dialogs = {
     "buttons": [
     {"label": "BUY", "route": "buy_items", "type": "dialog"},
     {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-    {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+    {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
   ]    
   },
   "buy_broadsword": {
@@ -246,7 +255,7 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
     ]  
   },
   "buy_morningstar": {
@@ -255,7 +264,7 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
     ] 
   },
   "buy_warhammer": {
@@ -264,7 +273,7 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
     ] 
   },
   "broke": {
@@ -293,13 +302,28 @@ export const dialogs = {
     "name": "inn",
     "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
     "buttons": [
-      {"label": "buy a room (full HP restore)", "route": "inn_sleep", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
       {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
+  ]
+  },
+  "inn2": {
+    "name": "inn2",
+    "text": "Would you like a room?",
+    "buttons": [
+      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
+      {"label": "back", "route": "Aurochsmaw", "type": "scene"}
+  ]
+  },
+  "inn_pay": {
+    "name": "inn_pay",
+    "text": "Thank you! ",    
+    "buttons": [
+      {"label": "Go to room", "route": "inn_sleep", "type": "scene"},      
   ]
   },
   "inn_sleep": {
     "name": "inn_sleep",
-    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
   ]
@@ -316,7 +340,7 @@ export const dialogs = {
     "text": "You listen as they give detailed directions to the farm in true small town fashion - go over the hill and then when it turns more woodsey, turn left...and so on.<br>",
     "buttons": [
       {"label": "Head to the chicken farm!", "route": "farm", "type": "scene"},      
-      {"label": "buy a room and rest up first", "route": "inn_sleep", "type": "buy"},      
+      {"label": "buy a room and rest up first", "route": "inn_pay", "type": "dialog"},      
   ]
   },     
   "farm": {
@@ -324,16 +348,80 @@ export const dialogs = {
     "text": "You follow the inn keeper's old-timey directions until you see the chicken farm in the distance. Something doesn't feel right...<br>",
     "buttons": [
       {"label": "get a closer look", "route": "abyssal", "type": "scene"},      
-      {"label": "Go back to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
+      {"label": "Go back to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
   ]
   },     
   "abyssal": {
     "name": "abyssal",
-    "text": "As you approach the farm you see what the problem is. These chickens have tuned ABYSMALL!!! Prepare for battle.<br>",
+    "text": "As you approach the farm you see what the problem is. These chickens have tuned ABYSSALL!!! Prepare for battle.<br>",
     "buttons": [
-      {"label": "attack abyssal chicken", "route": "", "type": ""},      
+      {"label": "attack abyssal chicken", "route": "battle", "type": "chicken_battle"},      
       {"label": "attempt to run", "route": "", "type": ""},      
   ]
+  },     
+  "battle": {
+    "name": "battle",
+    "text": "Choose you weapon<br>",    
+    //"buttons": []
+  },  
+  "kill_player": {
+    "name": "kill_player",
+    "text": "You died.",
+    "buttons": [{"label": "restart game", "route": "title", "type": "scene"}]
+  },     
+  "kill_chicken": {
+    "name": "kill_chicken",
+    "text": "You killed the Abyssal Chicken!",
+    "buttons": [{"label": "search barn", "route": "barn", "type": "dialog"}]
+  },     
+  "barn": {
+    "name": "barn",
+    "text": "You make your way past the recently deceased Abyssal Chickens and toward the barn. These chickens really wreaked havoc on this farm and it appears that those who stood and fought them were not so lucky as you. As you cautiously enter the barn you hear muffled noises up in the hayloft.",
+    "buttons": [
+      {"label": "investigate hayloft", "route": "hayloft", "type": "dialog"},
+      {"label": "get the H-E-double hockey sticks outta there!", "route": "aurochsmaw", "type": "scene"}
+  ]
+  },     
+  "aurochsmaw": {
+    "name": "aurochsmaw",
+    "text": "You are back in Aurochmaw's town center. What now?",
+    "buttons": [
+      {"label": "Go to shoppe", "route": "shoppe2", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn2", "type": "scene"},
+      {"label": "Go to farm", "route": "farm", "type": "scene"}
+    ]
+  },     
+  "hayloft": {
+    "name": "hayloft",
+    "text": "You climb up the old wood ladder into the hayloft. The pile of hay in the corner is moving and as you approach, hoping dearly it isn't more chickens, the muffled noises become recognizable as human in nature. It sounds like whimpering.<br>",
+    "buttons": [
+      {"label": "....helloooo?...", "route": "halfling_girl_main", "type": "dialog"},
+      {"label": "Um..haaayyyy", "route": "halfling_girl_funny", "type": "dialog"},
+      {"label": "Come out from there at once!!", "route": "halfling_girl_timid", "type": "dialog"}
+    ]
+  },     
+  "halfling_girl_main": {
+    "name": "halfling_girl_main",
+    "text": "From the rustling hay mow appears the missing halfling girl!",
+    "buttons": [
+      {"label": "", "route": "", "type": "dialog"},
+      {"label": "", "route": "", "type": "dialog"},
+      {"label": "", "route": "", "type": "dialog"}
+    ]
+  },     
+  "halfling_girl_funny": {
+    "name": "halfling_girl_funny",
+    "text": "Now is not the time for puns!",
+    "buttons": [
+      {"label": "My apologies, when I'm uncomfortable my only coping skill seems to be dad humor. Please come out from there, no more puns I promise.", "route": "halfling_girl_main", "type": "dialog"}      
+    ]
+  },     
+  "halfling_girl_timid": {
+    "name": "halfling_girl_timid",
+    "text": "Go away!",
+    "buttons": [
+      {"label": "I didn't mean to shout...please come out, it's safe now.", "route": "halfling_girl_main", "type": "dialog"}      
+    ]
   },     
   "croakers_quest": {
     "name": "croakers_quest",

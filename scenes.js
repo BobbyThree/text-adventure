@@ -51,10 +51,22 @@ export const scenes = {
       "name": "shoppe",
       "background": "url('/images/shoppe.png')"
     },
+    "shoppe2": {
+      "name": "shoppe",
+      "background": "url('/images/shoppe.png')"
+    },
     "inn": {
       "name": "inn",
       "background": "url('/images/inn.png')"
-    }, 
+    },
+    "inn2": {
+      "name": "inn",
+      "background": "url('/images/inn.png')"
+    },
+    "inn_sleep": {
+      "name": "inn_sleep",
+      "background": "url('/images/inn-room.png')"
+    },
     "farm": {
       "name": "farm",
       "background": "url('/images/farm.png')"
@@ -62,5 +74,13 @@ export const scenes = {
     "abyssal": {
       "name": "abyssal",
       "background": "url('/images/abyssal.png')"
-    }
+    },
+    "kill_player": {
+      "name": "kill_player",
+      "background": "url('images/you-died.png')"
+    },
+    "aurochsmaw": {
+      "name": "aurochsmaw",
+      "background": "url('/images/aurochsmaw.png')"
+    },
   }

@@ -5,18 +5,20 @@
 }
 
 body {
-  background-image: linear-gradient(to right, rgb(49, 130, 49), rgb(67, 181, 67));
+  background-image: linear-gradient(to right, rgb(59, 23, 23), rgb(94, 10, 10));
 }
 
 header h1 {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  color: blanchedalmond;
+  font-weight: 300;
 }
 
 #game {
   width: 700px;
-  height: 500px;
+  height: 550px;
   background-color: rgb(0, 0, 0);
   margin: 0 auto; 
   position: relative; 
@@ -34,6 +36,14 @@ header h1 {
   height: 400px;    
   margin: 30px 50px;
   position: relative;
+  top: 24px;
+}
+
+#monster-hp-span {
+  display: none;
+  position: absolute;
+  color: rgb(148, 201, 70);
+  padding: 10px;
 }
 
 #txt {
