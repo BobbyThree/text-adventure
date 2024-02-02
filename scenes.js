@@ -71,6 +71,10 @@ export const scenes = {
       "name": "farm",
       "background": "url('/images/farm.png')"
     }, 
+    "barn": {
+      "name": "barn",
+      "background": "url('/images/farm.png')"
+    }, 
     "abyssal": {
       "name": "abyssal",
       "background": "url('/images/abyssal.png')"

@@ -201,9 +201,11 @@ export const dialogs = {
     "name": "shoppe2",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "BUY", "route": "buy_items", "type": "dialog"},
-      {"label": "SELL", "route": "sell_items", "type": "dialog"},      
-      {"label": "Back", "route": "aurochsmaw", "type": "scene"}
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
+      {"label": "exit", "route": "aurochsmaw", "type": "dialog"}
     ]
   },
   "halfling_info": {
@@ -220,7 +222,7 @@ export const dialogs = {
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
-      {"label": "back", "route": "aurochsmaw", "type": "scene"}      
+      {"label": "back", "route": "halfling_quest", "type": "scene"}      
     ]
   },
   "swords": {
@@ -246,8 +248,13 @@ export const dialogs = {
     "buttons": [
     {"label": "BUY", "route": "buy_items", "type": "dialog"},
     {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-    {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+    {"label": "Exit", "route": "halfling_quest", "type": "scene"}
   ]    
+  },
+  "buy_shortsword2": {
+    "name": "buy_shortsword2",
+    "text": "Thanks very much, don't poke your eye out.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}]
   },
   "buy_broadsword": {
     "name": "buy_broadsword",
@@ -255,8 +262,13 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ]  
+  },
+  "buy_broadsword2": {
+    "name": "buy_broadsword2",
+    "text": "Pleasure doin business with ya.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}] 
   },
   "buy_morningstar": {
     "name": "buy_morningstar",
@@ -264,8 +276,13 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
+  },
+  "buy_morningstar2": {
+    "name": "buy_morningstar2",
+    "text": "Thank ye.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}] 
   },
   "buy_warhammer": {
     "name": "buy_warhammer",
@@ -273,8 +290,13 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
+  },
+  "buy_warhammer2": {
+    "name": "buy_warhammer2",
+    "text": "now you're cookin with gas!",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}]
   },
   "broke": {
     "name": "broke",
@@ -310,7 +332,7 @@ export const dialogs = {
     "name": "inn2",
     "text": "Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_sleep2", "type": "buy"},
       {"label": "back", "route": "Aurochsmaw", "type": "scene"}
   ]
   },
@@ -326,6 +348,13 @@ export const dialogs = {
     "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
+  ]
+  },
+  "inn_sleep2": {
+    "name": "inn_sleep2",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "buttons": [
+      {"label": "exit to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
   ]
   },
   "halfling_info2": {
@@ -388,7 +417,7 @@ export const dialogs = {
     "buttons": [
       {"label": "Go to shoppe", "route": "shoppe2", "type": "scene"},
       {"label": "Go to Inn", "route": "inn2", "type": "scene"},
-      {"label": "Go to farm", "route": "farm", "type": "scene"}
+      {"label": "Go to farm", "route": "barn", "type": "scene"}
     ]
   },     
   "hayloft": {
