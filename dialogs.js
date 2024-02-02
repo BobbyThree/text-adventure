@@ -197,6 +197,15 @@ export const dialogs = {
       {"label": "Back", "route": "halfling_quest", "type": "scene"}
     ]
   },
+  "shoppe2": {
+    "name": "shoppe2",
+    "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
+    "buttons": [
+      {"label": "BUY", "route": "buy_items", "type": "dialog"},
+      {"label": "SELL", "route": "sell_items", "type": "dialog"},      
+      {"label": "Back", "route": "aurochsmaw", "type": "scene"}
+    ]
+  },
   "halfling_info": {
     "name": "halfling_info",
     "text": "I haven't seen any halflings come though my shop any time recently. Sorry friend.",
@@ -211,7 +220,7 @@ export const dialogs = {
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
-      {"label": "back", "route": "halfling_quest", "type": "scene"}      
+      {"label": "back", "route": "aurochsmaw", "type": "scene"}      
     ]
   },
   "swords": {
@@ -237,7 +246,7 @@ export const dialogs = {
     "buttons": [
     {"label": "BUY", "route": "buy_items", "type": "dialog"},
     {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-    {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+    {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
   ]    
   },
   "buy_broadsword": {
@@ -246,7 +255,7 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
     ]  
   },
   "buy_morningstar": {
@@ -255,7 +264,7 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
     ] 
   },
   "buy_warhammer": {
@@ -264,7 +273,7 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
+      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
     ] 
   },
   "broke": {
@@ -295,6 +304,14 @@ export const dialogs = {
     "buttons": [
       {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
       {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
+  ]
+  },
+  "inn2": {
+    "name": "inn2",
+    "text": "Would you like a room?",
+    "buttons": [
+      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
+      {"label": "back", "route": "Aurochsmaw", "type": "scene"}
   ]
   },
   "inn_pay": {
@@ -331,7 +348,7 @@ export const dialogs = {
     "text": "You follow the inn keeper's old-timey directions until you see the chicken farm in the distance. Something doesn't feel right...<br>",
     "buttons": [
       {"label": "get a closer look", "route": "abyssal", "type": "scene"},      
-      {"label": "Go back to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
+      {"label": "Go back to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
   ]
   },     
   "abyssal": {
@@ -367,10 +384,11 @@ export const dialogs = {
   },     
   "aurochsmaw": {
     "name": "aurochsmaw",
-    "text": "You retreat back to Aurochmaw. What now?",
+    "text": "You are back in Aurochmaw's town center. What now?",
     "buttons": [
-      {"label": "Go to shoppe", "route": "shoppe", "type": "scene"},
-      {"label": "Go to Inn", "route": "inn", "type": "scene"}
+      {"label": "Go to shoppe", "route": "shoppe2", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn2", "type": "scene"},
+      {"label": "Go to farm", "route": "farm", "type": "scene"}
     ]
   },     
   "hayloft": {
@@ -384,7 +402,7 @@ export const dialogs = {
   },     
   "halfling_girl_main": {
     "name": "halfling_girl_main",
-    "text": "",
+    "text": "From the rustling hay mow appears the missing halfling girl!",
     "buttons": [
       {"label": "", "route": "", "type": "dialog"},
       {"label": "", "route": "", "type": "dialog"},
@@ -402,7 +420,7 @@ export const dialogs = {
     "name": "halfling_girl_timid",
     "text": "Go away!",
     "buttons": [
-      {"label": "", "route": "halfling_girl_main", "type": "dialog"}      
+      {"label": "I didn't mean to shout...please come out, it's safe now.", "route": "halfling_girl_main", "type": "dialog"}      
     ]
   },     
   "croakers_quest": {

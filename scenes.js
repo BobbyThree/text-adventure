@@ -51,7 +51,15 @@ export const scenes = {
       "name": "shoppe",
       "background": "url('/images/shoppe.png')"
     },
+    "shoppe2": {
+      "name": "shoppe",
+      "background": "url('/images/shoppe.png')"
+    },
     "inn": {
+      "name": "inn",
+      "background": "url('/images/inn.png')"
+    },
+    "inn2": {
       "name": "inn",
       "background": "url('/images/inn.png')"
     },
