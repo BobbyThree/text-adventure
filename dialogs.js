@@ -172,6 +172,15 @@ export const dialogs = {
       {"label": "back", "route": "tavern2", "type": "scene"}
     ]
   },
+  "croakers_details2": {
+    "name": "croakers_details2",
+    "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
+    "buttons": [
+      {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},            
+      {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+      {"label": "back", "route": "town2", "type": "scene"}
+    ]
+  },
   "beholder_details": {
     "name": "beholder_details",
     "text": "A terrible Beholder has taken up residence in the town hall. He is a vicious beast who is far beyond the abilities of any of us. You must help us! Defeat the Beholder, be the hero of this town, and recieve 10,000gp.<br>",
@@ -180,6 +189,15 @@ export const dialogs = {
       {"label": "Halfling", "route": "halfling_details", "type": "dialog"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
       {"label": "back", "route": "tavern2", "type": "scene"}
+    ]
+  },
+  "beholder_details2": {
+    "name": "beholder_details2",
+    "text": "A terrible Beholder has taken up residence in the town hall. He is a vicious beast who is far beyond the abilities of any of us. You must help us! Defeat the Beholder, be the hero of this town, and recieve 10,000gp.<br>",
+    "buttons": [
+      {"label": "Accept Quest", "route": "beholder_quest", "type": "scene"},      
+      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
+      {"label": "back", "route": "town2", "type": "scene"}
     ]
   },
   "halfling_quest": {
@@ -209,6 +227,17 @@ export const dialogs = {
       {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
       {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
       {"label": "exit", "route": "aurochsmaw", "type": "dialog"}
+    ]
+  },
+  "shoppe3": {
+    "name": "shoppe3",
+    "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
+    "buttons": [
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
+      {"label": "exit", "route": "aurochsmaw2", "type": "dialog"}
     ]
   },
   "halfling_info": {
@@ -339,6 +368,14 @@ export const dialogs = {
       {"label": "back", "route": "aurochsmaw", "type": "scene"}
   ]
   },
+  "inn3": {
+    "name": "inn3",
+    "text": "Would you like a room?",
+    "buttons": [
+      {"label": "Pay for a room", "route": "inn_sleep3", "type": "buy"},
+      {"label": "back", "route": "aurochsmaw2", "type": "scene"}
+  ]
+  },
   "inn_pay": {
     "name": "inn_pay",
     "text": "Thank you! ",    
@@ -358,6 +395,13 @@ export const dialogs = {
     "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
+  ]
+  },
+  "inn_sleep3": {
+    "name": "inn_sleep3",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "buttons": [
+      {"label": "exit to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},      
   ]
   },
   "halfling_info2": {
@@ -427,8 +471,8 @@ export const dialogs = {
     "name": "aurochsmaw2",
     "text": "You are back in Aurochmaw's town center. The Inn and Weapon Shoppe are open.",
     "buttons": [
-      {"label": "Go to shoppe", "route": "shoppe2", "type": "scene"},
-      {"label": "Go to Inn", "route": "inn2", "type": "scene"}      
+      {"label": "Go to shoppe", "route": "shoppe3", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn3", "type": "scene"}      
     ]
   },     
   "hayloft": {
@@ -495,8 +539,8 @@ export const dialogs = {
     "name": "roger2",
     "text": "Hey buddy, Great job bringing Esmee's daughter back. Wanna talk about the other quests?",
     "buttons": [
-      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
-      {"label": "Beholder", "route": "beholder_details", "type": "dialog"}      
+      {"label": "Bullywug Croakers", "route": "croakers_details2", "type": "dialog"},
+      {"label": "Beholder", "route": "beholder_details2", "type": "dialog"}      
     ]
   },     
   "croakers_quest": {

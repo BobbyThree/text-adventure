@@ -56,7 +56,11 @@ export const scenes = {
       "background": "url('/images/shoppe.png')"
     },
     "shoppe2": {
-      "name": "shoppe",
+      "name": "shoppe2",
+      "background": "url('/images/shoppe.png')"
+    },
+    "shoppe3": {
+      "name": "shoppe3",
       "background": "url('/images/shoppe.png')"
     },
     "inn": {
@@ -64,7 +68,11 @@ export const scenes = {
       "background": "url('/images/inn.png')"
     },
     "inn2": {
-      "name": "inn",
+      "name": "inn2",
+      "background": "url('/images/inn.png')"
+    },
+    "inn3": {
+      "name": "inn3",
       "background": "url('/images/inn.png')"
     },
     "inn_sleep": {
@@ -89,6 +97,10 @@ export const scenes = {
     },
     "aurochsmaw": {
       "name": "aurochsmaw",
+      "background": "url('/images/aurochsmaw.png')"
+    },
+    "aurochsmaw2": {
+      "name": "aurochsmaw2",
       "background": "url('/images/aurochsmaw.png')"
     },
     "halfling_complete": {
