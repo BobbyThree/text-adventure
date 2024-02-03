@@ -80,20 +80,31 @@ export const dialogs = {
     "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "talk to patron", "route": "patron", "type": "scene"},
       {"label": "Look at quests", "route": "quests", "type": "scene"},
+      {"label": "Leave tavern", "route": "town", "type": "scene"}
+    ]
+  },
+  "tavern3": {
+    "name": "tavern3",
+    "text": "",
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
+      {"label": "talk to Roger", "route": "roger2", "type": "scene"},
+      {"label": "Look at quests", "route": "quests", "type": "scene"},
       {"label": "Leave tavern", "route": "town2", "type": "scene"}
     ]
   },
   "town2": {
     "name": "town2",
     "text": "You are back in the Town Square. Where do you wish to go now?<br>",
-    "buttons": [{"label": "Enter Tavern", "route": "tavern", "type": "scene"}]
+    "buttons": [
+      {"label": "Enter Tavern", "route": "tavern3", "type": "scene"},
+      {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
+    ]
   },
   "barkeep2": {
     "name": "barkeep2",
-    "text": "So, you're back. Have you proven yourself worthy of my unicorn blood?",
+    "text": "Looks like you've proven yourself enough to deserve my precious Unicorn Blood. Here ya go, it's on the house!",
     "buttons": [
-      {"label": "Yea! I did the thing", "route": "", "type": "dialog"},
-      {"label": "Nah, I'm still working on it", "route": "", "type": "dialog"}
+      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy"}      
     ]    
   },
   "buy_ale": {
@@ -169,6 +180,15 @@ export const dialogs = {
       {"label": "back", "route": "tavern2", "type": "scene"}
     ]
   },
+  "croakers_details2": {
+    "name": "croakers_details2",
+    "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
+    "buttons": [
+      {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},            
+      {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+      {"label": "back", "route": "town2", "type": "scene"}
+    ]
+  },
   "beholder_details": {
     "name": "beholder_details",
     "text": "A terrible Beholder has taken up residence in the town hall. He is a vicious beast who is far beyond the abilities of any of us. You must help us! Defeat the Beholder, be the hero of this town, and recieve 10,000gp.<br>",
@@ -177,6 +197,15 @@ export const dialogs = {
       {"label": "Halfling", "route": "halfling_details", "type": "dialog"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
       {"label": "back", "route": "tavern2", "type": "scene"}
+    ]
+  },
+  "beholder_details2": {
+    "name": "beholder_details2",
+    "text": "A terrible Beholder has taken up residence in the town hall. He is a vicious beast who is far beyond the abilities of any of us. You must help us! Defeat the Beholder, be the hero of this town, and recieve 10,000gp.<br>",
+    "buttons": [
+      {"label": "Accept Quest", "route": "beholder_quest", "type": "scene"},      
+      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
+      {"label": "back", "route": "town2", "type": "scene"}
     ]
   },
   "halfling_quest": {
@@ -201,9 +230,22 @@ export const dialogs = {
     "name": "shoppe2",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "BUY", "route": "buy_items", "type": "dialog"},
-      {"label": "SELL", "route": "sell_items", "type": "dialog"},      
-      {"label": "Back", "route": "aurochsmaw", "type": "scene"}
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
+      {"label": "exit", "route": "aurochsmaw", "type": "dialog"}
+    ]
+  },
+  "shoppe3": {
+    "name": "shoppe3",
+    "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
+    "buttons": [
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
+      {"label": "exit", "route": "aurochsmaw2", "type": "scene"}
     ]
   },
   "halfling_info": {
@@ -220,7 +262,7 @@ export const dialogs = {
     "buttons": [
       {"label": "what kind of swords have you got?", "route": "swords", "type": "dialog"},
       {"label": "what kind of blunt weapons have you got?", "route": "blunt", "type": "dialog"},
-      {"label": "back", "route": "aurochsmaw", "type": "scene"}      
+      {"label": "back", "route": "halfling_quest", "type": "scene"}      
     ]
   },
   "swords": {
@@ -246,8 +288,13 @@ export const dialogs = {
     "buttons": [
     {"label": "BUY", "route": "buy_items", "type": "dialog"},
     {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-    {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+    {"label": "Exit", "route": "halfling_quest", "type": "scene"}
   ]    
+  },
+  "buy_shortsword2": {
+    "name": "buy_shortsword2",
+    "text": "Thanks very much, don't poke your eye out.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}]
   },
   "buy_broadsword": {
     "name": "buy_broadsword",
@@ -255,8 +302,13 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ]  
+  },
+  "buy_broadsword2": {
+    "name": "buy_broadsword2",
+    "text": "Pleasure doin business with ya.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}] 
   },
   "buy_morningstar": {
     "name": "buy_morningstar",
@@ -264,8 +316,13 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
+  },
+  "buy_morningstar2": {
+    "name": "buy_morningstar2",
+    "text": "Thank ye.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}] 
   },
   "buy_warhammer": {
     "name": "buy_warhammer",
@@ -273,8 +330,13 @@ export const dialogs = {
     "buttons": [
       {"label": "BUY", "route": "buy_items", "type": "dialog"},
       {"label": "SELL", "route": "sell_items", "type": "dialog"},    
-      {"label": "Exit", "route": "aurochsmaw", "type": "scene"}
+      {"label": "Exit", "route": "halfling_quest", "type": "scene"}
     ] 
+  },
+  "buy_warhammer2": {
+    "name": "buy_warhammer2",
+    "text": "now you're cookin with gas!",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}]
   },
   "broke": {
     "name": "broke",
@@ -291,7 +353,7 @@ export const dialogs = {
   "sellable_items": {
     "name": "sellable_items",
     "text": "Sell:<br>",
-    "buttons": []
+    //"buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
   },
   "sold": {
     "name": "sold",
@@ -308,10 +370,18 @@ export const dialogs = {
   },
   "inn2": {
     "name": "inn2",
+    "text": "You're back! Would you like a room?",
+    "buttons": [
+      {"label": "Pay for a room", "route": "inn_sleep2", "type": "buy"},
+      {"label": "back", "route": "aurochsmaw", "type": "scene"}
+  ]
+  },
+  "inn3": {
+    "name": "inn3",
     "text": "Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
-      {"label": "back", "route": "Aurochsmaw", "type": "scene"}
+      {"label": "Pay for a room", "route": "inn_sleep3", "type": "buy"},
+      {"label": "back", "route": "aurochsmaw2", "type": "scene"}
   ]
   },
   "inn_pay": {
@@ -326,6 +396,20 @@ export const dialogs = {
     "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
+  ]
+  },
+  "inn_sleep2": {
+    "name": "inn_sleep2",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "buttons": [
+      {"label": "exit to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
+  ]
+  },
+  "inn_sleep3": {
+    "name": "inn_sleep3",
+    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "buttons": [
+      {"label": "exit to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},      
   ]
   },
   "halfling_info2": {
@@ -388,7 +472,15 @@ export const dialogs = {
     "buttons": [
       {"label": "Go to shoppe", "route": "shoppe2", "type": "scene"},
       {"label": "Go to Inn", "route": "inn2", "type": "scene"},
-      {"label": "Go to farm", "route": "farm", "type": "scene"}
+      {"label": "Go to farm", "route": "barn", "type": "scene"}
+    ]
+  },     
+  "aurochsmaw2": {
+    "name": "aurochsmaw2",
+    "text": "You are back in Aurochmaw's town center. The Inn and Weapon Shoppe are open.",
+    "buttons": [
+      {"label": "Go to shoppe", "route": "shoppe3", "type": "scene"},
+      {"label": "Go to Inn", "route": "inn3", "type": "scene"}      
     ]
   },     
   "hayloft": {
@@ -402,11 +494,23 @@ export const dialogs = {
   },     
   "halfling_girl_main": {
     "name": "halfling_girl_main",
-    "text": "From the rustling hay mow appears the missing halfling girl!",
+    "text": "From the rustling hay mow appears a halfling girl!",
     "buttons": [
-      {"label": "", "route": "", "type": "dialog"},
-      {"label": "", "route": "", "type": "dialog"},
-      {"label": "", "route": "", "type": "dialog"}
+      {"label": "Are you the missing halfling girl? The barkeeps daughter?", "route": "halfling_girl_main2", "type": "dialog"}      
+    ]
+  },     
+  "halfling_girl_main2": {
+    "name": "halfling_girl_main2",
+    "text": "Yes, I came up here for work and suddenly all the chickens turned into these dusgusting creatures and killed off all the farmers. I've been hiding in this barn ever since. Thank goodness you've come. Are the chickens gone?",
+    "buttons": [
+      {"label": "Yes, I have defeated the chickens. Let's get you back to Ixonia and to your mother.", "route": "halfling_girl_main3", "type": "dialog"}      
+    ]
+  },     
+  "halfling_girl_main3": {
+    "name": "halfling_girl_main3",
+    "text": "Thank you. Let's go!",
+    "buttons": [
+      {"label": "Return to Ixonia", "route": "halfling_complete", "type": "scene"}      
     ]
   },     
   "halfling_girl_funny": {
@@ -421,6 +525,37 @@ export const dialogs = {
     "text": "Go away!",
     "buttons": [
       {"label": "I didn't mean to shout...please come out, it's safe now.", "route": "halfling_girl_main", "type": "dialog"}      
+    ]
+  },     
+  "halfling_complete": {
+    "name": "halfling_complete",
+    "text": "BARKEEP: Thank goodness you have returned my daughter to me! I was worried sick! As promised the reward is this exuisite longbow. It was a gift to our town from, the elves.We halflings are too small to use such a weapon. I hope it proves usefuil to you in some way. Thank you for your bravery!",
+    "buttons": [
+      {"label": "Accept reward", "route": "accept_longbow", "type": "buy"}      
+    ]
+  },     
+  "accept_longbow": {
+    "name": "accept_longbow",
+    "text": "You accept the longbow.",
+    "buttons": [
+      {"label": "back", "route": "town2", "type": "scene"},      
+      {"label": "talk to roger", "route": "roger2", "type": "scene"},      
+      {"label": "look at quest board", "route": "quests", "type": "scene"},      
+    ]
+  },     
+  "roger2": {
+    "name": "roger2",
+    "text": "Hey buddy, Great job bringing Esmee's daughter back. Wanna talk about the other quests?",
+    "buttons": [
+      {"label": "Bullywug Croakers", "route": "croakers_details2", "type": "dialog"},
+      {"label": "Beholder", "route": "beholder_details2", "type": "dialog"}      
+    ]
+  },     
+  "accept_blood": {
+    "name": "accept_blood",
+    "text": "You take the Unicorn Blood",
+    "buttons": [
+      {"label": "Back", "route": "tavern3", "type": "scene"}            
     ]
   },     
   "croakers_quest": {

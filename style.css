@@ -27,8 +27,8 @@ header h1 {
 #stats {
   background-image: linear-gradient(rgb(194, 194, 194), gray);
   padding: 10px;
-  display: flex;
-  gap: 2rem;
+  display: flex;  
+  gap: 2rem;     
 }
 
 #screen {    

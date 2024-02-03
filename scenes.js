@@ -31,11 +31,19 @@ export const scenes = {
       "name": "tavern2",
       "background": "url('./images/tavern.png')"           
     },
+    "tavern3": {
+      "name": "tavern3",
+      "background": "url('./images/tavern.png')"           
+    },
     "barkeep2": {
       "name": "barkeep2",
       "background": "url('/images/barkeep.png')"         
     },
     "patron": {
+      "name": "patron",
+      "background": "url('/images/roger.png')"
+    },
+    "roger2": {
       "name": "patron",
       "background": "url('/images/roger.png')"
     },
@@ -52,7 +60,11 @@ export const scenes = {
       "background": "url('/images/shoppe.png')"
     },
     "shoppe2": {
-      "name": "shoppe",
+      "name": "shoppe2",
+      "background": "url('/images/shoppe.png')"
+    },
+    "shoppe3": {
+      "name": "shoppe3",
       "background": "url('/images/shoppe.png')"
     },
     "inn": {
@@ -60,7 +72,11 @@ export const scenes = {
       "background": "url('/images/inn.png')"
     },
     "inn2": {
-      "name": "inn",
+      "name": "inn2",
+      "background": "url('/images/inn.png')"
+    },
+    "inn3": {
+      "name": "inn3",
       "background": "url('/images/inn.png')"
     },
     "inn_sleep": {
@@ -69,6 +85,10 @@ export const scenes = {
     },
     "farm": {
       "name": "farm",
+      "background": "url('/images/farm.png')"
+    }, 
+    "barn": {
+      "name": "barn",
       "background": "url('/images/farm.png')"
     }, 
     "abyssal": {
@@ -82,5 +102,17 @@ export const scenes = {
     "aurochsmaw": {
       "name": "aurochsmaw",
       "background": "url('/images/aurochsmaw.png')"
+    },
+    "aurochsmaw2": {
+      "name": "aurochsmaw2",
+      "background": "url('/images/aurochsmaw.png')"
+    },
+    "halfling_complete": {
+      "name": "halfing_complete",
+      "background": "url('/images/barkeep.png')"
+    },
+    "croakers": {
+      "name": "croakers",
+      "background": "url('/images/marsh.png')"
     },
   }

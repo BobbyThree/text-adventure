@@ -30,6 +30,7 @@ const txt = document.querySelector('#txt');
 const screen = document.querySelector('#screen'); 
 const monsterHpSpan = document.querySelector('#monster-hp-span'); 
 const monsterHpTxt = document.querySelector('#monster-hp-txt'); 
+const invSpan = document.querySelector('#inv-span'); 
 
 
 //initialize game
@@ -104,7 +105,7 @@ function buyItem(itemName) {
   updateInv(item);
   } else {
     changeDialog('broke');
-    createButtons('broke');
+    createButtons('broke');    
   }
 }
 
@@ -128,7 +129,7 @@ function sellFromInventory() {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
-    
+    // TODO: add back button
     tempBtn.onclick = () => {       
       let str = 'sell_' + e;
       let saleItem = str.replace(/\s+/g, '');
@@ -164,9 +165,7 @@ function attack(weaponName, monsterName) {
     
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
-    monsterHp -= damage(minDamage, maxDamage);
-    console.log(`monster HP: ${monsterHp}`); 
-    //update monster hp
+    monsterHp -= damage(minDamage, maxDamage);    
     monsterData[monsterName].hp = monsterHp;
     monsterHpTxt.innerHTML = monsterHp;
     txt.innerHTML = `HIT! ${monsterName} takes damage`
@@ -199,9 +198,7 @@ function monsterAttack(monsterName){
   const accuracy = Math.random();
   if(accuracy < 2/3) {    
     hp -= damage(minDamage, maxDamage);
-    hpTxt.innerHTML = hp;
-    console.log(`Player HP: ${hp}`);
-    
+    hpTxt.innerHTML = hp;    
     txt.innerHTML = `The ${monsterName} attacks...HIT!`    
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
