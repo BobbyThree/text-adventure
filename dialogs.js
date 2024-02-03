@@ -560,9 +560,30 @@ export const dialogs = {
   },     
   "croakers_quest": {
     "name": "croakers_quest",
-    "text": "",
-    "buttons": [
-
+    "text": "You make your way out of town on the main road into the marsh lands beyond Ixonia's border. You see the Bullywug Croakers up ahead guarding the road. As you approach they stand guard ready to fight!",
+    "buttons": [      
+      {"label": "FIGHT!!!", "route": "croakers_battle", "type": "croakers_battle"}
+    ]
+  },
+  "croakers_battle": {
+    "name": "croakers_battle",
+    "text": "Choose weapon",
+    "buttons": [      
+      
+    ]
+  },
+  "kill_croaker": {
+    "name": "kill_croaker",
+    "text": "You have defeated the Bullywug Croakers!",
+    "buttons": [      
+      {"label": "return to Roger for reward", "route": "croaker_reward", "type": "scene"}
+    ]
+  },
+  "croaker_reward": {
+    "name": "croaker_reward",
+    "text": "Well, well, well! you have defeated the croakers! ",
+    "buttons": [      
+      {"label": "accept reward", "route": "accept_croaker_reward", "type": "buy"}
     ]
   },
   "beholder_quest": {

@@ -111,8 +111,12 @@ export const scenes = {
       "name": "halfing_complete",
       "background": "url('/images/barkeep.png')"
     },
-    "croakers": {
-      "name": "croakers",
+    "croakers_quest": {
+      "name": "croakers_quest",
       "background": "url('/images/marsh.png')"
+    },
+    "croaker_reward": {
+      "name": "croakers_reward",
+      "background": "url('/images/roger.png')"
     },
   }

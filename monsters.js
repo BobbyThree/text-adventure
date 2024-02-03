@@ -8,8 +8,8 @@ export const monsters = {
   "croaker": {
     "name": "croaker",
     "hp": 30,
-    "min_damage": 1,
-    "max_damage": 6
+    "min_damage": 2,
+    "max_damage": 10
   },
   "beholder": {
     "name": "beholder",

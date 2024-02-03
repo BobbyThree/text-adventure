@@ -69,6 +69,10 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name);      
       battle('chicken');            
       break;  
+    case 'croakers_battle':
+      changeDialog(route.name);      
+      battle('croaker');            
+      break;  
   }
 }      
 
@@ -236,5 +240,9 @@ function killMonster(monsterName) {
     changeDialog('kill_chicken');
     createButtons('kill_chicken')
     changeScene('farm');
+  } else if (monsterName === 'croaker') {
+    monsterHpSpan.style.display = 'none';
+    changeDialog('kill_croaker');
+    createButtons('kill_croaker');    
   }
 }
