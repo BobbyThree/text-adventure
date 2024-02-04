@@ -79,7 +79,10 @@ function clickHandler(buttonType, route) {
 //functions
 function changeScene(sceneName) {   
   screen.style.backgroundImage = sceneData[sceneName].background;
-  }  
+  let visits = sceneData[sceneName].visited;
+  visits++;
+  sceneData[sceneName].visited = visits;  
+}  
 
 function changeDialog(dialogName) {
   txt.innerHTML = dialogData[dialogName].text;    
@@ -108,8 +111,8 @@ function buyItem(itemName) {
   inv.push(item);
   updateInv(item);
   } else {
-    changeDialog('broke');
-    createButtons('broke');    
+    changeDialog('broke'); 
+    createButtons('broke'); //TODO: need fix - only works for shoppe   
   }
 }
 

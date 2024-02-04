@@ -17,7 +17,7 @@ export const dialogs = {
     "buttons": [{"label": "Talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "Talk to Patron", "route": "patron", "type": "scene"},
       {"label": "Look at Quests", "route": "quests", "type": "scene"},
-      {"label": "Leave tavern", "route": "town2", "type": "scene"}
+      {"label": "Leave tavern", "route": "town", "type": "scene"}
     ]      
   },
   "barkeep": {
@@ -51,7 +51,7 @@ export const dialogs = {
   "died": {
     "name": "died",
     "text": "You died, shoulda thought about that shit before you said it <br>",
-    "buttons": [{"label": "restart", "route": "town", "type": "scene"}]    
+    "buttons": [{"label": "restart", "route": "title", "type": "scene"}]    
   },
   "ale": {
     "name": "ale",
