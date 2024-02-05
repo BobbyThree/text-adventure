@@ -232,6 +232,8 @@ function monsterAttack(monsterName){
 }
 
 function killPlayer() {
+  hp = 50;
+  hpTxt.innerHTML = hp;
   changeDialog('kill_player');
   changeScene('kill_player');
   createButtons('kill_player');

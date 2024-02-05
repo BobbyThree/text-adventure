@@ -279,7 +279,8 @@ export const dialogs = {
     "text": "SHOPPE OWNER:<BR>I've got a morning star (5-10 damage) and a warhammer (10-20 damage)",
     "buttons": [
       {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"}      
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"},
+      {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}      
     ]
   },
   "buy_shortsword": {
