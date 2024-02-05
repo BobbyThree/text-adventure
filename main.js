@@ -32,7 +32,6 @@ const monsterHpSpan = document.querySelector('#monster-hp-span');
 const monsterHpTxt = document.querySelector('#monster-hp-txt'); 
 const invSpan = document.querySelector('#inv-span'); 
 
-
 //initialize game
 changeDialog('title');
 changeScene('title');
@@ -136,7 +135,6 @@ function sellFromInventory() {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
-    // TODO: add back button
     
     tempBtn.onclick = () => {       
       let str = 'sell_' + e;
