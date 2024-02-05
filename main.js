@@ -60,6 +60,12 @@ function clickHandler(buttonType, route) {
       createButtons(route.name);
       sellItem(route.name);
       break;  
+    case 'sleep':
+      changeDialog(route.name); 
+      createButtons(route.name);
+      changeScene(route.name);
+      sleep();
+      break;  
     case 'inventory':      
       changeDialog(route.name);      
       sellFromInventory(route.name);            
@@ -151,6 +157,13 @@ function sellFromInventory() {
       changeDialog('shoppe');
       createButtons('shoppe');
     }
+}
+
+function sleep() {
+  gp -= 20;
+  gpTxt.innerHTML = gp;
+  hp = 50;
+  hpTxt.innerHTML = hp;
 }
 
 function battle(currentMonster) {

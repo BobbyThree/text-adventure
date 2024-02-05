@@ -365,7 +365,7 @@ export const dialogs = {
     "name": "inn",
     "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_sleep", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_sleep", "type": "sleep"},
       {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
   ]
   },
@@ -373,7 +373,7 @@ export const dialogs = {
     "name": "inn2",
     "text": "You're back! Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_sleep2", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_sleep2", "type": "sleep"},
       {"label": "back", "route": "aurochsmaw", "type": "scene"}
   ]
   },
@@ -381,7 +381,7 @@ export const dialogs = {
     "name": "inn3",
     "text": "Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_sleep3", "type": "buy"},
+      {"label": "Pay for a room", "route": "inn_sleep3", "type": "sleep"},
       {"label": "back", "route": "aurochsmaw2", "type": "scene"}
   ]
   },
@@ -394,21 +394,21 @@ export const dialogs = {
   },
   "inn_sleep": {
     "name": "inn_sleep",
-    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "text": "You awake fully rested.",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
   ]
   },
   "inn_sleep2": {
     "name": "inn_sleep2",
-    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "text": "You awake fully rested.",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
   ]
   },
   "inn_sleep3": {
     "name": "inn_sleep3",
-    "text": "You awake fully rested. You find a complimentary mint on your way out which you slip into your pocket for later",    
+    "text": "You awake fully rested.",    
     "buttons": [
       {"label": "exit to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},      
   ]
