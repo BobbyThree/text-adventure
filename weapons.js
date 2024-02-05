@@ -2,7 +2,7 @@ export const weapons = {
   "woodensword": {
     "name": "woodensword",
     "min_damage": 1,
-    "max_damage": 4
+    "max_damage": 2
   },
   "shortsword": {
     "name": "shortsword",

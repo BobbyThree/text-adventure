@@ -137,6 +137,7 @@ function sellFromInventory() {
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
     // TODO: add back button
+    
     tempBtn.onclick = () => {       
       let str = 'sell_' + e;
       let saleItem = str.replace(/\s+/g, '');
@@ -145,6 +146,13 @@ function sellFromInventory() {
       createButtons('sold');           
     };  
   })
+  let backBtn = document.createElement('button');
+    backBtn.innerHTML = 'Back';
+    txt.appendChild(backBtn);
+    backBtn.onclick = () => {
+      changeDialog('shoppe');
+      createButtons('shoppe');
+    }
 }
 
 function battle(currentMonster) {
