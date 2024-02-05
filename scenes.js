@@ -104,6 +104,16 @@ export const scenes = {
       "background": "url('/images/inn-room.png')",
       "visited": 0 
     },
+    "inn_sleep2": {
+      "name": "inn_sleep2",
+      "background": "url('/images/inn-room.png')",
+      "visited": 0 
+    },
+    "inn_sleep3": {
+      "name": "inn_sleep3",
+      "background": "url('/images/inn-room.png')",
+      "visited": 0 
+    },
     "farm": {
       "name": "farm",
       "background": "url('/images/farm.png')",

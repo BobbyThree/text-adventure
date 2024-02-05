@@ -24,9 +24,9 @@ export const buyItems = {
     "item": "warhammer",
     "cost": 100
   },
-  "inn_sleep": {
-    "name": "inn_sleep",
-    "item": "mint",
+  "inn_pay": {
+    "name": "inn_pay",
+    //"item": "mint",
     "cost": 20
   },  
   "buy_shortsword2": {
