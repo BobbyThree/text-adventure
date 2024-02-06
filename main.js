@@ -74,6 +74,14 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name);      
       battle('chicken');            
       break;  
+    case 'chicken_battle2':
+      changeDialog(route.name);      
+      battle('chicken2');            
+      break;  
+    case 'chicken_battle3':
+      changeDialog(route.name);      
+      battle('chicken3');            
+      break;  
     case 'croakers_battle':
       changeDialog(route.name);      
       battle('croaker');            
@@ -260,14 +268,26 @@ function killPlayer() {
 }
 
 function killMonster(monsterName) {
-  if (monsterName === 'chicken') {
-    monsterHpSpan.style.display = 'none';
-    changeDialog('kill_chicken');
-    createButtons('kill_chicken')
-    changeScene('farm');
-  } else if (monsterName === 'croaker') {
-    monsterHpSpan.style.display = 'none';
-    changeDialog('kill_croaker');
-    createButtons('kill_croaker');    
+  switch (monsterName) {
+    case 'chicken':
+      monsterHpSpan.style.display = 'none';
+      changeDialog('kill_chicken');
+      createButtons('kill_chicken');
+      break;
+    case 'chicken2':
+      monsterHpSpan.style.display = 'none';
+      changeDialog('kill_chicken2');
+      createButtons('kill_chicken2');
+      break;
+    case 'chicken3':
+      monsterHpSpan.style.display = 'none';
+      changeDialog('kill_chicken3');
+      createButtons('kill_chicken3');
+      break;
+    case 'croaker':
+      monsterHpSpan.style.display = 'none';
+      changeDialog('kill_croaker');
+      createButtons('kill_croaker');
+      break;
   }
 }
