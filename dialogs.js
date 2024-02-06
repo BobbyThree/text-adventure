@@ -447,7 +447,6 @@ export const dialogs = {
   "battle": {
     "name": "battle",
     "text": "Choose you weapon<br>",    
-    //"buttons": []
   },  
   "kill_player": {
     "name": "kill_player",
@@ -456,8 +455,18 @@ export const dialogs = {
   },     
   "kill_chicken": {
     "name": "kill_chicken",
-    "text": "You killed the Abyssal Chicken!",
-    "buttons": [{"label": "search barn", "route": "barn", "type": "dialog"}]
+    "text": "You killed the Abyssal Chicken! You see another one fast approaching.",
+    "buttons": [{"label": "attack!", "route": "battle", "type": "chicken_battle2"}]
+  },     
+  "kill_chicken2": {
+    "name": "kill_chicken2",
+    "text": "You killed a second Abyssal Chicken! You see yet another one  approaching.",
+    "buttons": [{"label": "attack!", "route": "battle", "type": "chicken_battle3"}]
+  },     
+  "kill_chicken3": {
+    "name": "kill_chicken2",
+    "text": "As you deliver the killing blow to the 3rd Abyssal Chicken, the rest of the foes abandon the battle and run off across the fields.",
+    "buttons": [{"label": "Search barn", "route": "barn", "type": "scene"}]
   },     
   "barn": {
     "name": "barn",
