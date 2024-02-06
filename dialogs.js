@@ -425,7 +425,7 @@ export const dialogs = {
     "text": "You listen as they give detailed directions to the farm in true small town fashion - go over the hill and then when it turns more woodsey, turn left...and so on.<br>",
     "buttons": [
       {"label": "Head to the chicken farm!", "route": "farm", "type": "scene"},      
-      {"label": "buy a room and rest up first", "route": "inn_pay", "type": "dialog"},      
+      {"label": "buy a room and rest up first", "route": "inn_sleep", "type": "sleep"},      
   ]
   },     
   "farm": {
@@ -481,7 +481,8 @@ export const dialogs = {
     "text": "You are back in Aurochmaw's town center. The Inn and Weapon Shoppe are open.",
     "buttons": [
       {"label": "Go to shoppe", "route": "shoppe3", "type": "scene"},
-      {"label": "Go to Inn", "route": "inn3", "type": "scene"}      
+      {"label": "Go to Inn", "route": "inn3", "type": "scene"},      
+      {"label": "Back to Ixonia", "route": "town2", "type": "scene"}      
     ]
   },     
   "hayloft": {

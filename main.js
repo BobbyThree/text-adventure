@@ -256,6 +256,7 @@ function killPlayer() {
   changeDialog('kill_player');
   changeScene('kill_player');
   createButtons('kill_player');
+  monsterHpSpan.style.display = 'none';
 }
 
 function killMonster(monsterName) {
