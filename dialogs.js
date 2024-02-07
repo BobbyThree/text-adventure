@@ -207,6 +207,14 @@ export const dialogs = {
       {"label": "back", "route": "town2", "type": "scene"}
     ]
   },
+  "beholder_quest": {
+    "name": "beholder_quest",
+    "text": "You are face to face with the terrible BEHOLDER. Good luck!!! (hahahahaha)<br>",
+    "buttons": [
+      {"label": "attack Beholder", "route": "kill_player", "type": "scene"},      
+      
+    ]
+  },
   "halfling_quest": {
     "name": "halfling_quest",
     "text": "You arrive in Aurochsmaw, wondering just what you may have gotten yourself into. You can see a weapons shoppe, and an inn. <br>",
@@ -651,7 +659,7 @@ export const dialogs = {
     "name": "beholder_test",
     "text": "Excellent! But first, in order to defeat the Beholder, you must possses the exquisite longbow and the unicorn blood. Without them you will not succeed. Do you possess these item?",
     "buttons": [      
-      {"label": "Yes we do. we're ready!", "route": "beholder_quest", "type": "scene"},
+      {"label": "Yes we do. we're ready!", "route": "beholder", "type": "scene"},
       {"label": "No we don't. We will return when we are ready", "route": "tavern4", "type": "scene"}
     ]
   },
@@ -668,16 +676,16 @@ export const dialogs = {
     "name": "roger3",
     "text": "Ok are you ready? Do you have the long bow and the unicorn blood?",
     "buttons": [
-      {"label": "Yes we do. we're ready!", "route": "beholder_quest", "type": "scene"},
+      {"label": "Yes we do. we're ready!", "route": "beholder", "type": "scene"},
       {"label": "No we don't. We will return when we are ready", "route": "tavern4", "type": "scene"}
     ]
   },  
-  "beholder_quest": {
-    "name": "beholder_quest",
-    "text": "",
+  "beholder": {
+    "name": "beholder",
+    "text": "You are now face to face with the terrible BEHOLDER!!! I hope you know what you're doing.",
     "buttons": [
-
+      {"label": "Give longbow and Unicorn Blood to Ivy", "route": "win_game", "type": "scene"},
+      {"label": "Attack Beholder!", "route": "kill_player", "type": "scene"}
     ]
-  }
-  
+  }  
 }

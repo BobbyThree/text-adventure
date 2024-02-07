@@ -174,4 +174,14 @@ export const scenes = {
       "background": "url('/images/elf.png')",
       "visited": 0 
     },
+    "beholder_quest": {
+      "name": "beholder_quest",
+      "background": "url('/images/beholder.png')",
+      "visited": 0 
+    },
+    "beholder": {
+      "name": "beholder",
+      "background": "url('/images/beholder.png')",
+      "visited": 0 
+    },
   }
