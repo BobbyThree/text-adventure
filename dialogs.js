@@ -87,8 +87,7 @@ export const dialogs = {
     "name": "tavern3",
     "text": "",
     "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
-      {"label": "talk to Roger", "route": "roger2", "type": "scene"},
-      {"label": "Look at quests", "route": "quests", "type": "scene"},
+      {"label": "talk to Roger", "route": "roger2", "type": "scene"},      
       {"label": "Leave tavern", "route": "town2", "type": "scene"}
     ]
   },
@@ -585,18 +584,94 @@ export const dialogs = {
   },
   "kill_croaker": {
     "name": "kill_croaker",
-    "text": "You have defeated the Bullywug Croakers!",
+    "text": "As you defeat the Bullywug Croaker and gear up to fight another, suddenly from out of nowhere springs an elven woman who viciously attacks the remaining croakers defeating them almost instantly. Wow!",
     "buttons": [      
-      {"label": "return to Roger for reward", "route": "croaker_reward", "type": "scene"}
+      {"label": "Approach Elf", "route": "elf", "type": "scene"}
+    ]
+  },
+  "elf": {
+    "name": "elf",
+    "text": "Nasty things, those Bullywug Croakers! I hope you don't mind my intrusion. I am on my way to Ixonia to see about doing away with the Beholder.",
+    "buttons": [      
+      {"label": "I'm hoping to defeat the Beholder too. Let's join forces!", "route": "elf_join", "type": "dialog"},
+      {"label": "What can you tell me about the Beholder?", "route": "elf_beholder_info", "type": "dialog"},
+      {"label": "Who are you??", "route": "elf_who", "type": "dialog"}    
+    ]
+  },
+  "elf_join": {
+    "name": "elf_join",
+    "text": "Ok, sure, what the heck. We are more powerful together than alone and Beholders are quite formiddable opponents to say the least.",
+    "buttons": [      
+      {"label": "C'mon we gotta go talk to Roger. He will reward us for depeating the Croakers and get us access to the town hall.", "route": "croaker_reward", "type": "scene"},
+      {"label": "What can you tell me about the Beholder?", "route": "elf_beholder_info", "type": "dialog"},
+      {"label": "Who are you??", "route": "elf_who", "type": "dialog"}    
+    ]
+  },
+  "elf_beholder_info": {
+    "name": "elf_beholder_info",
+    "text": "A Beholder is a shere if many eyes. One big eye is in the center of its head while the other are on the end of snake-like things attached to it's head. Each eye has a different magical ability - some can turn you to stone, or melt the flesh right off ya! If the Beholder has a chance to attack us, I belive we will be toast. We must strike first and strike HARD.",
+    "buttons": [      
+      {"label": "I'm hoping to defeat the Beholder too. Let's join forces!", "route": "elf_join", "type": "dialog"},
+      {"label": "So, no mercy. Got it. Do they have any weaknesses?", "route": "beholder_weakness", "type": "dialog"},
+      {"label": "Who are you??", "route": "elf_who", "type": "dialog"}    
+    ]
+  },
+  "elf_who": {
+    "name": "elf_who",
+    "text": "My name is Ivy of the woodland realm.",
+    "buttons": [      
+      {"label": "Nice to meet you. I'm hoping to defeat the Beholder too. Let's join forces!", "route": "elf_join", "type": "dialog"},
+      {"label": "What can you tell me about the Beholder?", "route": "elf_beholder_info", "type": "dialog"}   
+    ]
+  },
+  "beholder_weakness": {
+    "name": "beholder_weakness",
+    "text": "They are vulnerable in their main eye. I plan to shoot an arrow straight into it. I hope it will be enough. I have also heard rumors that they are sensitive to unicorn blood.",
+    "buttons": [      
+      {"label": "I'm hoping to defeat the Beholder too. Let's join forces!", "route": "elf_join", "type": "dialog"},
+      {"label": "What can you tell me about the Beholder?", "route": "elf_beholder_info", "type": "dialog"},
+      {"label": "Who are you??", "route": "elf_who", "type": "dialog"}    
     ]
   },
   "croaker_reward": {
     "name": "croaker_reward",
-    "text": "Well, well, well! you have defeated the croakers! ",
+    "text": "Well, well, well! you have defeated the croakers! As promised, the rewards is 500 gold pieces.",
     "buttons": [      
-      {"label": "accept reward", "route": "accept_croaker_reward", "type": "buy"}
+      {"label": "accept reward", "route": "accept_croaker_reward", "type": "gold"}
+    ]
+  },  
+  "accept_croaker_reward": {
+    "name": "accept_croaker_reward",
+    "text": "Here ya go! Anything else I can do for you?",
+    "buttons": [      
+      {"label": "We want to fight the Beholder!!!", "route": "beholder_test", "type": "dialog"}
+    ]
+  },  
+  "beholder_test": {
+    "name": "beholder_test",
+    "text": "Excellent! But first, in order to defeat the Beholder, you must possses the exquisite longbow and the unicorn blood. Without them you will not succeed. Do you possess these item?",
+    "buttons": [      
+      {"label": "Yes we do. we're ready!", "route": "beholder_quest", "type": "scene"},
+      {"label": "No we don't. We will return when we are ready", "route": "tavern4", "type": "scene"}
     ]
   },
+  "tavern4": {
+    "name": "tavern4",
+    "text": "",
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
+      {"label": "talk to Roger", "route": "roger3", "type": "scene"},
+      {"label": "Look at quests", "route": "quests", "type": "scene"},
+      {"label": "Leave tavern", "route": "town2", "type": "scene"}
+    ]
+  },  
+  "roger3": {
+    "name": "roger3",
+    "text": "Ok are you ready? Do you have the long bow and the unicorn blood?",
+    "buttons": [
+      {"label": "Yes we do. we're ready!", "route": "beholder_quest", "type": "scene"},
+      {"label": "No we don't. We will return when we are ready", "route": "tavern4", "type": "scene"}
+    ]
+  },  
   "beholder_quest": {
     "name": "beholder_quest",
     "text": "",

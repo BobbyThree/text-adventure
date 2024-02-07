@@ -19,7 +19,7 @@ let battleData = JSON.parse(JSON.stringify(battles));
 let xp = 0;
 let hp = 50;
 let gp = 100;
-let inv = ['wooden sword'];  
+let inv = ['wooden sword']; 
 
 const xpTxt = document.querySelector('#xp-txt');
 const hpTxt = document.querySelector('#hp-txt');
@@ -85,6 +85,11 @@ function clickHandler(buttonType, route) {
     case 'croakers_battle':
       changeDialog(route.name);      
       battle('croaker');            
+      break;  
+    case 'gold':
+      changeDialog(route.name);
+      createButtons(route.name);      
+      getGold();            
       break;  
   }
 }      
@@ -265,6 +270,9 @@ function killPlayer() {
   changeScene('kill_player');
   createButtons('kill_player');
   monsterHpSpan.style.display = 'none';
+  inv = ['wooden sword'];
+  invTxt.innerHTML = inv;
+  weaponTxt.innerHTML = '';
 }
 
 function killMonster(monsterName) {
@@ -290,4 +298,9 @@ function killMonster(monsterName) {
       createButtons('kill_croaker');
       break;
   }
+}
+
+function getGold() {
+  gp += 500;
+  gpTxt.innerHTML = gp;
 }

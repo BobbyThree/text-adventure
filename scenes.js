@@ -44,6 +44,11 @@ export const scenes = {
       "background": "url('./images/tavern.png')",
       "visited": 0           
     },
+    "tavern4": {
+      "name": "tavern4",
+      "background": "url('./images/tavern.png')",
+      "visited": 0           
+    },
     "barkeep2": {
       "name": "barkeep2",
       "background": "url('/images/barkeep.png')",
@@ -55,7 +60,12 @@ export const scenes = {
       "visited": 0 
     },
     "roger2": {
-      "name": "patron",
+      "name": "roger2",
+      "background": "url('/images/roger.png')",
+      "visited": 0
+    },
+    "roger3": {
+      "name": "roger3",
       "background": "url('/images/roger.png')",
       "visited": 0
     },
@@ -157,6 +167,11 @@ export const scenes = {
     "croaker_reward": {
       "name": "croakers_reward",
       "background": "url('/images/roger.png')",
+      "visited": 0 
+    },
+    "elf": {
+      "name": "elf",
+      "background": "url('/images/elf.png')",
       "visited": 0 
     },
   }
