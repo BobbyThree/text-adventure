@@ -50,6 +50,12 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name); 
       createButtons(route.name); 
       break;     
+    case 'restart':
+      changeDialog('title'); 
+      changeScene('title');
+      createButtons('title');
+      restart(); 
+      break;     
     case 'buy':      
       changeDialog(route.name); 
       createButtons(route.name);      
@@ -266,6 +272,8 @@ function monsterAttack(monsterName){
 function killPlayer() {
   hp = 50;
   hpTxt.innerHTML = hp;
+  gp = 100;
+  gpTxt.innerHTML = gp;
   changeDialog('kill_player');
   changeScene('kill_player');
   createButtons('kill_player');
@@ -303,4 +311,15 @@ function killMonster(monsterName) {
 function getGold() {
   gp += 500;
   gpTxt.innerHTML = gp;
+}
+
+function restart() {
+  hp = 50;
+  hpTxt.innerHTML = hp;
+  gp = 100;
+  gpTxt.innerHTML = gp; 
+  monsterHpSpan.style.display = 'none';
+  inv = ['wooden sword'];
+  invTxt.innerHTML = inv;
+  weaponTxt.innerHTML = '';
 }

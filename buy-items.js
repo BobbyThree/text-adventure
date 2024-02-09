@@ -49,6 +49,26 @@ export const buyItems = {
     "item": "warhammer",
     "cost": 100
   },
+  "buy_shortsword3": {
+    "name": "buy_shortsword2",
+    "item": "short sword",
+    "cost": 20
+  },
+  "buy_broadsword3": {
+    "name": "buy_broadsword2",
+    "item": "broad sword",
+    "cost": 60
+  },
+  "buy_morningstar3": {
+    "name": "buy_morningstar2",
+    "item": "morning star",
+    "cost": 40
+  },
+  "buy_warhammer3": {
+    "name": "buy_warhammer2",
+    "item": "warhammer",
+    "cost": 100
+  },
   "inn_sleep2": {
     "name": "inn_sleep2",
     "item": "mint",

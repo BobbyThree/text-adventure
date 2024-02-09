@@ -51,7 +51,7 @@ export const dialogs = {
   "died": {
     "name": "died",
     "text": "You died, shoulda thought about that shit before you said it <br>",
-    "buttons": [{"label": "restart", "route": "title", "type": "scene"}]    
+    "buttons": [{"label": "restart", "route": "title", "type": "restart"}]    
   },
   "ale": {
     "name": "ale",
@@ -248,10 +248,10 @@ export const dialogs = {
     "name": "shoppe3",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword3", "type": "buy"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword3", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar3", "type": "buy"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer3", "type": "buy"},      
       {"label": "exit", "route": "aurochsmaw2", "type": "scene"}
     ]
   },
@@ -304,6 +304,11 @@ export const dialogs = {
     "text": "Thanks very much, don't poke your eye out.",
     "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}]
   },
+  "buy_shortsword3": {
+    "name": "buy_shortsword3",
+    "text": "Thanks very much, don't poke your eye out.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw2", "type": "scene"}]
+  },
   "buy_broadsword": {
     "name": "buy_broadsword",
     "text": "Pleasure doin business with ya.",
@@ -317,6 +322,11 @@ export const dialogs = {
     "name": "buy_broadsword2",
     "text": "Pleasure doin business with ya.",
     "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}] 
+  },
+  "buy_broadsword3": {
+    "name": "buy_broadsword3",
+    "text": "Thanks very much, don't poke your eye out.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw2", "type": "scene"}]
   },
   "buy_morningstar": {
     "name": "buy_morningstar",
@@ -332,6 +342,11 @@ export const dialogs = {
     "text": "Thank ye.",
     "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}] 
   },
+  "buy_morningstar3": {
+    "name": "buy_morningstar3",
+    "text": "Thank ye.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw2", "type": "scene"}] 
+  },
   "buy_warhammer": {
     "name": "buy_warhammer",
     "text": "now you're cookin with gas!",
@@ -345,6 +360,11 @@ export const dialogs = {
     "name": "buy_warhammer2",
     "text": "now you're cookin with gas!",
     "buttons": [{"label": "Exit", "route": "aurochsmaw", "type": "scene"}]
+  },
+  "buy_warhammer3": {
+    "name": "buy_warhammer3",
+    "text": "Thank ye.",
+    "buttons": [{"label": "Exit", "route": "aurochsmaw2", "type": "scene"}] 
   },
   "broke": {
     "name": "broke",
@@ -373,7 +393,8 @@ export const dialogs = {
     "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
     "buttons": [
       {"label": "Pay for a room", "route": "inn_sleep", "type": "sleep"},
-      {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"}
+      {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"},
+      {"label": "back", "route": "halfling_quest", "type": "scene"}
   ]
   },
   "inn2": {
@@ -458,7 +479,7 @@ export const dialogs = {
   "kill_player": {
     "name": "kill_player",
     "text": "You died.",
-    "buttons": [{"label": "restart game", "route": "title", "type": "scene"}]
+    "buttons": [{"label": "restart game", "route": "title", "type": "restart"}]
   },     
   "kill_chicken": {
     "name": "kill_chicken",
