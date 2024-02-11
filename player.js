@@ -1,7 +1,7 @@
 export const player = {
   "player": {
     "items": [],
-    "weapons": ["wooden sword"],
+    "weapons": ["Wooden Sword"],
     "killedChickens": false,
     "killedCroakers": false,
      

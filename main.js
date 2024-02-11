@@ -1,6 +1,7 @@
 //modules
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
+import { player } from '/player.js';
 import { items } from '/items.js';
 import { monsters } from '/monsters.js';
 import { battles } from '/battles.js';
@@ -8,6 +9,7 @@ import { battles } from '/battles.js';
 
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
+let playerData = JSON.parse(JSON.stringify(player));
 let itemData = JSON.parse(JSON.stringify(items));
 let monsterData = JSON.parse(JSON.stringify(monsters));
 let battleData = JSON.parse(JSON.stringify(battles));
@@ -16,7 +18,12 @@ let battleData = JSON.parse(JSON.stringify(battles));
 let xp = 0;
 let hp = 50;
 let gp = 100;
-let inv = ['wooden sword']; 
+//let inv = ['wooden sword'];
+let itemInv = playerData['player'].items;
+let weaponInv = playerData['player'].weapons;
+
+
+
 
 const xpTxt = document.querySelector('#xp-txt');
 const hpTxt = document.querySelector('#hp-txt');
@@ -33,7 +40,7 @@ const invSpan = document.querySelector('#inv-span');
 restart();  
     
 //main engine
-function clickHandler(buttonType, route) {
+function clickHandler(buttonType, route, item) {
   switch(buttonType) {
     case 'scene':
       changeScene(route.name);
@@ -53,7 +60,7 @@ function clickHandler(buttonType, route) {
     case 'buy':      
       changeDialog(route.name); 
       createButtons(route.name);      
-      buyItem(route.name);
+      buyItem(item);
       break; 
     case 'sell':
       changeDialog(route.name); 
@@ -120,19 +127,25 @@ function createButtons(dialogName) {
     tempBtn.addEventListener('click', function() {
     let route = dialogData[buttons[i].route];
     let buttonType = dialogData[dialogName].buttons[i].type;
-    clickHandler(buttonType, route);    
+    let item = dialogData[dialogName].buttons[i].item;
+    clickHandler(buttonType, route, item);    
     });
   }
 }
 
-function buyItem(itemName) {  
-  let cost = buyData[itemName].cost;
-  let item = buyData[itemName].item;
+function buyItem(itemId) {  
+  let cost = itemData[itemId].buyPrice;
+  let itemBuying = itemData[itemId].item;
   if(gp >= cost) {  
   gp = gp - cost;
-  gpTxt.innerHTML = gp;  
-  inv.push(item);
-  updateInv(item);
+  gpTxt.innerHTML = gp;
+    if(itemData[itemId].itemType === 'item') {
+      itemInv.push(itemBuying);
+      invTxt.innerHTML = itemInv;
+    } else if (itemData[itemId].itemType === 'weapon') {
+      weaponInv.push(itemBuying);
+      weaponTxt.innerHTML = weaponInv;
+    }  
   } else {
     changeDialog('broke'); 
     createButtons('broke'); //TODO: need fix - only works for shoppe   
@@ -318,9 +331,9 @@ function restart() {
   gp = 100;
   gpTxt.innerHTML = gp; 
   monsterHpSpan.style.display = 'none';
-  inv = ['wooden sword'];
-  invTxt.innerHTML = inv;
-  weaponTxt.innerHTML = '';
+  //weaponInv = ['wooden sword'];  
+  weaponTxt.innerHTML = weaponInv;
+  invTxt.innerHTML = '';
   changeDialog('title');
   createButtons('title');
   changeScene('title');
@@ -333,4 +346,4 @@ function giveItemsToIvy() {
 function winGame() {
   
 }
-
+console.log(itemData['broadSword'].item);

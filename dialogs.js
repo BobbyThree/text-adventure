@@ -97,7 +97,7 @@ export const dialogs = {
     "name": "ale",
     "text": "Here ya go, buddy. that will be 1gp<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "buy"}, 
+      {"label": "pay 1gp", "route": "buy_ale", "type": "buy", "item": "ale"}, 
       {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]
   },
@@ -284,8 +284,8 @@ export const dialogs = {
     "name": "swords",
     "text": "SHOPPE OWNER:<BR>I've got a short sword (1-10 damage) and a broad sword (10-15 damage)",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy"},
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy", "item": "broadSword"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}     
     ]
   },
@@ -293,8 +293,8 @@ export const dialogs = {
     "name": "blunt",
     "text": "SHOPPE OWNER:<BR>I've got a morning star (5-10 damage) and a warhammer (10-20 damage)",
     "buttons": [
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy", "item": "warHammer"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}      
     ]
   },

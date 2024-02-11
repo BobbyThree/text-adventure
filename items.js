@@ -1,6 +1,6 @@
 export const items = {
   "ale": {
-    "name": "ale",
+    "item": "ale",
     "itemType": "item",
     "questItem": false,
     "minDamage": 0,
@@ -9,7 +9,7 @@ export const items = {
     "sellPrice": 1
   },
   "woodenSword": {
-    "name": " Wooden Sword",
+    "item": " Wooden Sword",
     "itemType": "weapon",
     "questItem": false,
     "minDamage": 1,
@@ -18,7 +18,7 @@ export const items = {
     "sellPrice": 2
   },
   "shortSword": {
-    "name": "Short Sword",
+    "item": "Short Sword",
     "itemType": "weapon",
     "questItem": false,
     "minDamage": 1,
@@ -27,7 +27,7 @@ export const items = {
     "sellPrice": 5
   },
   "broadSword": {
-    "name": "Broad Sword",
+    "item": "Broad Sword",
     "itemType": "weapon",
     "questItem": false,
     "minDamage": 10,
@@ -36,7 +36,7 @@ export const items = {
     "sellPrice": 15
   },
   "morningStar": {
-    "name": "Morning Star",
+    "item": "Morning Star",
     "itemType": "weapon",
     "questItem": false,
     "minDamage": 5,
@@ -45,7 +45,7 @@ export const items = {
     "sellPrice": 10
   },
   "warHammer": {
-    "name": "War Hammer",
+    "item": "War Hammer",
     "itemType": "weapon",
     "questItem": false,
     "minDamage": 10,
@@ -54,7 +54,7 @@ export const items = {
     "sellPrice": 25
   },  
   "longBow": {
-    "name": "Long Bow",
+    "item": "Long Bow",
     "itemType": "weapon",
     "questItem": true,
     "minDamage": 20,
@@ -63,7 +63,7 @@ export const items = {
     "sellPrice": 100
   },  
   "dragonBlood": {
-    "name": "Dragon Blood",
+    "item": "Dragon Blood",
     "itemType": "item",
     "questItem": true,
     "minDamage": 0,
@@ -72,7 +72,7 @@ export const items = {
     "sellPrice": 0
   },  
   "innStay": {
-    "name": "Inn Stay",
+    "item": "Inn Stay",
     "itemType": "item",
     "questItem": false,
     "minDamage": 0,
