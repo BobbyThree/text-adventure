@@ -166,25 +166,25 @@ function updateWeaponInv() {
   weaponTxt.innerHTML = newWeaponInv;  
 }
 
-function sellItem(itemName) {
-  let item = sellData[itemName].item;
-  let price = sellData[itemName].price;
+function sellItem(itemId) {
+  let item = itemData[itemId].item;
+  let price = itemData[itemId].sellPrice;
   gp = gp + price;
   gpTxt.innerHTML = gp;
-  const invIndex = inv.indexOf(item);
-  inv.splice(invIndex, 1);
-  invTxt.innerHTML = inv;
+  const weaponIndex = weaponInv.indexOf(item);
+  weaponInv.splice(weaponIndex, 1);
+  updateWeaponInv();
 }
 
 function sellFromInventory() {
-  inv.forEach((e) => {
+  weaponInv.forEach((e) => {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
     
     tempBtn.onclick = () => {       
-      let str = 'sell_' + e;
-      let saleItem = str.replace(/\s+/g, '');
+      let str = e;
+      let saleItem = camelize(str);
       sellItem(saleItem);
       changeDialog('sold');
       createButtons('sold');           

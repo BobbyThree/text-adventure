@@ -4,7 +4,8 @@ export const player = {
     "weapons": ["Wooden Sword"],
     "killedChickens": false,
     "killedCroakers": false,
-     
+    "hasBlood": false,
+    "hasBow": false
   }
 }
 
