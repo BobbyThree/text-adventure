@@ -15,16 +15,11 @@ let monsterData = JSON.parse(JSON.stringify(monsters));
 let battleData = JSON.parse(JSON.stringify(battles));
 
 //variables & selectors
-let xp = 0;
-let hp = 50;
-let gp = 100;
+let hp = playerData['player'].hp;
+let gp = playerData['player'].gp;
 let itemInv = playerData['player'].items;
 let weaponInv = playerData['player'].weapons;
 
-
-
-
-const xpTxt = document.querySelector('#xp-txt');
 const hpTxt = document.querySelector('#hp-txt');
 const gpTxt = document.querySelector('#gp-txt');
 const weaponTxt = document.querySelector('#weapon-txt');
@@ -50,10 +45,7 @@ function clickHandler(buttonType, route, item) {
       changeDialog(route.name); 
       createButtons(route.name); 
       break;     
-    case 'restart':
-      changeDialog('title'); 
-      changeScene('title');
-      createButtons('title');
+    case 'restart':      
       restart(); 
       break;     
     case 'buy':      
@@ -333,7 +325,8 @@ function restart() {
   gp = 100;
   gpTxt.innerHTML = gp; 
   monsterHpSpan.style.display = 'none';
-  //weaponInv = 'Wooden Sword';    
+  weaponInv = ['Wooden Sword'];
+  itemInv = [];    
   weaponTxt.innerHTML = weaponInv;
   invTxt.innerHTML = '';
   changeDialog('title');
