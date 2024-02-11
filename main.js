@@ -18,7 +18,6 @@ let battleData = JSON.parse(JSON.stringify(battles));
 let xp = 0;
 let hp = 50;
 let gp = 100;
-//let inv = ['wooden sword'];
 let itemInv = playerData['player'].items;
 let weaponInv = playerData['player'].weapons;
 
@@ -141,20 +140,30 @@ function buyItem(itemId) {
   gpTxt.innerHTML = gp;
     if(itemData[itemId].itemType === 'item') {
       itemInv.push(itemBuying);
-      invTxt.innerHTML = itemInv;
+      updateItemInv();
     } else if (itemData[itemId].itemType === 'weapon') {
       weaponInv.push(itemBuying);
-      weaponTxt.innerHTML = weaponInv;
-    }  
+      updateWeaponInv();
+    }   
   } else {
-    changeDialog('broke'); 
-    createButtons('broke'); //TODO: need fix - only works for shoppe   
+    //changeDialog('broke'); 
+    //createButtons('broke'); //TODO: need fix - only works for shoppe
+    broke();   
   }
 }
 
-function updateInv() {
-  let newInv = [...new Set(inv)]; //gets rid of dupes
-  invTxt.innerHTML = newInv;  
+function broke() {
+  txt.innerHTML = 'You do not have enough gold!';
+
+}
+
+function updateItemInv() {
+  let newItemInv = [...new Set(itemInv)]; //gets rid of dupes
+  invTxt.innerHTML = newItemInv;  
+}
+function updateWeaponInv() {
+  let newWeaponInv = [...new Set(weaponInv)]; //gets rid of dupes
+  weaponTxt.innerHTML = newWeaponInv;  
 }
 
 function sellItem(itemName) {
@@ -199,23 +208,24 @@ function sleep() {
 
 function battle(currentMonster) {
   //select weapon
-  inv.forEach((e) => {
+  weaponInv.forEach((e) => {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
     
     tempBtn.onclick = () => {
-      let str = e;
-      let currentWeapon = str.replace(/\s+/g, '');
-      weaponTxt.innerHTML = currentWeapon;      
+      let str = e;      
+      let currentWeapon = camelize(str);     
       attack(currentWeapon, currentMonster);     
     };  
   })
 }
 
-function attack(weaponName, monsterName) {
-  let minDamage = weaponData[weaponName].min_damage;
-  let maxDamage = weaponData[weaponName].max_damage;  
+
+function attack(itemId, monsterName) {
+  
+  let minDamage = itemData[itemId].minDamage;
+  let maxDamage = itemData[itemId].maxDamage;  
   let monsterHp = monsterData[monsterName].hp;
   monsterHpSpan.style.display = 'block';
   monsterHpTxt.innerHTML = monsterHp;  
@@ -281,18 +291,10 @@ function monsterAttack(monsterName){
   }
 }
 
-function killPlayer() {
-  hp = 50;
-  hpTxt.innerHTML = hp;
-  gp = 100;
-  gpTxt.innerHTML = gp;
+function killPlayer() {  
   changeDialog('kill_player');
   changeScene('kill_player');
-  createButtons('kill_player');
-  monsterHpSpan.style.display = 'none';
-  inv = ['wooden sword'];
-  invTxt.innerHTML = inv;
-  weaponTxt.innerHTML = '';
+  createButtons('kill_player');  
 }
 
 function killMonster(monsterName) {
@@ -331,7 +333,7 @@ function restart() {
   gp = 100;
   gpTxt.innerHTML = gp; 
   monsterHpSpan.style.display = 'none';
-  //weaponInv = ['wooden sword'];  
+  //weaponInv = 'Wooden Sword';    
   weaponTxt.innerHTML = weaponInv;
   invTxt.innerHTML = '';
   changeDialog('title');
@@ -346,4 +348,9 @@ function giveItemsToIvy() {
 function winGame() {
   
 }
-console.log(itemData['broadSword'].item);
+
+function camelize(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+    return index === 0 ? word.toLowerCase() : word.toUpperCase();
+  }).replace(/\s+/g, '');
+}
