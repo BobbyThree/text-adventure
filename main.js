@@ -1,17 +1,14 @@
 //modules
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
-import { buyItems } from '/buy-items.js';
-import { sellItems } from '/sell-items.js';
-import { weapons } from '/weapons.js';
+import { items } from '/items.js';
 import { monsters } from '/monsters.js';
 import { battles } from '/battles.js';
 
+
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
-let buyData = JSON.parse(JSON.stringify(buyItems));
-let sellData = JSON.parse(JSON.stringify(sellItems));
-let weaponData = JSON.parse(JSON.stringify(weapons));
+let itemData = JSON.parse(JSON.stringify(items));
 let monsterData = JSON.parse(JSON.stringify(monsters));
 let battleData = JSON.parse(JSON.stringify(battles));
 
@@ -33,10 +30,7 @@ const monsterHpTxt = document.querySelector('#monster-hp-txt');
 const invSpan = document.querySelector('#inv-span'); 
 
 //initialize game
-changeDialog('title');
-changeScene('title');
-createButtons('title');
-invTxt.innerHTML = inv;  
+restart();  
     
 //main engine
 function clickHandler(buttonType, route) {
@@ -327,6 +321,9 @@ function restart() {
   inv = ['wooden sword'];
   invTxt.innerHTML = inv;
   weaponTxt.innerHTML = '';
+  changeDialog('title');
+  createButtons('title');
+  changeScene('title');
 }
 
 function giveItemsToIvy() {
@@ -336,3 +333,4 @@ function giveItemsToIvy() {
 function winGame() {
   
 }
+
