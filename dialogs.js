@@ -67,7 +67,7 @@ export const dialogs = {
     "name": "barkeep2",
     "text": "Looks like you've proven yourself enough to deserve my precious Unicorn Blood. Here ya go, it's on the house!",
     "buttons": [
-      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy"}      
+      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy", "item": "unicornBlood"}      
     ]    
   },
   "barkeep_honest": {
@@ -578,7 +578,7 @@ export const dialogs = {
     "name": "halfling_complete",
     "text": "BARKEEP: Thank goodness you have returned my daughter to me! I was worried sick! As promised the reward is this exuisite longbow. It was a gift to our town from, the elves.We halflings are too small to use such a weapon. I hope it proves usefuil to you in some way. Thank you for your bravery!",
     "buttons": [
-      {"label": "Accept reward", "route": "accept_longbow", "type": "buy"}      
+      {"label": "Accept reward", "route": "accept_longbow", "type": "buy", "item": "longBow"}      
     ]
   },     
   "accept_longbow": {

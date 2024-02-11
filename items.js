@@ -59,11 +59,11 @@ export const items = {
     "questItem": true,
     "minDamage": 20,
     "maxDamage": 30,
-    "buyPrice": 500,
+    "buyPrice": 0,
     "sellPrice": 100
   },  
-  "dragonBlood": {
-    "item": "Dragon Blood",
+  "unicornBlood": {
+    "item": "Unicorn Blood",
     "itemType": "item",
     "questItem": true,
     "minDamage": 0,
