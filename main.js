@@ -97,6 +97,11 @@ function clickHandler(buttonType, route) {
       createButtons(route.name);      
       getGold();            
       break;  
+    case 'win_game':
+      giveItemsToIvy();
+      winGame();
+                 
+      break;  
   }
 }      
 
@@ -322,4 +327,12 @@ function restart() {
   inv = ['wooden sword'];
   invTxt.innerHTML = inv;
   weaponTxt.innerHTML = '';
+}
+
+function giveItemsToIvy() {
+   
+}
+
+function winGame() {
+  
 }

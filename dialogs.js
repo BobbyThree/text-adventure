@@ -11,6 +11,14 @@ export const dialogs = {
     "buttons": [{"label": "Enter Tavern", "route": "tavern", "type": "scene"}
   ]
   },
+  "town2": {
+    "name": "town2",
+    "text": "You are back in the Town Square. Where do you wish to go now?<br>",
+    "buttons": [
+      {"label": "Enter Tavern", "route": "tavern3", "type": "scene"},
+      {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
+    ]
+  },
   "tavern": {
     "name": "tavern",     
     "text": "You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
@@ -20,6 +28,31 @@ export const dialogs = {
       {"label": "Leave tavern", "route": "town", "type": "scene"}
     ]      
   },
+  "tavern2": {
+    "name": "tavern2",
+    "text": "",
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
+      {"label": "talk to patron", "route": "patron", "type": "scene"},
+      {"label": "Look at quests", "route": "quests", "type": "scene"},
+      {"label": "Leave tavern", "route": "town", "type": "scene"}
+    ]
+  },
+  "tavern3": {
+    "name": "tavern3",
+    "text": "",
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
+      {"label": "talk to Roger", "route": "roger2", "type": "scene"},      
+      {"label": "Leave tavern", "route": "town2", "type": "scene"}
+    ]
+  },
+  "tavern4": {
+    "name": "tavern4",
+    "text": "",
+    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
+      {"label": "talk to Roger", "route": "roger3", "type": "scene"},      
+      {"label": "Leave tavern", "route": "town2", "type": "scene"}
+    ]
+  },
   "barkeep": {
     "name": "barkeep",    
     "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot and this is my Tavern. State your name and business! <br>",    
@@ -28,6 +61,13 @@ export const dialogs = {
       {"label": "May I please have... 2 tofu pups?", "route": "barkeep_funny", "type": "dialog"},
       {"label": "I'm Nunya...Nunya business! Eat shit", "route": "died", "type": "scene"},
       {"label": "back", "route": "tavern", "type": "scene"}
+    ]    
+  },
+  "barkeep2": {
+    "name": "barkeep2",
+    "text": "Looks like you've proven yourself enough to deserve my precious Unicorn Blood. Here ya go, it's on the house!",
+    "buttons": [
+      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy"}      
     ]    
   },
   "barkeep_honest": {
@@ -73,39 +113,7 @@ export const dialogs = {
     "name": "unicorn",
     "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, perhaps by completing a quest from the board over there. Do that and I'll give ya a Unicorn blood on the house.<br>",
     "buttons": [{"label": "Ok, I'll be back!", "route": "tavern2", "type": "scene"}]    
-  },
-  "tavern2": {
-    "name": "tavern2",
-    "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
-      {"label": "talk to patron", "route": "patron", "type": "scene"},
-      {"label": "Look at quests", "route": "quests", "type": "scene"},
-      {"label": "Leave tavern", "route": "town", "type": "scene"}
-    ]
-  },
-  "tavern3": {
-    "name": "tavern3",
-    "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
-      {"label": "talk to Roger", "route": "roger2", "type": "scene"},      
-      {"label": "Leave tavern", "route": "town2", "type": "scene"}
-    ]
-  },
-  "town2": {
-    "name": "town2",
-    "text": "You are back in the Town Square. Where do you wish to go now?<br>",
-    "buttons": [
-      {"label": "Enter Tavern", "route": "tavern3", "type": "scene"},
-      {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
-    ]
-  },
-  "barkeep2": {
-    "name": "barkeep2",
-    "text": "Looks like you've proven yourself enough to deserve my precious Unicorn Blood. Here ya go, it's on the house!",
-    "buttons": [
-      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy"}      
-    ]    
-  },
+  },  
   "buy_ale": {
     "name": "buy_ale",
     "text": "thank you!<br>",
@@ -683,16 +691,7 @@ export const dialogs = {
       {"label": "Yes we do. we're ready!", "route": "beholder", "type": "scene"},
       {"label": "No we don't. We will return when we are ready", "route": "tavern4", "type": "scene"}
     ]
-  },
-  "tavern4": {
-    "name": "tavern4",
-    "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep2", "type": "scene"},
-      {"label": "talk to Roger", "route": "roger3", "type": "scene"},
-      {"label": "Look at quests", "route": "quests", "type": "scene"},
-      {"label": "Leave tavern", "route": "town2", "type": "scene"}
-    ]
-  },  
+  },    
   "roger3": {
     "name": "roger3",
     "text": "Ok are you ready? Do you have the long bow and the unicorn blood?",
@@ -705,7 +704,7 @@ export const dialogs = {
     "name": "beholder",
     "text": "You are now face to face with the terrible BEHOLDER!!! I hope you know what you're doing.",
     "buttons": [
-      {"label": "Give longbow and Unicorn Blood to Ivy", "route": "win_game", "type": "scene"},
+      {"label": "Give longbow and Unicorn Blood to Ivy", "route": "win_game", "type": "win_game"},
       {"label": "Attack Beholder!", "route": "kill_player", "type": "scene"}
     ]
   }  
