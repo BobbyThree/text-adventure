@@ -7,7 +7,9 @@ export const player = {
     "killedChickens": false,
     "killedCroakers": false,
     "hasBlood": false,
-    "hasBow": false
+    "hasBow": false,
+    "currentScene": "",
+    "previousScene": ""
   }
 }
 
