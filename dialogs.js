@@ -19,24 +19,15 @@ export const dialogs = {
       {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
     ]
   },
-  "tavern": {
+  "tavern": { 
     "name": "tavern",     
-    "text": "You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
+    "text": "The interior of the Tavern is dark, dank and stinky. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
     "buttons": [{"label": "Talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "Talk to Patron", "route": "patron", "type": "scene"},
       {"label": "Look at Quests", "route": "quests", "type": "scene"},
       {"label": "Leave tavern", "route": "town", "type": "scene"}
     ]      
-  },
-  "tavern2": {
-    "name": "tavern2",
-    "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
-      {"label": "talk to patron", "route": "patron", "type": "scene"},
-      {"label": "Look at quests", "route": "quests", "type": "scene"},
-      {"label": "Leave tavern", "route": "town", "type": "scene"}
-    ]
-  },
+  },  
   "tavern3": {
     "name": "tavern3",
     "text": "",
@@ -112,7 +103,7 @@ export const dialogs = {
   "unicorn": {
     "name": "unicorn",
     "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, perhaps by completing a quest from the board over there. Do that and I'll give ya a Unicorn blood on the house.<br>",
-    "buttons": [{"label": "Ok, I'll be back!", "route": "tavern2", "type": "scene"}]    
+    "buttons": [{"label": "Ok, I'll be back!", "route": "tavern", "type": "scene"}]    
   },  
   "buy_ale": {
     "name": "buy_ale",
@@ -120,13 +111,13 @@ export const dialogs = {
     "buttons": [
       {"label": "Buy ale", "route": "ale", "type": "dialog"},
       {"label": "Buy milk (which is also ale)", "route": "milk", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "quests": {
     "name": "quests",
     "text": "",
-    "buttons": [{"label": "exit", "route": "tavern2", "type": "scene"}]
+    "buttons": [{"label": "exit", "route": "tavern", "type": "scene"}]
   },
   "patron": {
     "name": "patron",
@@ -174,17 +165,24 @@ export const dialogs = {
       {"label": "Accept Quest", "route": "halfling_quest", "type": "scene"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
       {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "croakers_details": {
     "name": "croakers_details",
     "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
-    "buttons": [
-      {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
-      {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
-      {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+    "buttonOptions": [
+      [ //killedChickens: false
+        {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
+        {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
+        {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+        {"label": "back", "route": "tavern", "type": "scene"}
+      ],
+      [ //killedChickens: true
+        {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},              
+        {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+        {"label": "back", "route": "tavern", "type": "scene"}
+      ]       
     ]
   },
   "croakers_details2": {
@@ -203,7 +201,7 @@ export const dialogs = {
       {"label": "Accept Quest", "route": "beholder_quest", "type": "scene"},
       {"label": "Halfling", "route": "halfling_details", "type": "dialog"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "beholder_details2": {
@@ -245,21 +243,21 @@ export const dialogs = {
     "name": "shoppe2",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
-      {"label": "exit", "route": "aurochsmaw", "type": "dialog"}
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy", "item": "broadSwaord"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy", "item": "warHammer"},      
+      {"label": "exit", "route": "aurochsmaw", "type": "scene"}
     ]
   },
   "shoppe3": {
     "name": "shoppe3",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword3", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword3", "type": "buy"},
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar3", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer3", "type": "buy"},      
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy", "item": "broadSwaord"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy", "item": "warHammer"},      
       {"label": "exit", "route": "aurochsmaw2", "type": "scene"}
     ]
   },

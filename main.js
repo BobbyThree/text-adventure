@@ -107,7 +107,8 @@ function changeDialog(dialogName) {
 }
 
 function createButtons(dialogName) {
-  let buttons = dialogData[dialogName].buttons;  
+  let buttons = dialogData[dialogName].buttons;
+  let buttonOptions = dialogData[dialogName].buttonOptions;  
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = buttons[i].label; 
@@ -326,10 +327,9 @@ function killMonster(monsterName) {
 }
 
 function getGold() {
-  playerData['player'].gp;
-  gp += 500;
-  playerData['player'].gp = gp;
-  gpTxt.innerHTML = gp;
+  playerData['player'].gp += 500;  
+  playerData['player'].gp = playerData['player'].gp;
+  gpTxt.innerHTML = playerData['player'].gp;
 }
 
 function restart() {  
@@ -364,3 +364,4 @@ function camelize(str) {
   return index === 0 ? word.toLowerCase() : word.toUpperCase();
   }).replace(/\s+/g, '');
 }
+
