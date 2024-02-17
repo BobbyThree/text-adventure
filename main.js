@@ -14,11 +14,7 @@ let itemData = JSON.parse(JSON.stringify(items));
 let monsterData = JSON.parse(JSON.stringify(monsters));
 let battleData = JSON.parse(JSON.stringify(battles));
 
-//variables & selectors
-
-//let itemInv = playerData['player'].items;
-//let weaponInv = playerData['player'].weapons;
-
+//selectors
 const hpTxt = document.querySelector('#hp-txt');
 const gpTxt = document.querySelector('#gp-txt');
 const weaponTxt = document.querySelector('#weapon-txt');
@@ -101,7 +97,9 @@ function changeScene(sceneName) {
   screen.style.backgroundImage = sceneData[sceneName].background;
   let visits = sceneData[sceneName].visited;
   visits++;
-  sceneData[sceneName].visited = visits;  
+  sceneData[sceneName].visited = visits;
+  playerData['player'].currentScene = sceneData[sceneName].name;
+  console.log(playerData['player'].currentScene);  
 }  
 
 function changeDialog(dialogName) {
@@ -127,12 +125,11 @@ function buyItem(itemId) {
   let cost = itemData[itemId].buyPrice;
   let itemBuying = itemData[itemId].item;
   let itemInv = playerData['player'].items;
-  let weaponInv = playerData['player'].weapons;
-  let gp = playerData['player'].gp
-  if(gp >= cost) {  
-    gp = gp - cost;
-    playerData['player'].gp = gp;
-    gpTxt.innerHTML = gp;
+  let weaponInv = playerData['player'].weapons;  
+  if(playerData['player'].gp >= cost) {  
+    playerData['player'].gp -= cost;
+    playerData['player'].gp = playerData['player'].gp; //update player gp
+    gpTxt.innerHTML = playerData['player'].gp;
       if(itemData[itemId].itemType === 'item') {
         itemInv.push(itemBuying);         
         updateItemInv();
@@ -169,10 +166,9 @@ function sellItem(itemId) {
   let item = itemData[itemId].item;
   let price = itemData[itemId].sellPrice;
   let weaponInv = playerData['player'].weapons;
-  let gp = playerData['player'].gp;
-  gp = gp + price;
-  playerData['player'].gp = gp; //update player object
-  gpTxt.innerHTML = gp;
+  playerData['player'].gp += price;
+  playerData['player'].gp = playerData['player'].gp; //update player gp
+  gpTxt.innerHTML = playerData['player'].gp;  
   const weaponIndex = weaponInv.indexOf(item);
   weaponInv.splice(weaponIndex, 1);
   updateWeaponInv();
@@ -230,8 +226,7 @@ function battle(currentMonster) {
 }
 
 
-function attack(itemId, monsterName) {
-  
+function attack(itemId, monsterName) {  
   let minDamage = itemData[itemId].minDamage;
   let maxDamage = itemData[itemId].maxDamage;  
   let monsterHp = monsterData[monsterName].hp;
@@ -270,17 +265,15 @@ function monsterAttack(monsterName){
   let minDamage = monsterData[monsterName].min_damage;
   let maxDamage = monsterData[monsterName].max_damage;
     
-  const accuracy = Math.random();
-  let hp = playerData['player'].hp;
+  const accuracy = Math.random();  
   if(accuracy < 2/3) {    
-    hp -= damage(minDamage, maxDamage);
-    playerData['player'].hp = hp;
-    hpTxt.innerHTML = hp;    
+    playerData['player'].hp -= damage(minDamage, maxDamage);
+    hpTxt.innerHTML = playerData['player'].hp;   
     txt.innerHTML = `The ${monsterName} attacks...HIT!`    
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
-    if(hp <= 0) {
+    if(playerData['player'].hp <= 0) {
       killPlayer();
     } 
     tempBtn.onclick = () => {
@@ -333,23 +326,19 @@ function killMonster(monsterName) {
 }
 
 function getGold() {
-  let gp = playerData['player'].gp;
+  playerData['player'].gp;
   gp += 500;
   playerData['player'].gp = gp;
   gpTxt.innerHTML = gp;
 }
 
-function restart() {
-  let hp = playerData['player'].hp
-  let gp = playerData['player'].gp
+function restart() {  
   let itemInv = playerData['player'].items;
-  let weaponInv = playerData['player'].weapons;
-  hp = 50;
-  playerData['player'].hp = hp;
-  hpTxt.innerHTML = hp;
-  gp = 100;
-  playerData['player'].gp = gp;
-  gpTxt.innerHTML = gp; 
+  let weaponInv = playerData['player'].weapons;  
+  playerData['player'].hp = 50;
+  hpTxt.innerHTML = playerData['player'].hp;  
+  playerData['player'].gp = 100;
+  gpTxt.innerHTML = playerData['player'].gp; 
   monsterHpSpan.style.display = 'none';
   weaponInv = ['Wooden Sword'];
   playerData['player'].weapons = weaponInv;
