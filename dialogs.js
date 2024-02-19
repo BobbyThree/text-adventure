@@ -179,9 +179,9 @@ export const dialogs = {
         {"label": "back", "route": "tavern", "type": "scene"}
       ],
       [ //killedChickens: true
-        {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},              
-        {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
-        {"label": "back", "route": "tavern", "type": "scene"}
+        {"label": "Accept Quest", "route": "croakers_quest", "type": "scene", "killedChickens": true},              
+        {"label": "Beholder", "route": "beholder_details", "type": "dialog", "killedChickens": true},
+        {"label": "back", "route": "tavern", "type": "scene", "killedChickens": true}
       ]       
     ]
   },
@@ -467,7 +467,7 @@ export const dialogs = {
     "text": "You follow the inn keeper's old-timey directions until you see the chicken farm in the distance. Something doesn't feel right...<br>",
     "buttons": [
       {"label": "get a closer look", "route": "abyssal", "type": "scene"},      
-      {"label": "Go back to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
+      {"label": "Go back to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
   ]
   },     
   "abyssal": {
@@ -644,7 +644,7 @@ export const dialogs = {
   },
   "elf_beholder_info": {
     "name": "elf_beholder_info",
-    "text": "A Beholder is a shere if many eyes. One big eye is in the center of its head while the other are on the end of snake-like things attached to it's head. Each eye has a different magical ability - some can turn you to stone, or melt the flesh right off ya! If the Beholder has a chance to attack us, I belive we will be toast. We must strike first and strike HARD.",
+    "text": "A Beholder is a sphere of many eyes. One big eye is in the center of its head while the other are on the end of snake-like extremities attached to it's head. Each eye has a different magical ability - some can turn you to stone, or melt the flesh right off ya! If the Beholder has a chance to attack us, I belive we will be toast. We must strike first and strike HARD.",
     "buttons": [      
       {"label": "I'm hoping to defeat the Beholder too. Let's join forces!", "route": "elf_join", "type": "dialog"},
       {"label": "So, no mercy. Got it. Do they have any weaknesses?", "route": "beholder_weakness", "type": "dialog"},

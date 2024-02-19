@@ -99,7 +99,7 @@ function changeScene(sceneName) {
   visits++;
   sceneData[sceneName].visited = visits;
   playerData['player'].currentScene = sceneData[sceneName].name;
-  console.log(playerData['player'].currentScene);  
+  console.log(playerData['player'].currentScene);//test
 }  
 
 function changeDialog(dialogName) {
@@ -317,6 +317,8 @@ function killMonster(monsterName) {
       monsterHpSpan.style.display = 'none';
       changeDialog('kill_chicken3');
       createButtons('kill_chicken3');
+      playerData['player'].killedChickens = true;
+      console.log(`killed chickens: ${playerData['player'].killedChickens}`);//test
       break;
     case 'croaker':
       monsterHpSpan.style.display = 'none';
