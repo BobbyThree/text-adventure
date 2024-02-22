@@ -26,9 +26,16 @@ const monsterHpTxt = document.querySelector('#monster-hp-txt');
 const invSpan = document.querySelector('#inv-span'); 
 
 //initialize game
+
 restart();  
     
 //main engine
+function clickHandler(buttonType, route, item) {  
+  changeScene(route);
+  changeDialog(route);
+  createButtons(route);    
+}
+/*
 function clickHandler(buttonType, route, item) {
   switch(buttonType) {
     case 'scene':
@@ -91,10 +98,15 @@ function clickHandler(buttonType, route, item) {
       break;  
   }
 }      
-
+*/
 //functions
-function changeScene(sceneName) {   
+function doAction() {
+  
+}
+
+function changeScene(sceneName) {  
   screen.style.backgroundImage = sceneData[sceneName].background;
+
   let visits = sceneData[sceneName].visited;
   visits++;
   sceneData[sceneName].visited = visits;
@@ -114,7 +126,7 @@ function createButtons(dialogName) {
     tempBtn.innerHTML = buttons[i].label; 
     txt.appendChild(tempBtn);
     if (dialogData[dialogName].txtStyle === 'dialog') {
-      tempBtn.style.backgroundColor = 'rgb(70, 70, 70';
+      tempBtn.style.backgroundColor = 'rgb(70, 70, 70)';
       tempBtn.style.color = 'lightgreen';
       tempBtn.style.borderBottom = '2px solid black';
       tempBtn.addEventListener('mouseover', () => {
@@ -125,7 +137,7 @@ function createButtons(dialogName) {
       });
     }  
     tempBtn.addEventListener('click', function() {
-    let route = dialogData[buttons[i].route];
+    let route = dialogData[buttons[i].route].name;
     let buttonType = dialogData[dialogName].buttons[i].type;
     let item = dialogData[dialogName].buttons[i].item;
     clickHandler(buttonType, route, item);    
