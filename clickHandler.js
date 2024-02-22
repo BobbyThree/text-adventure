@@ -10,7 +10,7 @@ function changeScene() {
 }
 
 function changeDialog() {
-
+  
 }
 
 function createButtons() {
@@ -18,5 +18,5 @@ function createButtons() {
 }
 
 function doAction() {
-  
+
 }

@@ -1,12 +1,14 @@
 export const dialogs = {
   "title": {
     "name": "title",
+    "txtStyle": "narrator",
     "text": "Welcome to Big Trouble in Little Ixonia! This is a text based adventure game created by Robert Lewis III. You begin your tale in the small mountain town of Ixonia, where a fearsome Beholder has taken up residence in the town hall to the terror of the town's inhabitants. Click the 'Play Game' button to begin. <br>",
     "buttons": [{"label": "Play Game", "route": "town", "type": "scene"}
   ]
   },
   "town": {
-    "name": "town",    
+    "name": "town",
+    "txtStyle": "narrator",    
     "text": "You arrive in Ixonia's town center. The hour is late and there are very few people in sight. The tavern appears to be still open. <br>",
     "buttons": [{"label": "Enter Tavern", "route": "tavern", "type": "scene"}
   ]
@@ -20,7 +22,8 @@ export const dialogs = {
     ]
   },
   "tavern": { 
-    "name": "tavern",     
+    "name": "tavern",
+    "txtStyle": "narrator",     
     "text": "The interior of the Tavern is dark, dank and stinky. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
     "buttons": [{"label": "Talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "Talk to Patron", "route": "patron", "type": "scene"},
@@ -45,7 +48,8 @@ export const dialogs = {
     ]
   },
   "barkeep": {
-    "name": "barkeep",    
+    "name": "barkeep",
+    "txtStyle": "dialog",    
     "text": "BARKEEP:<br> Hello! I'm Esmee Fairfoot and this is my Tavern. State your name and business! <br>",    
     "buttons": [
       {"label": "I'm new in town. I seek my fortune!", "route": "barkeep_honest", "type": "dialog"},
@@ -62,7 +66,8 @@ export const dialogs = {
     ]    
   },
   "barkeep_honest": {
-    "name": "barkeep_honest",    
+    "name": "barkeep_honest",
+    "txtStyle": "dialog",     
     "text": "BARKEEP:<br>Nice to meet you! We need all the help we can get. The Beholder has defeated all who have tried to fight it. Anyway, What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
     "buttons": [
       {"label": "Gimme an ale", "route": "ale", "type": "dialog"},
@@ -72,6 +77,7 @@ export const dialogs = {
   },  
   "barkeep_funny": {
     "name": "barkeep_funny",
+    "txtStyle": "dialog", 
     "text": "BARKEEP:<br>okayyyyyy well....What can I get you to drink? We have ale and our special is Unicorn Blood<br>",
     "buttons": [
       {"label": "Gimme an ale", "route": "ale", "type": "dialog"},
@@ -86,9 +92,10 @@ export const dialogs = {
   },
   "ale": {
     "name": "ale",
+    "txtStyle": "dialog", 
     "text": "Here ya go, buddy. that will be 1gp<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "buy", "item": "ale"}, 
+      {"label": "Thanks, here's 1gp", "route": "buy_ale", "type": "buy", "item": "ale"}, 
       {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]
   },
@@ -102,11 +109,12 @@ export const dialogs = {
   },
   "unicorn": {
     "name": "unicorn",
+    "txtStyle": "dialog", 
     "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, perhaps by completing a quest from the board over there. Do that and I'll give ya a Unicorn blood on the house.<br>",
     "buttons": [{"label": "Ok, I'll be back!", "route": "tavern", "type": "scene"}]    
   },  
   "buy_ale": {
-    "name": "buy_ale",
+    "name": "buy_ale",    
     "text": "thank you!<br>",
     "buttons": [
       {"label": "Buy ale", "route": "ale", "type": "dialog"},
@@ -121,6 +129,7 @@ export const dialogs = {
   },
   "patron": {
     "name": "patron",
+    "txtStyle": "dialog", 
     "text": "PATRON:<br>Hi, what do you want?<br>",
     "buttons": [  
       {"label": "Are you Roger?", "route": "roger", "type": "dialog"},
@@ -129,6 +138,7 @@ export const dialogs = {
   },
   "roger": {
     "name": "roger",
+    "txtStyle": "dialog", 
     "text": "Roger:<br>Yep that's me. <br>",
     "buttons": [  
       {"label": "The quest board over there says 'ask Roger for details'.", "route": "details", "type": "dialog"},
@@ -137,6 +147,7 @@ export const dialogs = {
   },
   "somewhere": {
     "name": "somewhere",
+    "txtStyle": "dialog", 
     "text": "Hmm, not likely. Ever been to Pestulon? Are you the one that beat my high score on Astro Chicken?<br>",
     "buttons": [  
       {"label": "Umm..actually I was wanting to get details about the quests on the board..?'.", "route": "details", "type": "dialog"}
@@ -144,6 +155,7 @@ export const dialogs = {
   },
   "outfit": {
     "name": "outfit",
+    "txtStyle": "dialog", 
     "text": "What, this old thing? It's my space-janitor uniform. Duh!<br>",
     "buttons": [  
       {"label": "Umm..actually I was wanting to get details about the quests on the board..?'.", "route": "details", "type": "dialog"}
@@ -151,30 +163,33 @@ export const dialogs = {
   },
   "details": {
     "name": "details",
+    "txtStyle": "dialog", 
     "text": "Sure thing. Which quest are you wondering about?<br>",
     "buttons": [
-      {"label": "Halfling", "route": "halfling_details", "type": "dialog"},
-      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
-      {"label": "Beholder", "route": "beholder_details", "type": "dialog"}
+      {"label": "Tell me about the missing halfling", "route": "halfling_details", "type": "dialog"},
+      {"label": "Tell me about the Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
+      {"label": "Tell me about the Beholder", "route": "beholder_details", "type": "dialog"}
     ]
   },
   "halfling_details": {
     "name": "halfling_details",
+    "txtStyle": "dialog",
     "text": "The Barkeep's daughter has gone missing. Last we heard, she was heading up to Aurochsmow for the day to look for work. She should've been back days ago. You must go to Aurochsmow and find her. The reward for this quest is an exuisite longbow of immense power.<br>",
     "buttons": [
       {"label": "Accept Quest", "route": "halfling_quest", "type": "scene"},
-      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
-      {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+      {"label": "Tell me about the Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
+      {"label": "Tell me about the Beholder", "route": "beholder_details", "type": "dialog"},
       {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "croakers_details": {
     "name": "croakers_details",
+    "txtStyle": "dialog",
     "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
     "buttons": [
         {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
-        {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
-        {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+        {"label": "Tell me about the missing halfling", "route": "halfling_details", "type": "dialog"},      
+        {"label": "Tell me about the Beholder", "route": "beholder_details", "type": "dialog"},
         {"label": "back", "route": "tavern", "type": "scene"}
             
     ]
@@ -190,16 +205,18 @@ export const dialogs = {
   },
   "beholder_details": {
     "name": "beholder_details",
+    "txtStyle": "dialog",
     "text": "A terrible Beholder has taken up residence in the town hall. He is a vicious beast who is far beyond the abilities of any of us. You must help us! Defeat the Beholder, be the hero of this town, and recieve 10,000gp.<br>",
     "buttons": [
       {"label": "Accept Quest", "route": "beholder_quest", "type": "scene"},
-      {"label": "Halfling", "route": "halfling_details", "type": "dialog"},
-      {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
+      {"label": "Tell me about the missing halfling", "route": "halfling_details", "type": "dialog"},
+      {"label": "Tell me about the Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
       {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "beholder_details2": {
     "name": "beholder_details2",
+    "txtStyle": "dialog",
     "text": "A terrible Beholder has taken up residence in the town hall. He is a vicious beast who is far beyond the abilities of any of us. You must help us! Defeat the Beholder, be the hero of this town, and recieve 10,000gp.<br>",
     "buttons": [
       {"label": "Accept Quest", "route": "beholder_quest", "type": "scene"},      
