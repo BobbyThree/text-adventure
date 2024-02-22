@@ -107,8 +107,7 @@ function changeDialog(dialogName) {
 }
 
 function createButtons(dialogName) {
-  let buttons = dialogData[dialogName].buttons;
-  let buttonOptions = dialogData[dialogName].buttonOptions;  
+  let buttons = dialogData[dialogName].buttons;    
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = buttons[i].label; 
@@ -244,7 +243,7 @@ function attack(itemId, monsterName) {
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
     if(monsterHp <= 0) {
-      killMonster(monsterName); //TODO: queue another chicken
+      killMonster(monsterName); 
     }
     tempBtn.onclick = () => monsterAttack(monsterName);     
   } else {
@@ -354,11 +353,15 @@ function restart() {
 }
 
 function giveItemsToIvy() {
-   
+   if (playerData['player'].hasBlood === true && playerData['player'].hasBow === true) {
+    winGame();
+   } else {
+    txt.innerHTML = 'you do not have the items you need to fight the beholder'
+   }
 }
 
 function winGame() {
-  
+  txt.innerHTML = 'you win';
 }
 
 function camelize(str) {

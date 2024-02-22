@@ -171,18 +171,12 @@ export const dialogs = {
   "croakers_details": {
     "name": "croakers_details",
     "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
-    "buttonOptions": [
-      [ //killedChickens: false
+    "buttons": [
         {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
         {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
         {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
         {"label": "back", "route": "tavern", "type": "scene"}
-      ],
-      [ //killedChickens: true
-        {"label": "Accept Quest", "route": "croakers_quest", "type": "scene", "killedChickens": true},              
-        {"label": "Beholder", "route": "beholder_details", "type": "dialog", "killedChickens": true},
-        {"label": "back", "route": "tavern", "type": "scene", "killedChickens": true}
-      ]       
+            
     ]
   },
   "croakers_details2": {
