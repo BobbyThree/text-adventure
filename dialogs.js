@@ -19,24 +19,15 @@ export const dialogs = {
       {"label": "Go to Aurochsmaw", "route": "aurochsmaw2", "type": "scene"},
     ]
   },
-  "tavern": {
+  "tavern": { 
     "name": "tavern",     
-    "text": "You enter the dark, smelly tavern. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
+    "text": "The interior of the Tavern is dark, dank and stinky. Behind the bar is a halfing woman. Only one patron is still here. On the far wall you see a posting of Quests. <br>",
     "buttons": [{"label": "Talk to Barkeep", "route": "barkeep", "type": "scene"},
       {"label": "Talk to Patron", "route": "patron", "type": "scene"},
       {"label": "Look at Quests", "route": "quests", "type": "scene"},
       {"label": "Leave tavern", "route": "town", "type": "scene"}
     ]      
-  },
-  "tavern2": {
-    "name": "tavern2",
-    "text": "",
-    "buttons": [{"label": "talk to Barkeep", "route": "barkeep", "type": "scene"},
-      {"label": "talk to patron", "route": "patron", "type": "scene"},
-      {"label": "Look at quests", "route": "quests", "type": "scene"},
-      {"label": "Leave tavern", "route": "town", "type": "scene"}
-    ]
-  },
+  },  
   "tavern3": {
     "name": "tavern3",
     "text": "",
@@ -67,7 +58,7 @@ export const dialogs = {
     "name": "barkeep2",
     "text": "Looks like you've proven yourself enough to deserve my precious Unicorn Blood. Here ya go, it's on the house!",
     "buttons": [
-      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy"}      
+      {"label": "Accept Unicorn Blood", "route": "accept_blood", "type": "buy", "item": "unicornBlood"}      
     ]    
   },
   "barkeep_honest": {
@@ -97,7 +88,7 @@ export const dialogs = {
     "name": "ale",
     "text": "Here ya go, buddy. that will be 1gp<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "buy"}, 
+      {"label": "pay 1gp", "route": "buy_ale", "type": "buy", "item": "ale"}, 
       {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]
   },
@@ -112,7 +103,7 @@ export const dialogs = {
   "unicorn": {
     "name": "unicorn",
     "text": "BARKEEP:<br>Tell ya what - come back when you've proven yourself as a true warrior, perhaps by completing a quest from the board over there. Do that and I'll give ya a Unicorn blood on the house.<br>",
-    "buttons": [{"label": "Ok, I'll be back!", "route": "tavern2", "type": "scene"}]    
+    "buttons": [{"label": "Ok, I'll be back!", "route": "tavern", "type": "scene"}]    
   },  
   "buy_ale": {
     "name": "buy_ale",
@@ -120,13 +111,13 @@ export const dialogs = {
     "buttons": [
       {"label": "Buy ale", "route": "ale", "type": "dialog"},
       {"label": "Buy milk (which is also ale)", "route": "milk", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "quests": {
     "name": "quests",
     "text": "",
-    "buttons": [{"label": "exit", "route": "tavern2", "type": "scene"}]
+    "buttons": [{"label": "exit", "route": "tavern", "type": "scene"}]
   },
   "patron": {
     "name": "patron",
@@ -174,17 +165,18 @@ export const dialogs = {
       {"label": "Accept Quest", "route": "halfling_quest", "type": "scene"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
       {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "croakers_details": {
     "name": "croakers_details",
     "text": "Just outside of town the Bullywug Croakers are blocking the main road. They ambush anyone who tries to cross into the marshes. Defeat them and recieve 500gp.<br>",
     "buttons": [
-      {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
-      {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
-      {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+        {"label": "Accept Quest", "route": "croakers_quest", "type": "scene"},
+        {"label": "Halfling", "route": "halfling_details", "type": "dialog"},      
+        {"label": "Beholder", "route": "beholder_details", "type": "dialog"},
+        {"label": "back", "route": "tavern", "type": "scene"}
+            
     ]
   },
   "croakers_details2": {
@@ -203,7 +195,7 @@ export const dialogs = {
       {"label": "Accept Quest", "route": "beholder_quest", "type": "scene"},
       {"label": "Halfling", "route": "halfling_details", "type": "dialog"},
       {"label": "Bullywug Croakers", "route": "croakers_details", "type": "dialog"},
-      {"label": "back", "route": "tavern2", "type": "scene"}
+      {"label": "back", "route": "tavern", "type": "scene"}
     ]
   },
   "beholder_details2": {
@@ -245,21 +237,21 @@ export const dialogs = {
     "name": "shoppe2",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy"},
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy"},      
-      {"label": "exit", "route": "aurochsmaw", "type": "dialog"}
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy", "item": "broadSwaord"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy", "item": "warHammer"},      
+      {"label": "exit", "route": "aurochsmaw", "type": "scene"}
     ]
   },
   "shoppe3": {
     "name": "shoppe3",
     "text": "SHOPPE OWNER:<BR>You again! How can I be of service?<br>",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword3", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword3", "type": "buy"},
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar3", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer3", "type": "buy"},      
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword2", "type": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword2", "type": "buy", "item": "broadSwaord"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar2", "type": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer2", "type": "buy", "item": "warHammer"},      
       {"label": "exit", "route": "aurochsmaw2", "type": "scene"}
     ]
   },
@@ -284,8 +276,8 @@ export const dialogs = {
     "name": "swords",
     "text": "SHOPPE OWNER:<BR>I've got a short sword (1-10 damage) and a broad sword (10-15 damage)",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy"},
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy", "item": "broadSword"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}     
     ]
   },
@@ -293,8 +285,8 @@ export const dialogs = {
     "name": "blunt",
     "text": "SHOPPE OWNER:<BR>I've got a morning star (5-10 damage) and a warhammer (10-20 damage)",
     "buttons": [
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy", "item": "warHammer"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}      
     ]
   },
@@ -469,7 +461,7 @@ export const dialogs = {
     "text": "You follow the inn keeper's old-timey directions until you see the chicken farm in the distance. Something doesn't feel right...<br>",
     "buttons": [
       {"label": "get a closer look", "route": "abyssal", "type": "scene"},      
-      {"label": "Go back to Aurochsmaw", "route": "aurochsmaw", "type": "scene"},      
+      {"label": "Go back to Aurochsmaw", "route": "halfling_quest", "type": "scene"},      
   ]
   },     
   "abyssal": {
@@ -578,7 +570,7 @@ export const dialogs = {
     "name": "halfling_complete",
     "text": "BARKEEP: Thank goodness you have returned my daughter to me! I was worried sick! As promised the reward is this exuisite longbow. It was a gift to our town from, the elves.We halflings are too small to use such a weapon. I hope it proves usefuil to you in some way. Thank you for your bravery!",
     "buttons": [
-      {"label": "Accept reward", "route": "accept_longbow", "type": "buy"}      
+      {"label": "Accept reward", "route": "accept_longbow", "type": "buy", "item": "longBow"}      
     ]
   },     
   "accept_longbow": {
@@ -646,7 +638,7 @@ export const dialogs = {
   },
   "elf_beholder_info": {
     "name": "elf_beholder_info",
-    "text": "A Beholder is a shere if many eyes. One big eye is in the center of its head while the other are on the end of snake-like things attached to it's head. Each eye has a different magical ability - some can turn you to stone, or melt the flesh right off ya! If the Beholder has a chance to attack us, I belive we will be toast. We must strike first and strike HARD.",
+    "text": "A Beholder is a sphere of many eyes. One big eye is in the center of its head while the other are on the end of snake-like extremities attached to it's head. Each eye has a different magical ability - some can turn you to stone, or melt the flesh right off ya! If the Beholder has a chance to attack us, I belive we will be toast. We must strike first and strike HARD.",
     "buttons": [      
       {"label": "I'm hoping to defeat the Beholder too. Let's join forces!", "route": "elf_join", "type": "dialog"},
       {"label": "So, no mercy. Got it. Do they have any weaknesses?", "route": "beholder_weakness", "type": "dialog"},

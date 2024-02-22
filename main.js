@@ -1,27 +1,20 @@
 //modules
 import { scenes } from './scenes.js';
 import { dialogs } from '/dialogs.js';
-import { buyItems } from '/buy-items.js';
-import { sellItems } from '/sell-items.js';
-import { weapons } from '/weapons.js';
+import { player } from '/player.js';
+import { items } from '/items.js';
 import { monsters } from '/monsters.js';
 import { battles } from '/battles.js';
 
+
 let sceneData = JSON.parse(JSON.stringify(scenes));
 let dialogData = JSON.parse(JSON.stringify(dialogs));
-let buyData = JSON.parse(JSON.stringify(buyItems));
-let sellData = JSON.parse(JSON.stringify(sellItems));
-let weaponData = JSON.parse(JSON.stringify(weapons));
+let playerData = JSON.parse(JSON.stringify(player));
+let itemData = JSON.parse(JSON.stringify(items));
 let monsterData = JSON.parse(JSON.stringify(monsters));
 let battleData = JSON.parse(JSON.stringify(battles));
 
-//variables & selectors
-let xp = 0;
-let hp = 50;
-let gp = 100;
-let inv = ['wooden sword']; 
-
-const xpTxt = document.querySelector('#xp-txt');
+//selectors
 const hpTxt = document.querySelector('#hp-txt');
 const gpTxt = document.querySelector('#gp-txt');
 const weaponTxt = document.querySelector('#weapon-txt');
@@ -33,13 +26,10 @@ const monsterHpTxt = document.querySelector('#monster-hp-txt');
 const invSpan = document.querySelector('#inv-span'); 
 
 //initialize game
-changeDialog('title');
-changeScene('title');
-createButtons('title');
-invTxt.innerHTML = inv;  
+restart();  
     
 //main engine
-function clickHandler(buttonType, route) {
+function clickHandler(buttonType, route, item) {
   switch(buttonType) {
     case 'scene':
       changeScene(route.name);
@@ -50,16 +40,13 @@ function clickHandler(buttonType, route) {
       changeDialog(route.name); 
       createButtons(route.name); 
       break;     
-    case 'restart':
-      changeDialog('title'); 
-      changeScene('title');
-      createButtons('title');
+    case 'restart':      
       restart(); 
       break;     
     case 'buy':      
       changeDialog(route.name); 
       createButtons(route.name);      
-      buyItem(route.name);
+      buyItem(item);
       break; 
     case 'sell':
       changeDialog(route.name); 
@@ -110,7 +97,9 @@ function changeScene(sceneName) {
   screen.style.backgroundImage = sceneData[sceneName].background;
   let visits = sceneData[sceneName].visited;
   visits++;
-  sceneData[sceneName].visited = visits;  
+  sceneData[sceneName].visited = visits;
+  playerData['player'].currentScene = sceneData[sceneName].name;
+  console.log(playerData['player'].currentScene);//test
 }  
 
 function changeDialog(dialogName) {
@@ -118,7 +107,7 @@ function changeDialog(dialogName) {
 }
 
 function createButtons(dialogName) {
-  let buttons = dialogData[dialogName].buttons;  
+  let buttons = dialogData[dialogName].buttons;    
   for(let i = 0; i < buttons.length; i++) {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = buttons[i].label; 
@@ -126,49 +115,75 @@ function createButtons(dialogName) {
     tempBtn.addEventListener('click', function() {
     let route = dialogData[buttons[i].route];
     let buttonType = dialogData[dialogName].buttons[i].type;
-    clickHandler(buttonType, route);    
+    let item = dialogData[dialogName].buttons[i].item;
+    clickHandler(buttonType, route, item);    
     });
   }
 }
 
-function buyItem(itemName) {  
-  let cost = buyData[itemName].cost;
-  let item = buyData[itemName].item;
-  if(gp >= cost) {  
-  gp = gp - cost;
-  gpTxt.innerHTML = gp;  
-  inv.push(item);
-  updateInv(item);
+function buyItem(itemId) {  
+  let cost = itemData[itemId].buyPrice;
+  let itemBuying = itemData[itemId].item;
+  let itemInv = playerData['player'].items;
+  let weaponInv = playerData['player'].weapons;  
+  if(playerData['player'].gp >= cost) {  
+    playerData['player'].gp -= cost;
+    playerData['player'].gp = playerData['player'].gp; //update player gp
+    gpTxt.innerHTML = playerData['player'].gp;
+      if(itemData[itemId].itemType === 'item') {
+        itemInv.push(itemBuying);         
+        updateItemInv();
+      } else if (itemData[itemId].itemType === 'weapon') {
+        weaponInv.push(itemBuying);        
+        updateWeaponInv();
+      }   
   } else {
-    changeDialog('broke'); 
-    createButtons('broke'); //TODO: need fix - only works for shoppe   
+    //changeDialog('broke'); 
+    //createButtons('broke'); //TODO: need fix - only works for shoppe
+    broke();   
   }
 }
 
-function updateInv() {
-  let newInv = [...new Set(inv)]; //gets rid of dupes
-  invTxt.innerHTML = newInv;  
+function broke() {
+  txt.innerHTML = 'You do not have enough gold!';
+
 }
 
-function sellItem(itemName) {
-  let item = sellData[itemName].item;
-  let price = sellData[itemName].price;
-  gp = gp + price;
-  gpTxt.innerHTML = gp;
-  const invIndex = inv.indexOf(item);
-  inv.splice(invIndex, 1);
-  invTxt.innerHTML = inv;
+function updateItemInv() {
+  let itemInv = playerData['player'].items;
+  let newItemInv = [...new Set(itemInv)]; //gets rid of dupes
+  playerData['player'].items = newItemInv;
+  invTxt.innerHTML = newItemInv;  
+}
+function updateWeaponInv() {
+  let weaponInv = playerData['player'].weapons;
+  let newWeaponInv = [...new Set(weaponInv)]; //gets rid of dupes
+  playerData['player'].weapons = newWeaponInv;
+  weaponTxt.innerHTML = newWeaponInv;  
+}
+
+function sellItem(itemId) {
+  let item = itemData[itemId].item;
+  let price = itemData[itemId].sellPrice;
+  let weaponInv = playerData['player'].weapons;
+  playerData['player'].gp += price;
+  playerData['player'].gp = playerData['player'].gp; //update player gp
+  gpTxt.innerHTML = playerData['player'].gp;  
+  const weaponIndex = weaponInv.indexOf(item);
+  weaponInv.splice(weaponIndex, 1);
+  updateWeaponInv();
 }
 
 function sellFromInventory() {
-  inv.forEach((e) => {
+  let weaponInv = playerData['player'].weapons;
+  weaponInv.forEach((e) => {
     let tempBtn = document.createElement('button');
     tempBtn.innerHTML = e;
     txt.appendChild(tempBtn);    
     
     tempBtn.onclick = () => {       
-      let str = 'sell_' + e;
-      let saleItem = str.replace(/\s+/g, '');
+      let str = e;
+      let saleItem = camelize(str);
       sellItem(saleItem);
       changeDialog('sold');
       createButtons('sold');           
@@ -184,31 +199,36 @@ function sellFromInventory() {
 }
 
 function sleep() {
+  let gp = playerData['player'].gp;
+  let hp = playerData['player'].hp;
   gp -= 20;
+  playerData['player'].gp = gp;
   gpTxt.innerHTML = gp;
   hp = 50;
+  playerData['player'].hp = hp;
   hpTxt.innerHTML = hp;
 }
 
 function battle(currentMonster) {
   //select weapon
-  inv.forEach((e) => {
-    let tempBtn = document.createElement('button');
-    tempBtn.innerHTML = e;
-    txt.appendChild(tempBtn);    
-    
-    tempBtn.onclick = () => {
-      let str = e;
-      let currentWeapon = str.replace(/\s+/g, '');
-      weaponTxt.innerHTML = currentWeapon;      
-      attack(currentWeapon, currentMonster);     
-    };  
+  let weaponInv = playerData['player'].weapons;
+  weaponInv.forEach((e) => {
+  let tempBtn = document.createElement('button');
+  tempBtn.innerHTML = e;
+  txt.appendChild(tempBtn);    
+  
+  tempBtn.onclick = () => {
+    let str = e;      
+    let currentWeapon = camelize(str);     
+    attack(currentWeapon, currentMonster);     
+  };  
   })
 }
 
-function attack(weaponName, monsterName) {
-  let minDamage = weaponData[weaponName].min_damage;
-  let maxDamage = weaponData[weaponName].max_damage;  
+
+function attack(itemId, monsterName) {  
+  let minDamage = itemData[itemId].minDamage;
+  let maxDamage = itemData[itemId].maxDamage;  
   let monsterHp = monsterData[monsterName].hp;
   monsterHpSpan.style.display = 'block';
   monsterHpTxt.innerHTML = monsterHp;  
@@ -223,7 +243,7 @@ function attack(weaponName, monsterName) {
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
     if(monsterHp <= 0) {
-      killMonster(monsterName); //TODO: queue another chicken
+      killMonster(monsterName); 
     }
     tempBtn.onclick = () => monsterAttack(monsterName);     
   } else {
@@ -245,15 +265,15 @@ function monsterAttack(monsterName){
   let minDamage = monsterData[monsterName].min_damage;
   let maxDamage = monsterData[monsterName].max_damage;
     
-  const accuracy = Math.random();
+  const accuracy = Math.random();  
   if(accuracy < 2/3) {    
-    hp -= damage(minDamage, maxDamage);
-    hpTxt.innerHTML = hp;    
+    playerData['player'].hp -= damage(minDamage, maxDamage);
+    hpTxt.innerHTML = playerData['player'].hp;   
     txt.innerHTML = `The ${monsterName} attacks...HIT!`    
     const tempBtn = document.createElement('button');
     txt.appendChild(tempBtn);
     tempBtn.innerHTML = 'Next';
-    if(hp <= 0) {
+    if(playerData['player'].hp <= 0) {
       killPlayer();
     } 
     tempBtn.onclick = () => {
@@ -274,18 +294,10 @@ function monsterAttack(monsterName){
   }
 }
 
-function killPlayer() {
-  hp = 50;
-  hpTxt.innerHTML = hp;
-  gp = 100;
-  gpTxt.innerHTML = gp;
+function killPlayer() {  
   changeDialog('kill_player');
   changeScene('kill_player');
-  createButtons('kill_player');
-  monsterHpSpan.style.display = 'none';
-  inv = ['wooden sword'];
-  invTxt.innerHTML = inv;
-  weaponTxt.innerHTML = '';
+  createButtons('kill_player');  
 }
 
 function killMonster(monsterName) {
@@ -304,6 +316,8 @@ function killMonster(monsterName) {
       monsterHpSpan.style.display = 'none';
       changeDialog('kill_chicken3');
       createButtons('kill_chicken3');
+      playerData['player'].killedChickens = true;
+      console.log(`killed chickens: ${playerData['player'].killedChickens}`);//test
       break;
     case 'croaker':
       monsterHpSpan.style.display = 'none';
@@ -314,25 +328,45 @@ function killMonster(monsterName) {
 }
 
 function getGold() {
-  gp += 500;
-  gpTxt.innerHTML = gp;
+  playerData['player'].gp += 500;  
+  playerData['player'].gp = playerData['player'].gp;
+  gpTxt.innerHTML = playerData['player'].gp;
 }
 
-function restart() {
-  hp = 50;
-  hpTxt.innerHTML = hp;
-  gp = 100;
-  gpTxt.innerHTML = gp; 
+function restart() {  
+  let itemInv = playerData['player'].items;
+  let weaponInv = playerData['player'].weapons;  
+  playerData['player'].hp = 50;
+  hpTxt.innerHTML = playerData['player'].hp;  
+  playerData['player'].gp = 100;
+  gpTxt.innerHTML = playerData['player'].gp; 
   monsterHpSpan.style.display = 'none';
-  inv = ['wooden sword'];
-  invTxt.innerHTML = inv;
-  weaponTxt.innerHTML = '';
+  weaponInv = ['Wooden Sword'];
+  playerData['player'].weapons = weaponInv;
+  itemInv = [];    
+  playerData['player'].items = itemInv;
+  weaponTxt.innerHTML = weaponInv;
+  invTxt.innerHTML = itemInv;
+  changeDialog('title');
+  createButtons('title');
+  changeScene('title');
 }
 
 function giveItemsToIvy() {
-   
+   if (playerData['player'].hasBlood === true && playerData['player'].hasBow === true) {
+    winGame();
+   } else {
+    txt.innerHTML = 'you do not have the items you need to fight the beholder'
+   }
 }
 
 function winGame() {
-  
+  txt.innerHTML = 'you win';
 }
+
+function camelize(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+  return index === 0 ? word.toLowerCase() : word.toUpperCase();
+  }).replace(/\s+/g, '');
+}
+
