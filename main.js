@@ -31,7 +31,7 @@ restart();
     
 //main engine
 function clickHandler(buttonType, route, item) {  
-  changeScene(route);
+  //changeScene(route);
   changeDialog(route);
   createButtons(route);    
 }
@@ -104,16 +104,6 @@ function doAction() {
   
 }
 
-function changeScene(sceneName) {  
-  screen.style.backgroundImage = sceneData[sceneName].background;
-
-  let visits = sceneData[sceneName].visited;
-  visits++;
-  sceneData[sceneName].visited = visits;
-  playerData['player'].currentScene = sceneData[sceneName].name;
-  console.log(playerData['player'].currentScene);//test
-}  
-
 function changeDialog(dialogName) {
   txt.innerHTML = dialogData[dialogName].text;
     
@@ -140,10 +130,23 @@ function createButtons(dialogName) {
     let route = dialogData[buttons[i].route].name;
     let buttonType = dialogData[dialogName].buttons[i].type;
     let item = dialogData[dialogName].buttons[i].item;
+    if (buttonType == 'scene') {
+      changeScene(route);
+    }
     clickHandler(buttonType, route, item);    
     });
   }
 }
+
+function changeScene(sceneName) {  
+  screen.style.backgroundImage = sceneData[sceneName].background;
+
+  let visits = sceneData[sceneName].visited;
+  visits++;
+  sceneData[sceneName].visited = visits;
+  playerData['player'].currentScene = sceneData[sceneName].name;
+  console.log(playerData['player'].currentScene);//test
+}  
 
 function buyItem(itemId) {  
   let cost = itemData[itemId].buyPrice;
