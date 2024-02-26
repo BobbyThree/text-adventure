@@ -46,6 +46,9 @@ function doAction(currentAction, item) {
     case 'sell':
       sellFromInventory();
       break;  
+    case 'battle':
+      battle();
+      break;  
   }
 }
 
@@ -75,7 +78,8 @@ function createButtons(dialogName) {
     let route = dialogData[buttons[i].route].name;
     let buttonType = dialogData[dialogName].buttons[i].type;
     let item = dialogData[dialogName].buttons[i].item;
-    let currentAction = dialogData[dialogName].buttons[i].action;
+    let currentAction = dialogData[dialogName].buttons[i].action;    
+        
     if (buttonType == 'scene') {
       changeScene(route);
     }

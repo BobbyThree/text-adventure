@@ -485,13 +485,14 @@ export const dialogs = {
     "name": "abyssal",
     "text": "As you approach the farm you see what the problem is. These chickens have tuned ABYSSALL!!! Prepare for battle.<br>",
     "buttons": [
-      {"label": "attack abyssal chicken", "route": "battle", "type": "chicken_battle"},      
+      {"label": "attack abyssal chicken", "route": "battle", "type": "action", "action": "battle", "monster": "chicken"},      
       {"label": "attempt to run", "route": "", "type": ""},      
   ]
   },     
   "battle": {
     "name": "battle",
-    "text": "Choose you weapon<br>",    
+    "text": "Choose you weapon<br>",
+    "buttons": []    
   },  
   "kill_player": {
     "name": "kill_player",
@@ -624,9 +625,7 @@ export const dialogs = {
   "croakers_battle": {
     "name": "croakers_battle",
     "text": "Choose weapon",
-    "buttons": [      
-      
-    ]
+    "buttons": []
   },
   "kill_croaker": {
     "name": "kill_croaker",
