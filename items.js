@@ -72,7 +72,7 @@ export const items = {
     "sellPrice": 0
   },  
   "innStay": {
-    "item": "Inn Stay",
+    "item": "",
     "itemType": "item",
     "questItem": false,
     "minDamage": 0,

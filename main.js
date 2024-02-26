@@ -119,7 +119,14 @@ function buyItem(itemId) {
 
 function broke() {
   txt.innerHTML = 'You do not have enough gold!';
-
+  const tempBtn = document.createElement('button');
+  txt.appendChild(tempBtn);
+  tempBtn.innerHTML = 'back';
+  tempBtn.onclick = () => {
+    changeScene(playerData['player'].currentScene);
+    changeDialog(playerData['player'].currentScene);
+    createButtons(playerData['player'].currentScene);
+  }  
 }
 
 function updateItemInv() {

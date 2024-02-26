@@ -409,7 +409,7 @@ export const dialogs = {
     "name": "inn",
     "text": "Welcome to the Aurochsmaw Inn! 20gp per night. Would you like a room?",
     "buttons": [
-      {"label": "Pay for a room", "route": "inn_sleep", "type": "sleep"},
+      {"label": "Pay for a room", "route": "inn_sleep", "type": "action", "action": "buy", "item": "innStay"},
       {"label": "I am looking for a halfling girl that went missing from Ixonia. Any idea if she came through here?", "route": "halfling_info2", "type": "dialog"},
       {"label": "back", "route": "halfling_quest", "type": "scene"}
   ]
