@@ -42,6 +42,10 @@ function doAction(currentAction, item) {
   switch(currentAction) {
     case 'buy':
       buyItem(item);
+      break;
+    case 'sell':
+      sellFromInventory();
+      break;  
   }
 }
 
@@ -110,7 +114,7 @@ function buyItem(itemId) {
     //changeDialog('broke'); 
     //createButtons('broke'); //TODO: need fix - only works for shoppe
     broke();   
-  }
+  }  
 }
 
 function broke() {
@@ -131,16 +135,21 @@ function updateWeaponInv() {
   weaponTxt.innerHTML = newWeaponInv;  
 }
 
-function sellItem(itemId) {
-  let item = itemData[itemId].item;
-  let price = itemData[itemId].sellPrice;
+function sellItem(itemName) {
+  
+  
+  
+  
+  let itemSelling = itemData[itemName].item;
+  let price = itemData[itemName].sellPrice;
   let weaponInv = playerData['player'].weapons;
   playerData['player'].gp += price;
   playerData['player'].gp = playerData['player'].gp; //update player gp
   gpTxt.innerHTML = playerData['player'].gp;  
-  const weaponIndex = weaponInv.indexOf(item);
+  const weaponIndex = weaponInv.indexOf(itemSelling);
   weaponInv.splice(weaponIndex, 1);
-  updateWeaponInv();
+  playerData['player'].weapons = weaponInv; //update player weapons
+  weaponTxt.innerHTML = weaponInv; 
 }
 
 function sellFromInventory() {
@@ -302,23 +311,19 @@ function getGold() {
   gpTxt.innerHTML = playerData['player'].gp;
 }
 
-function restart() {  
-  let itemInv = playerData['player'].items;
-  let weaponInv = playerData['player'].weapons;  
+function restart() {
   playerData['player'].hp = 50;
-  hpTxt.innerHTML = playerData['player'].hp;  
   playerData['player'].gp = 100;
-  gpTxt.innerHTML = playerData['player'].gp; 
+  hpTxt.innerHTML = playerData['player'].hp;
+  gpTxt.innerHTML = playerData['player'].gp;
+  playerData['player'].weapons = ['Wooden Sword'];
+  weaponTxt.innerHTML = playerData['player'].weapons;
+  playerData['player'].items = [];
+  invTxt.innerHTML = playerData['player'].items;
   monsterHpSpan.style.display = 'none';
-  weaponInv = ['Wooden Sword'];
-  playerData['player'].weapons = weaponInv;
-  itemInv = [];    
-  playerData['player'].items = itemInv;
-  weaponTxt.innerHTML = weaponInv;
-  invTxt.innerHTML = itemInv;
   changeDialog('title');
   createButtons('title');
-  changeScene('title');
+  changeScene('title');  
 }
 
 function giveItemsToIvy() {

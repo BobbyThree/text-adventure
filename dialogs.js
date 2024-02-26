@@ -103,7 +103,7 @@ export const dialogs = {
     "name": "milk",
     "text": "Bwahahaha! good one, here's your ALE. That'll be 1gp.<br>",
     "buttons": [
-      {"label": "pay 1gp", "route": "buy_ale", "type": "buy"}, 
+      {"label": "Thanks, here's 1gp", "route": "buy_ale", "type": "action", "action": "buy", "item": "ale"}, 
       {"label": "No thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]    
   },
@@ -293,8 +293,8 @@ export const dialogs = {
     "name": "swords",
     "text": "SHOPPE OWNER:<BR>I've got a short sword (1-10 damage) and a broad sword (10-15 damage)",
     "buttons": [
-      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "buy", "item": "shortSword"},
-      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "buy", "item": "broadSword"},
+      {"label": "buy short sword (20gp)", "route": "buy_shortsword", "type": "action", "action": "buy", "item": "shortSword"},
+      {"label": "buy broad sword (60gp)", "route": "buy_broadsword", "type": "action", "action": "buy", "item": "broadSword"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}     
     ]
   },
@@ -302,8 +302,8 @@ export const dialogs = {
     "name": "blunt",
     "text": "SHOPPE OWNER:<BR>I've got a morning star (5-10 damage) and a warhammer (10-20 damage)",
     "buttons": [
-      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "buy", "item": "morningStar"},
-      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "buy", "item": "warHammer"},
+      {"label": "buy morning star (40gp)", "route": "buy_morningstar", "type": "action", "action": "buy", "item": "morningStar"},
+      {"label": "buy warhammer (100gp)", "route": "buy_warhammer", "type": "action", "action": "buy", "item": "warHammer"},
       {"label": "Hmm, I'm just looking, thanks", "route": "shoppe", "type": "dialog"}      
     ]
   },
@@ -392,13 +392,13 @@ export const dialogs = {
     "name": "sell_items",
     "text": "Ok! whattaya got?",
     "buttons": [
-      {"label": "show sellable items", "route": "sellable_items", "type": "inventory"}
+      {"label": "show sellable items", "route": "sellable_items", "type": "action", "action": "sell"}
     ]
   },  
   "sellable_items": {
     "name": "sellable_items",
     "text": "Sell:<br>",
-    //"buttons": [{"label": "back", "route": "shoppe", "type": "dialog"}]
+    "buttons": []
   },
   "sold": {
     "name": "sold",
