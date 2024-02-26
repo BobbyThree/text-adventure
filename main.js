@@ -135,21 +135,16 @@ function updateWeaponInv() {
   weaponTxt.innerHTML = newWeaponInv;  
 }
 
-function sellItem(itemName) {
-  
-  
-  
-  
-  let itemSelling = itemData[itemName].item;
-  let price = itemData[itemName].sellPrice;
+function sellItem(itemId) {  
+  let itemSelling = itemData[itemId].item;
+  let price = itemData[itemId].sellPrice;
   let weaponInv = playerData['player'].weapons;
   playerData['player'].gp += price;
   playerData['player'].gp = playerData['player'].gp; //update player gp
   gpTxt.innerHTML = playerData['player'].gp;  
   const weaponIndex = weaponInv.indexOf(itemSelling);
-  weaponInv.splice(weaponIndex, 1);
-  playerData['player'].weapons = weaponInv; //update player weapons
-  weaponTxt.innerHTML = weaponInv; 
+  weaponInv.splice(weaponIndex, 1);  
+  updateWeaponInv();
 }
 
 function sellFromInventory() {
