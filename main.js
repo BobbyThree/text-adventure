@@ -26,82 +26,23 @@ const monsterHpTxt = document.querySelector('#monster-hp-txt');
 const invSpan = document.querySelector('#inv-span'); 
 
 //initialize game
-
 restart();  
     
 //main engine
-function clickHandler(buttonType, route, item) {  
-  //changeScene(route);
+function clickHandler(buttonType, route, currentAction, item) {  
   changeDialog(route);
-  createButtons(route);    
+  createButtons(route);
+  if(buttonType == 'action') {
+    doAction(currentAction, item);
+  }    
 }
-/*
-function clickHandler(buttonType, route, item) {
-  switch(buttonType) {
-    case 'scene':
-      changeScene(route.name);
-      changeDialog(route.name);  
-      createButtons(route.name);
-      break;
-    case 'dialog':
-      changeDialog(route.name); 
-      createButtons(route.name); 
-      break;     
-    case 'restart':      
-      restart(); 
-      break;     
-    case 'buy':      
-      changeDialog(route.name); 
-      createButtons(route.name);      
-      buyItem(item);
-      break; 
-    case 'sell':
-      changeDialog(route.name); 
-      createButtons(route.name);
-      sellItem(route.name);
-      break;  
-    case 'sleep':
-      changeDialog(route.name); 
-      createButtons(route.name);
-      changeScene(route.name);
-      sleep();
-      break;  
-    case 'inventory':      
-      changeDialog(route.name);      
-      sellFromInventory(route.name);            
-      break;  
-    case 'chicken_battle':
-      changeDialog(route.name);      
-      battle('chicken');            
-      break;  
-    case 'chicken_battle2':
-      changeDialog(route.name);      
-      battle('chicken2');            
-      break;  
-    case 'chicken_battle3':
-      changeDialog(route.name);      
-      battle('chicken3');            
-      break;  
-    case 'croakers_battle':
-      changeDialog(route.name);      
-      battle('croaker');            
-      break;  
-    case 'gold':
-      changeDialog(route.name);
-      createButtons(route.name);      
-      getGold();            
-      break;  
-    case 'win_game':
-      giveItemsToIvy();
-      winGame();
-                 
-      break;  
-  }
-}      
-*/
+
 //functions
-function doAction() {
-  
+function doAction(currentAction, item) {     
+  switch(currentAction) {
+    case 'buy':
+      buyItem(item);
+  }
 }
 
 function changeDialog(dialogName) {
@@ -130,10 +71,11 @@ function createButtons(dialogName) {
     let route = dialogData[buttons[i].route].name;
     let buttonType = dialogData[dialogName].buttons[i].type;
     let item = dialogData[dialogName].buttons[i].item;
+    let currentAction = dialogData[dialogName].buttons[i].action;
     if (buttonType == 'scene') {
       changeScene(route);
     }
-    clickHandler(buttonType, route, item);    
+    clickHandler(buttonType, route, currentAction, item);    
     });
   }
 }

@@ -95,7 +95,7 @@ export const dialogs = {
     "txtStyle": "dialog", 
     "text": "Here ya go, buddy. that will be 1gp<br>",
     "buttons": [
-      {"label": "Thanks, here's 1gp", "route": "buy_ale", "type": "buy", "item": "ale"}, 
+      {"label": "Thanks, here's 1gp", "route": "buy_ale", "type": "action", "action": "buy", "item": "ale"}, 
       {"label": "no thanks, I changed my mind", "route": "barkeep_funny", "type": "dialog"}
     ]
   },
